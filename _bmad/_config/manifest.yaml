@@ -57,5 +57,4 @@ modules:
 ides:
   - claude-code
   - antigravity-cli
-  - antigravity
   - gemini
