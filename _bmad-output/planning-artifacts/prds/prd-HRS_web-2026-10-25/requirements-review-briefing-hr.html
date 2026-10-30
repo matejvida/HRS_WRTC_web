@@ -542,10 +542,22 @@
             <span class="req-id">FR-14</span>
             <span class="req-route">netlify.toml + GitHub Actions</span>
           </div>
-          <h3 class="req-title">GitHub → Netlify CI/CD sustav automatske objave</h3>
-          <p class="req-desc">Automatska provjera koda, validacija tablica bodova i objava web stranice na Netlify izravno kroz GitHub pipeline.</p>
+          <h3 class="req-title">Automatska objava na Netlify nakon svake priče i epika</h3>
+          <p class="req-desc">Svaki završeni korak (korisnička priča `1.1`–`4.3` ili epik) daje potpuno funkcionalnu verziju stranice automatski objavljenu na Netlify kroz GitHub pipeline.</p>
           <ul class="req-ac">
-            <li>Svaka izmjena ili Pull Request na GitHubu automatski prolazi provjeru tipova, `Zod` shema i testova te generira Netlify Preview i produkcijsku objavu.</li>
+            <li>Svaka priča prolazi provjeru tipova, `Zod` shema te Vitest i Playwright (Desktop + Mobitel) testove prije automatske objave na Netlify.</li>
+          </ul>
+        </article>
+
+        <article class="req-card req-card--red">
+          <div class="req-card__top">
+            <span class="req-id">FR-15</span>
+            <span class="req-route">Vitest + Playwright (Desktop i Mobitel)</span>
+          </div>
+          <h3 class="req-title">Razvoj vođen testovima (TDD) i potpuna automatska provjera</h3>
+          <p class="req-desc">Cjelokupni razvoj provodi se prema TDD metodologiji (Red → Green → Refactor) gdje automatski testovi pokrivaju cijelo rješenje i verificiraju svaki korak.</p>
+          <ul class="req-ac">
+            <li>Automatski testovi provjeravaju izračune bodova, pravila te prikaz na računalima (`1440×900`) i mobilnim telefonima (`375×812`) prije završetka svakog koraka.</li>
           </ul>
         </article>
       </div>
@@ -556,7 +568,7 @@
       <div class="section-head">
         <div>
           <div class="section-kicker"><span class="checker"></span>3. TEHNIČKI I KVALITATIVNI STANDARDI (NFR-1 DO NFR-3)</div>
-          <h2 class="section-title">Brzina, čitljivost pozivnih oznaka i privatnost</h2>
+          <h2 class="section-title">Prilagodba mobitelima, brzina i čitljivost pozivnih oznaka</h2>
         </div>
       </div>
 
@@ -568,9 +580,9 @@
           </p>
         </div>
         <div class="scope-box">
-          <h3><span class="checker"></span>NFR-2: Čitljivost pozivnih oznaka (WCAG AA)</h3>
+          <h3><span class="checker"></span>NFR-2: 100% prilagođeno mobitelima i WCAG AA</h3>
           <p style="font-size:15px; color:var(--muted);">
-            Sve pozivne oznake (`9A4M`, `DJ5MW`), oznake regija i bodovi prikazuju se u `JetBrains Mono` fontu s prekriženom nulom (`0` naspram slova `O`) i tabličnim poravnanjem znamenki. Dnevna i Noćna tema zadovoljavaju <strong>WCAG 2.1 AA</strong> standard kontrasta.
+            Potpuna prilagodba pametnim telefonima (`320px–430px` iOS i Android): mobilni Hamburger izbornik (`≥ 44×44px`), vodoravno klizne tablice s fiksiranim `Rank + Callsign` stupcima, sklopivo kazalo pravila te mobilni prikazi za detalje bodova i AI asistenta.
           </p>
         </div>
         <div class="scope-box">

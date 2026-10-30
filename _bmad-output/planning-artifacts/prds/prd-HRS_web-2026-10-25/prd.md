@@ -256,12 +256,22 @@ Visitors can open an accessible floating **AI Assistant** drawer/widget on any p
 - Every rules-related answer cites the exact Selection Rules v1.0 section or table (e.g., `Section 4, Table 2`), and every tourism/hospitality answer provides actionable guidance for Osijek, Đakovo, Čepin, and Croatia.
 - Enforces strict system-prompt guardrails: refuses off-topic requests unrelated to WRTC 2030, amateur radio, or visiting Croatia/Slavonia, and includes rate limiting and graceful fallback links if the LLM API key is unset in local preview.
 
-#### FR-14: Automated GitHub → Netlify CI/CD Deployment Pipeline
-Developers and `WRTC OC` maintainers can push commits or open Pull Requests in GitHub to automatically run build-time validation and deploy Preview and Production builds to **Netlify**. Realizes UJ-5.
+#### FR-14: Automated Per-Story & Per-Epic GitHub → Netlify CI/CD Deployment Pipeline
+Developers and `WRTC OC` maintainers can push commits or complete any individual User Story / Epic in GitHub to automatically run the full verification test suite and deploy a working, verified Preview and Production build to **Netlify** (and GitHub Pages mirror). Realizes UJ-5.
 
 **Consequences (testable):**
 - Repository includes a production-ready `netlify.toml` configured with `@netlify/plugin-nextjs`, caching rules, security headers, and serverless function routing for `/api/chat`.
-- Includes `.github/workflows/ci-netlify.yml` executing TypeScript type-checking (`tsc --noEmit`), `Zod` standings & rules schema verification, Vitest unit tests, and production `next build` verification on every push and PR.
+- Every single User Story (`Story 1.1` through `Story 4.3`) is structured as a self-contained vertical slice that leaves the website 100% buildable and deployable at the end of the story.
+- Includes `.github/workflows/ci-netlify.yml` executing TypeScript type-checking (`tsc --noEmit`), `Zod` standings & rules schema verification, Vitest unit/component tests, Playwright desktop + mobile (`375×812`) E2E tests,production `next build`, and automatic deployment to Netlify on every completed story/epic.
+
+#### FR-15: Strict Test-Driven Development (TDD) & Full-Solution Automated Test Coverage
+Every feature, schema, calculation engine, UI component, and page route is developed using **Test-Driven Development (Red → Green → Refactor)** with automated unit, integration, and end-to-end tests verifying both Desktop and Mobile viewports at every step. Realizes UJ-1, UJ-2, UJ-3, UJ-4, UJ-5.
+
+**Consequences (testable):**
+- Before or alongside implementing any story (`1.1`–`4.3`), automated tests are authored covering all Acceptance Criteria:
+  1. **Unit & Schema Tests (`Vitest`):** 100% coverage of `Zod` schemas (`Tables 1–7`, `StandingsSnapshot`), score simulator math (`EF × MF × OF × 1000`), QA cutoff line logic, callsign search/filter indexing, and AI knowledge base retrieval.
+  2. **Component & Accessibility Tests (`Vitest` + `@testing-library/react`):** Day/Night theme toggle, Croatian checker primitives, Score Breakdown Drawer, Pre-Season Simulator controls, and AI Concierge drawer.
+  3. **Desktop & Mobile E2E Tests (`Playwright`):** Automated browser verification across Desktop (`1440×900`) and Mobile Smartphone (`375×812`) viewports verifying mobile hamburger navigation, zero horizontal overflow, sticky table columns, and end-to-end user journeys.
 
 ---
 

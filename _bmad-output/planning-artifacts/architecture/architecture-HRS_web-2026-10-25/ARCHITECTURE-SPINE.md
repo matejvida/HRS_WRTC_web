@@ -103,11 +103,17 @@ flowchart TD
 - **Prevents:** Hallucinated contest rules, ungrounded tourism answers, or exposed LLM API keys in client bundles.
 - **Rule:** The on-page AI Assistant (`<WrtcAiAssistant />`) communicates exclusively with a server-side Next.js Route Handler (`src/app/api/chat/route.ts`, deployed as a Netlify Serverless Function) that injects a build-time-compiled knowledge bundle (`data/knowledge/wrtc2030-and-slavonia-kb.json` combining Selection Rules v1.0, Q&A, 24 Qualifying Events, 29 QA quotas, and curated Croatia & Slavonia accommodation, food, and tourism guides). API keys (`GEMINI_API_KEY` / `OPENAI_API_KEY`) remain strictly server-side in Netlify environment variables; when no key is present in local/CI environments, `/api/chat` deterministically falls back to local keyword-grounded retrieval over the knowledge bundle so tests and previews always work out of the box.
 
-### AD-8 — GitHub → Netlify CI/CD & Edge Deployment Topology [ADOPTED]
+### AD-8 — Per-Story Deployable Slices & GitHub → Netlify CI/CD Topology [ADOPTED]
 
-- **Binds:** `FR-14`, `NFR-1`
-- **Prevents:** Manual deployment drift, broken builds reaching production, or incompatible Next.js runtime assumptions on Netlify.
-- **Rule:** The repository root defines `netlify.toml` using `@netlify/plugin-nextjs` (with static edge caching for all page routes and Netlify Functions for `/api/chat`) and `.github/workflows/ci-netlify.yml` which gates every push and pull request on: (1) `npm run validate:data` (`Zod` schemas for `data/rules/*` and `data/standings/*`), (2) `npm run typecheck`, (3) `npm run test` (Vitest), and (4) `npm run build` (`next build`).
+- **Binds:** `FR-14`, `FR-15`, `NFR-1`, `NFR-2`
+- **Prevents:** Manual deployment drift, broken intermediate story states, or untested builds reaching production.
+- **Rule:** Every User Story (`Story 1.1` through `Story 4.3`) is a self-contained vertical slice that leaves the application in a 100% working, deployable state. The repository root defines `netlify.toml` using `@netlify/plugin-nextjs` (with static edge caching for all page routes and Netlify Functions for `/api/chat`) and `.github/workflows/ci-netlify.yml` which gates every story/epic push and pull request on: (1) `npm run validate:data` (`Zod` schemas for `data/rules/*` and `data/standings/*`), (2) `npm run typecheck`, (3) `npm run test:unit` (Vitest unit & component suite), (4) `npm run build` (`next build`), and (5) `npm run test:e2e` (Playwright Desktop `1440x900` + Mobile `375x812` suite) before automatically deploying to Netlify.
+
+### AD-9 — Strict Test-Driven Development (TDD) & Mobile-First Verification Gate [ADOPTED]
+
+- **Binds:** `FR-15`, `NFR-2`, `NFR-3`
+- **Prevents:** Regressions in scoring math, broken mobile layouts on smartphones (`320px–430px`), or unverified acceptance criteria.
+- **Rule:** Every story implementation follows a strict **Red → Green → Refactor** TDD cycle: failing Vitest unit/component tests and Playwright E2E tests (configured with both `Desktop Chrome 1440×900` and `Mobile iPhone 375×812` projects in `playwright.config.ts`) must be written first to encode every Acceptance Criterion of the story, and no story is complete until 100% of unit, schema, accessibility, and mobile/desktop E2E tests pass and the build deploys cleanly to Netlify.
 
 ## Consistency Conventions
 

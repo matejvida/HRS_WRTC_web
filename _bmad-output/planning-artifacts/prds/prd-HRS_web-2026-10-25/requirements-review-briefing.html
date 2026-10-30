@@ -522,10 +522,22 @@
             <span class="req-id">FR-14</span>
             <span class="req-route">netlify.toml + GitHub Actions</span>
           </div>
-          <h3 class="req-title">GitHub → Netlify CI/CD Deployment Pipeline</h3>
-          <p class="req-desc">Automated build, data schema verification, testing, and deployment to Netlify directly from GitHub.</p>
+          <h3 class="req-title">Per-Story &amp; Per-Epic Automated Netlify CD Pipeline</h3>
+          <p class="req-desc">Every completed User Story (`1.1`–`4.3`) and Epic produces a complete, working version of the website automatically deployed to Netlify via GitHub Actions.</p>
           <ul class="req-ac">
-            <li>Runs TypeScript typecheck, `Zod` standings validation, and tests on every push/PR before publishing Preview &amp; Production builds to Netlify.</li>
+            <li>Runs TypeScript typecheck, `Zod` standings validation, Vitest unit tests, and Playwright Desktop/Mobile E2E tests on every story before auto-publishing to Netlify.</li>
+          </ul>
+        </article>
+
+        <article class="req-card req-card--red">
+          <div class="req-card__top">
+            <span class="req-id">FR-15</span>
+            <span class="req-route">Vitest + Playwright (Desktop &amp; Mobile)</span>
+          </div>
+          <h3 class="req-title">Strict Test-Driven Development (TDD) &amp; Full Verification</h3>
+          <p class="req-desc">Every feature is built using TDD (Red → Green → Refactor) with automated unit, schema, component, and E2E tests verifying the entire solution at every step.</p>
+          <ul class="req-ac">
+            <li>Automated tests verify both Desktop (`1440×900`) and Mobile Smartphone (`375×812`) viewports, scoring math, and all acceptance criteria before any story is marked complete.</li>
           </ul>
         </article>
       </div>
@@ -536,7 +548,7 @@
       <div class="section-head">
         <div>
           <div class="section-kicker"><span class="checker"></span>3. QUALITY &amp; TECHNICAL STANDARDS (NFR-1 TO NFR-3)</div>
-          <h2 class="section-title">Performance, Accessibility &amp; Architecture</h2>
+          <h2 class="section-title">Mobile-First Ergonomics, Performance &amp; Accessibility</h2>
         </div>
       </div>
 
@@ -548,9 +560,9 @@
           </p>
         </div>
         <div class="scope-box">
-          <h3><span class="checker"></span>NFR-2: Callsign Legibility &amp; WCAG AA</h3>
+          <h3><span class="checker"></span>NFR-2: 100% Mobile Friendly &amp; WCAG AA</h3>
           <p style="font-size:15px; color:var(--muted);">
-            All callsigns (`9A4M`, `DJ5MW`), QA codes, and scores use `JetBrains Mono` with slashed zero (`0` vs `O`) and `tabular-nums` alignment. Both Day and Night modes pass <strong>WCAG 2.1 AA</strong> contrast.
+            Full smartphone ergonomics (`320px–430px` iOS &amp; Android): touch-friendly Hamburger menu (`≥ 44×44px`), horizontal-scroll tables with sticky `Rank + Callsign` columns, collapsible TOC, and mobile bottom-sheet drawers for Score Breakdown &amp; AI Assistant.
           </p>
         </div>
         <div class="scope-box">
