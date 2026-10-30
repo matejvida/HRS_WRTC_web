@@ -1,10 +1,15 @@
 # WRTC 2030 Croatia (wrtc2030.hr) — Netlify Configuration (AD-8 / FR-14)
-# During the Stakeholder Review phase, publishes the live Stakeholder & Site Preview Portal (`docs/`).
-# When Astro 5 build begins in Epic 1 Story 1.1, `command = "npm run build"` and `publish = "dist"` take over.
+# Builds and deploys the Next.js 15 App Router platform with @netlify/plugin-nextjs.
 
 [build]
-  publish = "docs"
-  command = "echo 'Publishing WRTC 2030 Stakeholder Review Portal & Interactive Site Preview'"
+  command = "npm run validate:data && npm run build"
+  publish = ".next"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
 
 [functions]
   directory = "netlify/functions"

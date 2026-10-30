@@ -18,11 +18,20 @@ concurrency:
 
 jobs:
   validate-and-prepare:
-    name: Validate Planning Artifacts & Prepare Portal
+    name: Validate Planning Artifacts, Next.js Build & E2E Gates
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+
+      - name: Setup Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
 
       - name: Verify Stakeholder Portal & Architecture Spine
         run: |
@@ -32,6 +41,24 @@ jobs:
           test -f docs/site-preview.html
           test -f docs/design-proposals.html
           python3 .agents/skills/bmad-architecture/scripts/lint_spine.py --workspace _bmad-output/planning-artifacts/architecture/architecture-HRS_web-2026-10-25
+
+      - name: Validate Official Brand Assets & Selection Rules PDFs
+        run: npm run validate:data
+
+      - name: TypeScript Typecheck
+        run: npm run typecheck
+
+      - name: Run Unit & Component Tests (Vitest)
+        run: npm run test:unit
+
+      - name: Build Next.js Production Bundle
+        run: npm run build
+
+      - name: Install Playwright Chromium Browser
+        run: npx playwright install --with-deps chromium
+
+      - name: Run Desktop & Mobile E2E Tests (Playwright)
+        run: npm run test:e2e
 
       - name: Upload Pages artifact
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'

@@ -1,2 +1,12 @@
 .DS_Store
 _bmad/config.user.toml
+node_modules/
+.next/
+out/
+dist/
+.netlify/
+playwright-report/
+test-results/
+coverage/
+next-env.d.ts
+*.tsbuildinfo
