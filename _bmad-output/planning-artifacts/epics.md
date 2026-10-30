@@ -117,6 +117,7 @@ So that every commit is automatically validated and deployed to Netlify with aut
 **Then** the official `wrtc-logo.svg` (Day) and `wrtc-logo-white.svg` (Night) and the 3 official Selection Rules PDFs are present in `public/brand/` and `public/files/` (`FR-1`, `AD-1`)
 **And** `src/app/layout.tsx` configures `Barlow Condensed`, `Barlow`, and `JetBrains Mono` (`tabular-nums`) alongside a synchronous inline `<script>` that sets `data-theme="day" | "night"` on `<html>` from `localStorage('wrtc2030-theme')` or `prefers-color-scheme` with zero FOUC (`AD-2`, `NFR-2`, `UX-DR3`)
 **And** reusable components `<WrtcLogo />`, `<CheckerMark />` (`2×2` diagonal red squares), `<CheckerFive />` (`5-square` logo flank motif), `<CheckerRibbon />` (`12px` full-width alternating checkerboard divider), and `<KockiceCluster />` (`4×4` corner stamp) render with `#273B8F` Royal Blue, `#ED1C24` Checker Red, and `#0D1333` Shack Navy tokens (`FR-2`, `UX-DR2`)
+**And** the sticky header provides a mobile-first collapsible Hamburger Navigation Drawer (`< 920px`) with `≥ 44×44px` touch targets and zero horizontal overflow down to `320px` smartphone viewports (`NFR-2`, `UX-DR3`)
 **And** `netlify.toml` (with `@netlify/plugin-nextjs`) and `.github/workflows/ci-netlify.yml` are configured to run `typecheck`, `test`, and `next build` on every GitHub push/PR (`FR-14`, `AD-8`).
 
 ### Story 1.2: "Dynamic Kockice & 9A Airwaves" Homepage, OC Roster & Past WRTCs (1990–2026)
