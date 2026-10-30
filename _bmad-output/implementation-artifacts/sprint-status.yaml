@@ -1,0 +1,60 @@
+# STATUS DEFINITIONS:
+# ==================
+# Epic Status:
+#   - backlog: Epic not yet started
+#   - in-progress: Epic actively being worked on
+#   - done: All stories in epic completed
+
+# Story Status:
+#   - backlog: Story only exists in epic file
+#   - ready-for-dev: Story file created, ready for development
+#   - in-progress: Developer actively working on implementation
+#   - review: Implementation complete, ready for review
+#   - done: Story completed
+
+# Retrospective Status:
+#   - optional: Can be completed but not required
+#   - done: Retrospective has been completed
+
+# Action Item Status:
+#   - open: Committed during a retrospective, not yet addressed
+#   - in-progress: Actively being worked on
+#   - done: Completed
+
+# WORKFLOW NOTES:
+# ===============
+# - Epic transitions to 'in-progress' automatically when its first story starts (via build's sprint sync)
+# - Stories can be worked in parallel if team capacity allows
+# - Developer typically creates the next story after the previous one is 'done' to incorporate learnings
+# - Dev moves story to 'review', then runs code-review (fresh context, different LLM recommended)
+# - Retrospective appends its action items to action_items; the status view surfaces open ones
+generated: 10-30-2026 18:37
+last_updated: 10-30-2026 18:37
+project: HRS_docs
+project_key: NOKEY
+tracking_system: file-system
+story_location: _bmad-output/implementation-artifacts
+development_status:
+  epic-1: backlog
+  1-1-project-scaffold-official-brand-assets-zero-fouc-theme-githu: backlog
+  1-2-dynamic-kockice-9a-airwaves-homepage-oc-roster-past-wrtcs-19: backlog
+  1-3-structured-news-official-announcements-feed-news-news-slug-f: backlog
+  epic-1-retrospective: optional
+
+  epic-2: backlog
+  2-1-canonical-rules-datasets-tables-1-7-build-time-zod-validatio: backlog
+  2-2-selection-rules-v1-0-3-tab-hub-sticky-scroll-spy-toc-officia: backlog
+  2-3-interactive-24-contest-qualifying-events-calendar-competitio: backlog
+  epic-2-retrospective: optional
+
+  epic-3: backlog
+  3-1-standings-snapshot-schema-csv-json-importer-cli-pre-season-s: backlog
+  3-2-interactive-29-qa-standings-explorer-callsign-search-cutoff: backlog
+  3-3-operator-score-breakdown-drawer-pre-season-interactive-simul: backlog
+  epic-3-retrospective: optional
+
+  epic-4: backlog
+  4-1-croatia-slavonia-propagation-arena-accommodation-gastronomy: backlog
+  4-2-clean-dignified-static-sponsors-partners-hub-sponsors: backlog
+  4-3-grounded-wrtc-2030-croatia-slavonia-ai-assistant-api-chat-wr: backlog
+  epic-4-retrospective: optional
