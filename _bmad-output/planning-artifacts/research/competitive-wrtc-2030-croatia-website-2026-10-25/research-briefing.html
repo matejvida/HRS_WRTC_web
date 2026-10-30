@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BMad Deep Recon Briefing: WRTC 2030 Croatia Website (wrtc2030.hr)</title>
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --surface: #ffffff;
+      --text: #0f172a;
+      --muted: #475569;
+      --border: #e2e8f0;
+      --navy: #0b1f3a;
+      --crimson: #d62828;
+      --gold: #d99b26;
+      --verified-bg: #dcfce7;
+      --verified-text: #166534;
+      --keep-bg: #dbeafe;
+      --keep-text: #1e40af;
+      --discard-bg: #fee2e2;
+      --discard-text: #991b1b;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0b1320;
+        --surface: #111c2d;
+        --text: #f1f5f9;
+        --muted: #94a3b8;
+        --border: #1e293b;
+        --navy: #1e3a5f;
+        --verified-bg: #064e3b;
+        --verified-text: #a7f3d0;
+        --keep-bg: #1e3a8a;
+        --keep-text: #bfdbfe;
+        --discard-bg: #7f1d1d;
+        --discard-text: #fecaca;
+      }
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    header {
+      background: linear-gradient(135deg, #0b1f3a 0%, #16325b 100%);
+      color: #fff;
+      padding: 2.5rem 1.5rem;
+      border-bottom: 5px solid var(--crimson);
+      position: relative;
+    }
+    .header-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+    .eyebrow {
+      display: inline-block;
+      background: var(--crimson);
+      color: #fff;
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 0.25rem 0.65rem;
+      border-radius: 4px;
+      margin-bottom: 0.75rem;
+    }
+    h1 {
+      margin: 0 0 0.5rem 0;
+      font-size: 2rem;
+      line-height: 1.25;
+    }
+    .meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-size: 0.9rem;
+      color: #cbd5e1;
+      margin-top: 0.75rem;
+    }
+    .layout {
+      max-width: 1120px;
+      margin: 2rem auto;
+      padding: 0 1.5rem;
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: 2rem;
+    }
+    @media (max-width: 860px) {
+      .layout { grid-template-columns: 1fr; }
+      nav.toc { position: static; }
+    }
+    nav.toc {
+      position: sticky;
+      top: 1.5rem;
+      align-self: start;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem;
+    }
+    nav.toc h3 {
+      margin: 0 0 0.75rem 0;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--muted);
+    }
+    nav.toc ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    nav.toc li { margin-bottom: 0.5rem; }
+    nav.toc a {
+      color: var(--text);
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+    nav.toc a:hover { color: var(--crimson); }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.75rem;
+      margin-bottom: 1.5rem;
+    }
+    .card.exec {
+      border-left: 5px solid var(--gold);
+    }
+    h2 {
+      margin-top: 0;
+      font-size: 1.35rem;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.5rem;
+    }
+    .badge {
+      display: inline-block;
+      padding: 0.15rem 0.5rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      border-radius: 4px;
+      vertical-align: middle;
+    }
+    .badge.verified { background: var(--verified-bg); color: var(--verified-text); }
+    .badge.keep { background: var(--keep-bg); color: var(--keep-text); }
+    .badge.discard { background: var(--discard-bg); color: var(--discard-text); }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+      font-size: 0.92rem;
+    }
+    th, td {
+      border: 1px solid var(--border);
+      padding: 0.65rem 0.75rem;
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      background: rgba(11, 31, 58, 0.06);
+      font-weight: 600;
+    }
+    a.cite {
+      color: var(--crimson);
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .swatches {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .swatch {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .swatch-color { height: 56px; }
+    .swatch-info { padding: 0.65rem; font-size: 0.85rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <span class="eyebrow">BMad Deep Recon • Competitive &amp; Domain Report</span>
+      <h1>WRTC 2030 Croatia Website Investigation &amp; Strategy</h1>
+      <div><strong>Decision:</strong> What to keep vs. discard from <code>wrtc2030.hr</code>, benchmark against <code>wrtc2026.org</code> &amp; <code>hamradio.hr</code>, and architect the official Croatian championship platform.</div>
+      <div class="meta-row">
+        <span><strong>Date:</strong> 2026-10-25</span>
+        <span><strong>Host:</strong> HRS (9A)</span>
+        <span><strong>Venue:</strong> Slavonia (Osijek, Čepin, Đakovo)</span>
+        <span><strong>Verified Claims:</strong> 8 / 8</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="layout">
+    <nav class="toc">
+      <h3>Contents</h3>
+      <ul>
+        <li><a href="#exec">1. Executive Summary</a></li>
+        <li><a href="#domain">2. Domain &amp; HRS Context</a></li>
+        <li><a href="#wrtc2026">3. WRTC 2026 Benchmark</a></li>
+        <li><a href="#wrtc2030">4. Audit of wrtc2030.hr</a></li>
+        <li><a href="#croatia-touch">5. Croatian &amp; Slavonian Identity</a></li>
+        <li><a href="#recommendations">6. Recommendations &amp; IA</a></li>
+        <li><a href="#sources">7. Source Appendix</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <section id="exec" class="card exec">
+        <h2>1. Executive Summary</h2>
+        <p><strong>Verdict:</strong> <strong>Keep the domain, official Selection Rules v1.0, Q&amp;A repository, and Organizing Committee data from <code>wrtc2030.hr</code>, but replace its generic preview shell with a custom multi-phase WRTC 2030 Croatia platform.</strong> <span class="badge verified">verified</span></p>
+        <ul>
+          <li><strong>Urgent Milestone (Dec 19–20, 2026):</strong> Sanctioned on Oct 3, 2026 in Poreč <a class="cite" href="#src-1">[1]</a> with Selection Rules v1.0 approved on Oct 19, 2026 <a class="cite" href="#src-3">[3]</a>, the 24-contest global qualification cycle starts at the <strong>Croatian DX Contest (<code>9A DX Contest</code>) on Dec 19–20, 2026</strong> <a class="cite" href="#src-4">[4]</a>. Contesters worldwide will immediately expect an interactive <strong>Qualification Standings Engine</strong>.</li>
+          <li><strong>60-Team Expansion Requires a Sponsorship Engine:</strong> Expanding from 50 teams (UK 2026) to <strong>60 competing teams (120 operators)</strong> <a class="cite" href="#src-3">[3]</a> relies on <strong>4 Sponsored Team slots</strong>, 60 Tent Sponsorships, Commercial/Club tiers, and Personal Donations <a class="cite" href="#src-3">[3]</a><a class="cite" href="#src-6">[6]</a>.</li>
+          <li><strong>The "Professional Croatian Touch":</strong> Blend national Croatian <code>9A</code> pride (subtle geometric <em>šahovnica</em> red/white micro-accents, Deep Adriatic Navy, HRS authority <a class="cite" href="#src-1">[1]</a>) with <strong>Golden Slavonia (<em>Zlatna Slavonija</em>)</strong> regional warmth and the technical story of why the flat Pannonian plains around <strong>Osijek, Čepin, and Đakovo</strong> <a class="cite" href="#src-2">[2]</a> provide the fairest HF propagation battlefield in WRTC history.</li>
+        </ul>
+      </section>
+
+      <section id="domain" class="card">
+        <h2>2. Domain &amp; Host Context (<code>hamradio.hr</code> &amp; Slavonia 2030)</h2>
+        <ul>
+          <li><strong>Host Organization:</strong> Hrvatski radioamaterski savez (HRS, <code>hamradio.hr</code>, Dalmatinska 12, Zagreb; ITU prefix <code>9A</code>) <a class="cite" href="#src-1">[1]</a> <span class="badge verified">verified</span></li>
+          <li><strong>Venue &amp; Dates:</strong> July 2030 in <strong>Slavonia (Osijek, Čepin, and Đakovo)</strong>, coinciding with the 24-hour IARU HF World Championship <a class="cite" href="#src-2">[2]</a> <span class="badge verified">verified</span></li>
+          <li><strong>60 Competing Teams Breakdown:</strong> 50 Qualifying Teams across global Qualification Areas (QAs) + 1 Defending Champion (<code>DJ5MW</code> &amp; <code>DM5EE</code> from WRTC 2026 UK) + 4 Sponsored Teams + 3 Youth Teams + 2 Wild Card Teams <a class="cite" href="#src-3">[3]</a><a class="cite" href="#src-6">[6]</a> <span class="badge verified">verified</span></li>
+          <li><strong>Organizing Committee Leadership:</strong> Chaired by Mate Botica (<code>9A4M</code>) with Vice Chairman Davor Kucelin (<code>9A1UN</code>), Chief Advisor Nikola Perčin (<code>9A5W</code>), Competition Lead Ivo Pezer (<code>9A3A</code>), Technical Lead Zlatko Tonković (<code>9A2G</code>), Referee Lead Darko Martinčević (<code>9A5X</code>), Logistics Director Željko Dražić Karalić (<code>9A5R</code>), IT/Scoring Lead Aleksandar Jugović (<code>9A3XV</code>), Media/PR Director Ivan Mastilović (<code>YU1LA</code>), Secretary Marija Sorić (<code>9A6PAX</code>), and Mirko Jurman (<code>9A6KX</code>) <a class="cite" href="#src-5">[5]</a> <span class="badge verified">verified</span></li>
+        </ul>
+      </section>
+
+      <section id="wrtc2026" class="card">
+        <h2>3. Benchmark Teardown: <code>wrtc2026.org</code> &amp; Historical WRTC Portals</h2>
+        <p>Across <code>wrtc2026.org</code> (East Anglia, UK) <a class="cite" href="#src-6">[6]</a>, <code>wrtc2022.it</code> (Bologna), and <code>wrtc2018.de</code> (Wittenberg) <a class="cite" href="#src-8">[8]</a>, successful WRTC websites operate as a 4-stage platform: Qualification Standings &amp; Fundraising (2026–2028) → Team/Referee/Volunteer Onboarding &amp; Travel Logistics (2028–2030) → Live 60-Site Map &amp; Online Scoreboard (July 2030) → Permanent Archive (2030+).</p>
+      </section>
+
+      <section id="wrtc2030" class="card">
+        <h2>4. Fast Preview Audit (<code>wrtc2030.hr</code>): Keep vs. Discard</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Element on <code>wrtc2030.hr</code></th>
+              <th>Verdict</th>
+              <th>Action Plan</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Domain (<code>wrtc2030.hr</code>) &amp; Emails (<code>wrtc2030@hamradio.hr</code>, <code>rules-wrtc2030@hamradio.hr</code>)</td>
+              <td><span class="badge keep">KEEP</span></td>
+              <td>Official domain already publicized by HRS and WRTC SC <a class="cite" href="#src-1">[1]</a><a class="cite" href="#src-7">[7]</a>.</td>
+            </tr>
+            <tr>
+              <td>Selection Rules v1.0, Weighting Factors, QA Breakdown &amp; Score Examples</td>
+              <td><span class="badge keep">KEEP &amp; UPGRADE</span></td>
+              <td>Preserve authoritative rules &amp; PDFs <a class="cite" href="#src-3">[3]</a>, and add an interactive QA Explorer &amp; 24-Contest Calendar.</td>
+            </tr>
+            <tr>
+              <td>Selection Criteria Q&amp;A + Qualification Rules Q&amp;A</td>
+              <td><span class="badge keep">KEEP &amp; UPGRADE</span></td>
+              <td>Migrate into a searchable, filterable FAQ with deep-link anchors <a class="cite" href="#src-7">[7]</a>.</td>
+            </tr>
+            <tr>
+              <td>Organizing Committee Roster (<code>WRTC Team</code>)</td>
+              <td><span class="badge keep">KEEP &amp; ENHANCE</span></td>
+              <td>Add <code>9A</code> callsign cards, portraits, QRZ links, and role-based contact routing <a class="cite" href="#src-5">[5]</a>.</td>
+            </tr>
+            <tr>
+              <td>Generic Template Visuals &amp; Cloned 4-Item Menu Skeleton</td>
+              <td><span class="badge discard">DISCARD / REPLACE</span></td>
+              <td>Replace with custom Croatian/Slavonian design system and 6-pillar Championship IA <a class="cite" href="#src-7">[7]</a>.</td>
+            </tr>
+            <tr>
+              <td>Static-Only Pages (No Standings Engine / No Sponsor Portal)</td>
+              <td><span class="badge discard">DISCARD / REPLACE</span></td>
+              <td>Build dynamic Qualification Standings Leaderboard + Tent/Team Sponsorship &amp; Donation funnels <a class="cite" href="#src-4">[4]</a><a class="cite" href="#src-6">[6]</a>.</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="croatia-touch" class="card">
+        <h2>5. Defining the "Professional Croatian &amp; Slavonian Touch"</h2>
+        <div class="swatches">
+          <div class="swatch">
+            <div class="swatch-color" style="background:#0B1F3A;"></div>
+            <div class="swatch-info"><strong>Deep Adriatic Navy</strong><br><code>#0B1F3A</code> • Authority &amp; Technical Precision</div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-color" style="background:#D62828;"></div>
+            <div class="swatch-info"><strong>Šahovnica Crimson</strong><br><code>#D62828</code> • Croatian <code>9A</code> Pride &amp; Live CTAs</div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-color" style="background:#D99B26;"></div>
+            <div class="swatch-info"><strong>Slavonian Harvest Gold</strong><br><code>#D99B26</code> • <em>Zlatna Slavonija</em> &amp; Championship Gold</div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-color" style="background:#F8FAFC;"></div>
+            <div class="swatch-info"><strong>Crisp Signal White</strong><br><code>#F8FAFC</code> • High-Contrast Data Readability</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="recommendations" class="card">
+        <h2>6. Recommended 6-Pillar Information Architecture</h2>
+        <ol>
+          <li><strong>Home:</strong> Countdown to <code>9A DX Contest</code> (Dec 19–20, 2026) &amp; July 2030, Quick Standings Preview, Latest News, Why Slavonia, Sponsor Ribbon.</li>
+          <li><strong>Qualification &amp; Rules:</strong> Interactive Qualification Standings (by QA, Youth, Callsign), 24-Contest Calendar, Selection Rules v1.0, Score Calculator, Searchable Q&amp;A.</li>
+          <li><strong>The Championship:</strong> 60-Team Format, Identical Station/Antenna Specs, Referees &amp; Judging, Past WRTC Archive (1990–2026).</li>
+          <li><strong>Slavonia &amp; Venue:</strong> Interactive Map of Osijek, Čepin &amp; Đakovo, Pannonian Plain HF Propagation Advantage, Travel &amp; Hospitality.</li>
+          <li><strong>Sponsors &amp; Support:</strong> 4 Sponsored Team Slots, 60 Tent Sponsorships, Commercial &amp; Club Tiers, Personal Donations.</li>
+          <li><strong>About HRS &amp; Team:</strong> Host Profile (<code>hamradio.hr</code>), Organizing Committee (<code>9A</code> Roster), Media Kit, Contact.</li>
+        </ol>
+      </section>
+
+      <section id="sources" class="card">
+        <h2>7. Source Appendix &amp; Staleness Map</h2>
+        <p><strong>Earliest Staleness Re-check:</strong> <code>2027-01-01</code> (immediately after the first qualifying contest, the Croatian <code>9A DX Contest</code> on Dec 19–20, 2026).</p>
+        <table class="sources"><tbody><tr id="src-1"><td>[1]</td><td>WRTC SC officially approved HRS (*Hrvatski radioamaterski savez*) on Oct 3, 2026 at the Istria Contest Conference in Poreč to host WRTC 2030 in July 2030</td><td><a href="https://www.hamradio.hr/" target="_blank" rel="noopener">Hrvatski radioamaterski savez (hamradio.hr)</a></td><td>2026-10-03</td><td>2026-10-25</td><td>High (Verified)</td></tr><tr id="src-2"><td>[2]</td><td>WRTC 2030 venue is in Slavonia, Croatia, spanning Osijek, Čepin, and Đakovo, bringing 120 elite operators under identical technical conditions</td><td><a href="https://www.jutarnji.hr/" target="_blank" rel="noopener">Jutarnji list / HRS</a></td><td>2026-10</td><td>2026-10-25</td><td>High (Verified)</td></tr><tr id="src-3"><td>[3]</td><td>WRTC 2030 Selection Rules v1.0 (approved Oct 19, 2026) expand the field to 60 teams: 50 QA qualifiers, 1 Defending Champion, 4 Sponsored Teams, 3 Youth Teams, 2 Wild Cards</td><td><a href="https://www.wrtc2030.hr/" target="_blank" rel="noopener">WRTC 2030 Organizing Committee (wrtc2030.hr)</a></td><td>2026-10-19</td><td>2026-10-25</td><td>High (Verified)</td></tr><tr id="src-4"><td>[4]</td><td>Two-year qualification process spans 24 international/regional contests (best 10 scores; best 6 for Youth), starting with the Croatian 9A DX Contest on Dec 19–20, 2026</td><td><a href="https://www.hamradio.hr/" target="_blank" rel="noopener">Hrvatski radioamaterski savez (hamradio.hr)</a></td><td>2026-10-19</td><td>2026-10-25</td><td>High (Verified)</td></tr><tr id="src-5"><td>[5]</td><td>WRTC 2030 Organizing Committee roster led by Chairman Mate Botica (9A4M), Vice Chairman Davor Kucelin (9A1UN), and 9 directors (`9A5W`, `9A3A`, `9A2G`, `9A5X`, `9A5R`, `9A6KX`, `9A3XV`, `YU1LA`, `9A6PAX`)</td><td><a href="https://www.wrtc2030.hr/" target="_blank" rel="noopener">WRTC 2030 Organizing Committee (wrtc2030.hr)</a></td><td>2026-10</td><td>2026-10-25</td><td>High (Verified)</td></tr><tr id="src-6"><td>[6]</td><td>`wrtc2026.org` UK benchmark IA (6 pillars: About, Competition, Qualification &amp; Teams, Events &amp; Bookings, Sponsors &amp; Volunteers, Contact), Tent Sponsors, Sponsored Teams, Referee Handbook, and East Anglia July 2026 results (`DJ5MW` &amp; `DM5EE` champions)</td><td><a href="https://www.wrtc2026.org/" target="_blank" rel="noopener">WRTC 2026 UK (wrtc2026.org)</a></td><td>2026-07</td><td>2026-10-25</td><td>High (Verified)</td></tr><tr id="src-7"><td>[7]</td><td>`wrtc2030.hr` fast-preview audit: mirrors early `wrtc2026.org` menu taxonomy (`About Us`, `Competition`, `Past Events`, `Contact`), houses valid Selection Rules v1.0 and Q&amp;A, but lacks interactive standings, sponsorship funnels, and Croatian/Slavonian brand identity</td><td><a href="https://www.wrtc2030.hr/" target="_blank" rel="noopener">WRTC 2030 Official Portal (wrtc2030.hr)</a></td><td>2026-10</td><td>2026-10-25</td><td>High (Verified)</td></tr><tr id="src-8"><td>[8]</td><td>Historical WRTC portals (`wrtc2022.it` Bologna, `wrtc2018.de` Wittenberg, `wrtc.info`) confirm interactive qualification standings, 60+ tent deployment maps, and live scoreboards as core multi-year platform requirements</td><td><a href="https://wrtc.info/" target="_blank" rel="noopener">WRTC Archive (wrtc.info)</a></td><td>2026-07</td><td>2026-10-25</td><td>High (Verified)</td></tr></tbody></table>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

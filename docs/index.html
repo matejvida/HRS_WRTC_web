@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WRTC 2030 Croatia (wrtc2030.hr) — Stakeholder Review &amp; Site Preview Portal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Barlow:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #f6f8fc;
+      --card: #ffffff;
+      --navy: #0d1333;
+      --blue: #273b8f;
+      --red: #ed1c24;
+      --text: #111833;
+      --muted: #4b5578;
+      --line: #d8e0f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Barlow", -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+    }
+    .checker-ribbon {
+      height: 8px;
+      background: repeating-linear-gradient(90deg, #ed1c24 0 16px, #ffffff 16px 32px, #273b8f 32px 48px, #ffffff 48px 64px);
+    }
+    .hero {
+      background: linear-gradient(135deg, #0d1333 0%, #1c2c6e 60%, #273b8f 100%);
+      color: #ffffff;
+      padding: 48px 24px;
+      border-bottom: 1px solid rgba(255,255,255,0.12);
+    }
+    .wrap {
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.22);
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .badge-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #4ade80;
+      box-shadow: 0 0 8px #4ade80;
+    }
+    h1 {
+      font-family: "Barlow Condensed", sans-serif;
+      font-size: clamp(32px, 5vw, 52px);
+      font-weight: 800;
+      letter-spacing: 0.01em;
+      text-transform: uppercase;
+      margin: 0 0 12px;
+      line-height: 1.05;
+    }
+    .lead {
+      font-size: 18px;
+      color: #d6e0ff;
+      max-width: 840px;
+      margin: 0;
+    }
+    .main {
+      padding: 40px 24px 64px;
+    }
+    .section-title {
+      font-family: "Barlow Condensed", sans-serif;
+      font-size: 28px;
+      font-weight: 800;
+      text-transform: uppercase;
+      margin: 0 0 18px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--navy);
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 22px;
+      margin-bottom: 42px;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 26px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 8px 24px rgba(13,19,51,0.05);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 32px rgba(13,19,51,0.1);
+    }
+    .card--primary {
+      border-top: 5px solid var(--red);
+    }
+    .card--blue {
+      border-top: 5px solid var(--blue);
+    }
+    .card-tag {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 8px;
+    }
+    .card h2 {
+      font-family: "Barlow Condensed", sans-serif;
+      font-size: 26px;
+      margin: 0 0 10px;
+      text-transform: uppercase;
+      color: var(--navy);
+    }
+    .card p {
+      color: var(--muted);
+      margin: 0 0 20px;
+      font-size: 15px;
+    }
+    .card ul {
+      margin: 0 0 22px;
+      padding-left: 18px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .card li { margin-bottom: 6px; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      height: 44px;
+      padding: 0 20px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 15px;
+      text-decoration: none;
+      background: var(--blue);
+      color: #ffffff;
+      transition: opacity 0.15s ease;
+    }
+    .btn:hover { opacity: 0.92; }
+    .btn--red { background: var(--red); }
+    .btn--outline {
+      background: #f0f4ff;
+      color: var(--blue);
+      border: 1px solid #c5d2f6;
+    }
+    .questions-box {
+      background: #ffffff;
+      border: 1px solid var(--line);
+      border-left: 5px solid var(--red);
+      border-radius: 14px;
+      padding: 24px 28px;
+    }
+    .questions-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 16px;
+      margin-top: 16px;
+    }
+    .q-item {
+      background: var(--bg);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 14px 16px;
+    }
+    .q-item code {
+      font-family: "JetBrains Mono", monospace;
+      font-weight: 700;
+      color: var(--red);
+      font-size: 12px;
+    }
+    .q-item h3 {
+      margin: 4px 0 6px;
+      font-size: 16px;
+      color: var(--navy);
+    }
+    .q-item p {
+      margin: 0;
+      font-size: 13.5px;
+      color: var(--muted);
+    }
+    footer {
+      text-align: center;
+      padding: 24px;
+      color: var(--muted);
+      font-size: 14px;
+      border-top: 1px solid var(--line);
+    }
+  </style>
+</head>
+<body>
+  <div class="checker-ribbon"></div>
+  <header class="hero">
+    <div class="wrap">
+      <div class="badge">
+        <span class="badge-dot"></span>
+        <span>Live Stakeholder Review Portal · WRTC 2030 Croatia (9A) · HRS</span>
+      </div>
+      <h1>WRTC 2030 Website — Requirements &amp; Live Site Example</h1>
+      <p class="lead">
+        Interactive review hub for the <strong>WRTC 2030 Organizing Committee</strong> and <strong>Croatian Amateur Radio Association (HRS)</strong> stakeholders. Review the complete requirements &amp; open questions in <strong>English</strong> or <strong>Croatian (Hrvatski)</strong>, and test the live interactive website mockup featuring the <em>"Kockice &amp; 9A Airwaves"</em> visual identity, Pre-Season Score Simulator (<code>FR-4</code>), and WRTC 2030 + Slavonia AI Concierge (<code>FR-13</code>).
+      </p>
+    </div>
+  </header>
+
+  <main class="main wrap">
+    <h2 class="section-title">1. Interactive Website Example &amp; Design Proposals</h2>
+    <div class="grid">
+      <article class="card card--primary">
+        <div>
+          <div class="card-tag">Selected Direction · Proposal 1 ("Kockice &amp; 9A Airwaves")</div>
+          <h2>🌐 Live Interactive Site Example (wrtc2030.hr)</h2>
+          <p>
+            Full interactive prototype of the new WRTC 2030 Croatia homepage and competition hub in English, preserving the official <code>wrtc2030.hr</code> SVG logo and high-trust typography while elevating Croatian &amp; Slavonian identity.
+          </p>
+          <ul>
+            <li><strong>Day / Night (Shack) Mode</strong> instant switcher</li>
+            <li><strong>Interactive Pre-Season Score Simulator (<code>FR-4</code>)</strong> in the Competition Hub tabs</li>
+            <li><strong>Interactive WRTC 2030 &amp; Slavonia AI Assistant (<code>FR-13</code>)</strong> in the bottom-right corner</li>
+            <li><strong>Slavonia Arena</strong> (Osijek, Čepin, Đakovo), OC Roster &amp; Static Sponsors</li>
+          </ul>
+        </div>
+        <a class="btn btn--red" href="./site-preview.html">Open Interactive Website Example →</a>
+      </article>
+
+      <article class="card card--blue">
+        <div>
+          <div class="card-tag">Visual Identity Comparison · 3 Croatian Proposals</div>
+          <h2>🎨 3 Croatian Design Proposals Switcher</h2>
+          <p>
+            Side-by-side interactive switcher comparing the three Croatian visual identity proposals evaluated during UX planning so stakeholders can inspect why <strong>Proposal 1</strong> was selected.
+          </p>
+          <ul>
+            <li><strong>Proposal 1 (Selected):</strong> Dynamic <em>"Kockice &amp; 9A Airwaves"</em></li>
+            <li><strong>Proposal 2:</strong> <em>"Slavonian Golden Plains &amp; Heritage"</em></li>
+            <li><strong>Proposal 3:</strong> <em>"9A Contest Precision &amp; Pleter"</em></li>
+          </ul>
+        </div>
+        <a class="btn btn--outline" href="./design-proposals.html">Compare All 3 Design Proposals →</a>
+      </article>
+    </div>
+
+    <h2 class="section-title">2. Stakeholder Requirements &amp; Open Questions (English &amp; Hrvatski)</h2>
+    <div class="grid">
+      <article class="card card--blue">
+        <div>
+          <div class="card-tag">🇬🇧 English Version · Stakeholder Briefing</div>
+          <h2>Requirements &amp; Open Questions (EN)</h2>
+          <p>
+            Complete executive summary of all <strong>14 Functional Requirements (<code>FR-1</code> to <code>FR-14</code>)</strong>, <strong>Non-Functional Targets (<code>NFR-1</code> to <code>NFR-3</code>)</strong>, explicit scope boundaries, and <strong>4 Open Stakeholder Questions (<code>OQ-1</code> to <code>OQ-4</code>)</strong>.
+          </p>
+          <ul>
+            <li>Includes <strong>Pre-Season Score Simulator (<code>FR-4</code>)</strong></li>
+            <li>Includes <strong>WRTC 2030 &amp; Slavonia AI Assistant (<code>FR-13</code>)</strong></li>
+            <li>Includes <strong>GitHub → Netlify CI/CD Pipeline (<code>FR-14</code>)</strong></li>
+          </ul>
+        </div>
+        <a class="btn" href="./requirements-en.html">Read Requirements in English (EN) →</a>
+      </article>
+
+      <article class="card card--primary">
+        <div>
+          <div class="card-tag">🇭🇷 Hrvatska verzija · Pregled za dionike (HRS / OO)</div>
+          <h2>Zahtjevi i otvorena pitanja (HR)</h2>
+          <p>
+            Cjeloviti pregled svih <strong>14 funkcionalnih zahtjeva (<code>FR-1</code> do <code>FR-14</code>)</strong>, <strong>nefunkcionalnih zahtjeva (<code>NFR-1</code> do <code>NFR-3</code>)</strong>, ograničenja opsega i <strong>4 otvorena pitanja za Organizacijski odbor i HRS (<code>OQ-1</code> do <code>OQ-4</code>)</strong>.
+          </p>
+          <ul>
+            <li>Uključuje <strong>Interaktivni simulator bodova prije sezone (<code>FR-4</code>)</strong></li>
+            <li>Uključuje <strong>AI Asistenta za pravila, Hrvatsku i Slavoniju (<code>FR-13</code>)</strong></li>
+            <li>Uključuje <strong>GitHub → Netlify CI/CD sustav objave (<code>FR-14</code>)</strong></li>
+          </ul>
+        </div>
+        <a class="btn btn--red" href="./requirements-hr.html">Otvori zahtjeve na hrvatskom (HR) →</a>
+      </article>
+    </div>
+
+    <div class="questions-box">
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
+        <div>
+          <div class="card-tag" style="margin-bottom:4px;">Quick Summary · Brzi pregled odluka za OO / HRS</div>
+          <h2 style="margin:0;font-family:'Barlow Condensed',sans-serif;font-size:24px;text-transform:uppercase;color:var(--navy);">4 Open Questions for Stakeholder Sign-Off (OQ-1 – OQ-4)</h2>
+        </div>
+        <a class="btn btn--outline" href="./research-briefing.html" style="height:38px;font-size:13px;">View WRTC 2026 Competitive Research →</a>
+      </div>
+
+      <div class="questions-grid">
+        <div class="q-item">
+          <code>OQ-1 · Standings Data Feed</code>
+          <h3>Format of Standings Export</h3>
+          <p>Confirm CSV/JSON export columns from IT &amp; Scoring Lead (<strong>Aleksandar Jugović, 9A3XV</strong>) ahead of Event #1 (9A DX Contest, 19–20 Dec 2026).</p>
+        </div>
+        <div class="q-item">
+          <code>OQ-2 · Language Strategy</code>
+          <h3>English-Only Site + Bilingual Docs</h3>
+          <p>Confirm English-only public website (with Croatian proper nouns preserved) while keeping stakeholder requirements &amp; open questions bilingual (EN/HR).</p>
+        </div>
+        <div class="q-item">
+          <code>OQ-3 · Slavonia Photography</code>
+          <h3>Approved HRS &amp; Tourism Photos</h3>
+          <p>Confirm photo assets from Media &amp; PR Lead (<strong>Ivan Mastilović, YU1LA</strong>) for Osijek, Čepin, Đakovo, and Poreč ceremony.</p>
+        </div>
+        <div class="q-item">
+          <code>OQ-4 · AI &amp; Netlify Setup</code>
+          <h3>LLM Key &amp; Domain Cutover</h3>
+          <p>Confirm preferred LLM API provider (Gemini Flash / OpenAI) for the <code>/api/chat</code> assistant and Netlify DNS cutover timing for <code>wrtc2030.hr</code>.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    WRTC 2030 Croatia (<code>wrtc2030.hr</code>) · Prepared for the WRTC 2030 Organizing Committee &amp; Croatian Amateur Radio Association (HRS)
+  </footer>
+</body>
+</html>

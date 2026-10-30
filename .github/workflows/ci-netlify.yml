@@ -1,0 +1,53 @@
+name: WRTC 2030 — Stakeholder Portal & Netlify CI/CD Pipeline
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages-and-netlify-${{ github.ref }}"
+  cancel-in-progress: true
+
+jobs:
+  validate-and-prepare:
+    name: Validate Planning Artifacts & Prepare Portal
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Verify Stakeholder Portal & Architecture Spine
+        run: |
+          test -f docs/index.html
+          test -f docs/requirements-en.html
+          test -f docs/requirements-hr.html
+          test -f docs/site-preview.html
+          test -f docs/design-proposals.html
+          python3 .agents/skills/bmad-architecture/scripts/lint_spine.py --workspace _bmad-output/planning-artifacts/architecture/architecture-HRS_web-2026-10-25
+
+      - name: Upload Pages artifact
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./docs
+
+  deploy-github-pages:
+    name: Deploy Live Stakeholder Link (GitHub Pages)
+    needs: validate-and-prepare
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

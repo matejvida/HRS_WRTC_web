@@ -1,0 +1,595 @@
+<!doctype html>
+<html lang="en" data-theme="day">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>WRTC 2030 Croatia — Stakeholder Requirements &amp; Scope Review Deck</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Barlow:wght@400;500;600;700&family=JetBrains+Mono:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f7f9fc;
+      --surface: #edf1f8;
+      --card: #ffffff;
+      --line: #dce2ef;
+      --text: #0f1636;
+      --muted: #4b526d;
+      --accent: #273b8f;
+      --red: #ed1c24;
+      --green: #0d8a52;
+      --amber: #b87503;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Barlow", system-ui, -apple-system, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    h1, h2, h3, h4, p { margin: 0; }
+    .wrap { max-width: 1180px; margin: 0 auto; padding-inline: 32px; }
+    @media (max-width: 800px) { .wrap { padding-inline: 16px; } }
+
+    .checker {
+      --sq: 7px;
+      display: inline-grid;
+      grid-template-columns: var(--sq) var(--sq);
+      grid-template-rows: var(--sq) var(--sq);
+      flex-shrink: 0;
+    }
+    .checker::before, .checker::after { content: ""; background: var(--red); }
+    .checker::after { grid-area: 2 / 2; }
+
+    .checker-ribbon {
+      height: 10px;
+      width: 100%;
+      background-image:
+        linear-gradient(45deg, var(--red) 25%, transparent 25%),
+        linear-gradient(-45deg, var(--red) 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, var(--red) 75%),
+        linear-gradient(-45deg, transparent 75%, var(--red) 75%);
+      background-size: 10px 10px;
+      background-position: 0 0, 0 5px, 5px -5px, -5px 0;
+    }
+
+    /* Top Header */
+    .doc-header {
+      background: linear-gradient(135deg, #0d1333 0%, #1d2d73 60%, #273b8f 100%);
+      color: #ffffff;
+      padding: 44px 0 40px;
+      position: relative;
+      overflow: hidden;
+    }
+    .doc-header__grid {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 2;
+    }
+    .doc-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.22);
+      padding: 5px 12px;
+      border-radius: 4px;
+      margin-bottom: 12px;
+    }
+    .doc-title {
+      font-family: "Barlow Condensed", sans-serif;
+      font-size: 46px;
+      font-weight: 800;
+      text-transform: uppercase;
+      line-height: 1.02;
+    }
+    .doc-sub {
+      color: #c6d0f5;
+      font-size: 17px;
+      max-width: 720px;
+      margin-top: 8px;
+    }
+    .print-btn {
+      appearance: none;
+      background: var(--red);
+      color: #ffffff;
+      border: 0;
+      font-family: "Barlow Condensed", sans-serif;
+      font-size: 17px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      padding: 12px 22px;
+      border-radius: 6px;
+      cursor: pointer;
+      box-shadow: 0 6px 16px rgba(237, 28, 36, 0.35);
+    }
+
+    /* Quick Jump Bar */
+    .jump-bar {
+      background: var(--card);
+      border-bottom: 1px solid var(--line);
+      padding: 12px 0;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+    .jump-bar__inner {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      align-items: center;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 12px;
+      font-weight: 700;
+    }
+    .jump-bar a {
+      color: var(--accent);
+      text-decoration: none;
+      padding: 4px 10px;
+      border-radius: 4px;
+      background: var(--surface);
+    }
+    .jump-bar a:hover { background: var(--accent); color: #ffffff; }
+
+    /* Sections */
+    .section { padding: 44px 0; border-bottom: 1px solid var(--line); }
+    .section-head {
+      margin-bottom: 24px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .section-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--red);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 4px;
+    }
+    .section-title {
+      font-family: "Barlow Condensed", sans-serif;
+      font-size: 32px;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    /* Requirement Cards Grid */
+    .req-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+    @media (max-width: 860px) { .req-grid { grid-template-columns: 1fr; } }
+
+    .req-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-top: 4px solid var(--accent);
+      border-radius: 10px;
+      padding: 22px;
+      box-shadow: 0 6px 18px rgba(15, 22, 54, 0.04);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .req-card--red { border-top-color: var(--red); }
+    .req-card__top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+    .req-id {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 12px;
+      font-weight: 700;
+      background: var(--accent);
+      color: #ffffff;
+      padding: 3px 9px;
+      border-radius: 4px;
+    }
+    .req-card--red .req-id { background: var(--red); }
+    .req-route {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 11px;
+      color: var(--muted);
+      background: var(--surface);
+      padding: 3px 8px;
+      border-radius: 4px;
+    }
+    .req-title {
+      font-family: "Barlow Condensed", sans-serif;
+      font-size: 24px;
+      font-weight: 700;
+      text-transform: uppercase;
+      line-height: 1.1;
+    }
+    .req-desc { font-size: 15px; color: var(--muted); }
+    .req-ac {
+      margin: 4px 0 0;
+      padding-left: 18px;
+      font-size: 14px;
+      color: var(--text);
+    }
+    .req-ac li { margin-bottom: 4px; }
+
+    /* Scope Table */
+    .scope-cols {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+    @media (max-width: 900px) { .scope-cols { grid-template-columns: 1fr; } }
+    .scope-box {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 22px;
+    }
+    .scope-box h3 {
+      font-family: "Barlow Condensed", sans-serif;
+      font-size: 24px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .scope-box ul { margin: 0; padding-left: 18px; font-size: 15px; }
+    .scope-box li { margin-bottom: 8px; }
+
+    @media print {
+      .jump-bar, .print-btn { display: none !important; }
+      .section { padding: 24px 0; page-break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="doc-header">
+    <div class="wrap doc-header__grid">
+      <div>
+        <div class="doc-kicker">
+          <span class="checker"></span>
+          <span>STAKEHOLDER REVIEW PACK · WRTC 2030 CROATIA (HRS / 9A)</span>
+        </div>
+        <h1 class="doc-title">Website Requirements &amp; Scope Summary</h1>
+        <p class="doc-sub">
+          A single-page executive overview of all Functional Requirements (FR-1 to FR-12), Visual &amp; UX Decisions (Proposal 1), Phase 1 MVP Scope, and Explicit Exclusions for Organizing Committee sign-off.
+        </p>
+      </div>
+      <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;">
+        <a href="requirements-review-briefing-hr.html" style="display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,0.14);border:1px solid rgba(255,255,255,0.3);color:#ffffff;text-decoration:none;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;padding:10px 14px;border-radius:6px;">HR Verzija →</a>
+        <button class="print-btn" onclick="window.print()">Print / Save as PDF</button>
+      </div>
+    </div>
+  </header>
+  <div class="checker-ribbon"></div>
+
+  <nav class="jump-bar">
+    <div class="wrap jump-bar__inner">
+      <span>JUMP TO:</span>
+      <a href="#summary">1. Executive Scope (In vs. Out)</a>
+      <a href="#functional">2. Functional Requirements (FR-1 – FR-12)</a>
+      <a href="#ux-brand">3. Croatian Visual Identity (Proposal 1)</a>
+      <a href="#quality">4. Technical &amp; Quality Standards (NFRs)</a>
+      <a href="#questions">5. Open Questions for WRTC OC</a>
+    </div>
+  </nav>
+
+  <main class="wrap">
+
+    <!-- 1. EXECUTIVE SCOPE SUMMARY -->
+    <section class="section" id="summary">
+      <div class="section-head">
+        <div>
+          <div class="section-kicker"><span class="checker"></span>1. EXECUTIVE SCOPE BOUNDARIES</div>
+          <h2 class="section-title">What We Are Building Now vs. Later vs. Never</h2>
+        </div>
+      </div>
+
+      <div class="scope-cols">
+        <div class="scope-box" style="border-top: 4px solid var(--green);">
+          <h3 style="color: var(--green);">✓ Phase 1 MVP (Build Now — 2026)</h3>
+          <ul>
+            <li><strong>Official Brand &amp; Dual-Theme Shell:</strong> Official `wrtc2030.hr` SVG logos (Day &amp; Night), Proposal 1 *"Kockice &amp; 9A Airwaves"* hero, and neat red checker placements.</li>
+            <li><strong>Interactive Qualification Standings (`/competition/standings/`):</strong> Filter by all 29 Qualifying Areas (QAs), Sub-Areas, callsign search, visual Cutoff Line, and Operator Score Breakdown Drawer.</li>
+            <li><strong>Selection Rules v1.0 Hub (`/competition/selection-rules/`):</strong> All 3 tabs (Rules, Q&amp;A, Score Examples), sticky TOC (Sections 1–11), Tables 1–7, and 3 official PDF downloads.</li>
+            <li><strong>24-Contest Qualifying Calendar (`/competition/qualifying-events/`):</strong> Full schedule from `#1 9A DX Contest` (Dec 19–20, 2026) to `#24 CQ WW CW` (Nov 2028).</li>
+            <li><strong>Croatia &amp; Slavonia Venue Guide (`/croatia-slavonia/`):</strong> Why Slavonia's flat Pannonian plain is ideal for 60 identical stations + Osijek, Đakovo, Čepin &amp; Kopački Rit guide.</li>
+            <li><strong>News, OC Roster (11 Members), Past WRTCs (1990–2026) &amp; Clean Static Sponsors Page.</strong></li>
+          </ul>
+        </div>
+
+        <div class="scope-box" style="border-top: 4px solid var(--amber);">
+          <h3 style="color: var(--amber);">⏳ Phase 2 (Deferred to 2028–2030)</h3>
+          <ul>
+            <li><strong>Team Leader Application Portal (Late 2028):</strong> Needed after Qualifying Event #24 (Nov 2028) when qualified Team Leaders formally apply and name their teammates.</li>
+            <li><strong>Sponsored Team Applications (Jan 2029):</strong> Per Rule 8.D, the application process for the 4 Sponsored Teams opens after <strong>1 January 2029</strong>.</li>
+            <li><strong>Referee, Volunteer &amp; Pileup Portals (2029–2030):</strong> Operational forms and pileup award leaderboards for Championship Week.</li>
+            <li><strong>Live July 2030 Scoreboard:</strong> Real-time 24-hour contest scoreboard during the championship weekend in Slavonia.</li>
+          </ul>
+        </div>
+
+        <div class="scope-box" style="border-top: 4px solid var(--red);">
+          <h3 style="color: var(--red);">✕ Explicitly Excluded (Not Needed)</h3>
+          <ul>
+            <li><strong>No Interactive 60-Tent Picking Grid:</strong> Visitors and sponsors do <em>not</em> click or reserve individual tents on a map.</li>
+            <li><strong>No Crowdfunding Bars or Online Bidding Widgets:</strong> No fundraising progress bars, live auctions, or payment checkouts on the site.</li>
+            <li><strong>No External Contest Log Adjudication:</strong> Raw contest logs (`Cabrillo`) are adjudicated by each contest sponsor; the website imports the official calculated standings snapshots.</li>
+            <li><strong>No Public User Login Required:</strong> All standings, breakdowns, and rules are openly accessible without accounts.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. FUNCTIONAL REQUIREMENTS (FR-1 TO FR-12) -->
+    <section class="section" id="functional">
+      <div class="section-head">
+        <div>
+          <div class="section-kicker"><span class="checker"></span>2. FUNCTIONAL REQUIREMENTS (12 CORE CAPABILITIES)</div>
+          <h2 class="section-title">Detailed Feature Requirements (FR-1 through FR-12)</h2>
+        </div>
+      </div>
+
+      <div class="req-grid">
+        <article class="req-card req-card--red">
+          <div class="req-card__top">
+            <span class="req-id">FR-1</span>
+            <span class="req-route">Global Header &amp; Footer</span>
+          </div>
+          <h3 class="req-title">Official WRTC 2030 Croatia SVG Logo &amp; Day | Night Theme</h3>
+          <p class="req-desc">Uses the exact official `wrtc-logo.svg` (Day) and `wrtc-logo-white.svg` (Night) from `wrtc2030.hr` with a zero-flash Day/Night theme switcher.</p>
+          <ul class="req-ac">
+            <li>Preserves `#273B8F` Royal Blue, `#ED1C24` Checker Red, and `#0D1333` Shack Navy.</li>
+            <li>Remembers user preference in `localStorage` (`wrtc2030-theme`).</li>
+          </ul>
+        </article>
+
+        <article class="req-card req-card--red">
+          <div class="req-card__top">
+            <span class="req-id">FR-2</span>
+            <span class="req-route">Design System (Proposal 1)</span>
+          </div>
+          <h3 class="req-title">Croatian Checker Motifs ("Dynamic Kockice &amp; 9A Airwaves")</h3>
+          <p class="req-desc">Weaves the Croatian red checker pattern neatly across the site without visual clutter.</p>
+          <ul class="req-ac">
+            <li>Hero features stepped red/white Kockice mosaic + concentric `9A` radio propagation rings.</li>
+            <li>Includes `2×2` `.checker` kickers, `5-square` `.checker-five` card marks (matching the logo), and `12px` `.checker-ribbon` section dividers.</li>
+          </ul>
+        </article>
+
+        <article class="req-card">
+          <div class="req-card__top">
+            <span class="req-id">FR-3</span>
+            <span class="req-route">/competition/standings/</span>
+          </div>
+          <h3 class="req-title">29 Qualifying Areas (QA) Filter, Callsign Search &amp; Cutoff Line</h3>
+          <p class="req-desc">Interactive leaderboard allowing contesters to track qualification across all 29 global regions (`EU #1–#9`, `NA #1–#11`, `AS #1–#4`, `AF`, `SA #1–#2`, `OC #1–#2`) and Youth.</p>
+          <ul class="req-ac">
+            <li>Instant (`&lt; 50ms`) filter by QA, Sub-Area, or operator callsign (`9A5W`, `DL1AAA`).</li>
+            <li>Automatically draws the red **Qualification Cutoff Line** below Rank $N$ for the selected QA's team quota.</li>
+            <li>Deep-linkable URLs (`?qa=EU-6&amp;call=9A`) for sharing on reflectors.</li>
+          </ul>
+        </article>
+
+        <article class="req-card">
+          <div class="req-card__top">
+            <span class="req-id">FR-4</span>
+            <span class="req-route">/competition/standings/</span>
+          </div>
+          <h3 class="req-title">Operator Score Breakdown Drawer &amp; Pre-Season View</h3>
+          <p class="req-desc">Clicking any operator row opens a detailed breakdown of the contests counted toward their Qualification Score.</p>
+          <ul class="req-ac">
+            <li>Shows each counted contest, mode (`CW`/`SSB`/`Mixed`), category (`Single-Op`/`Multi-Op`), weighting factor, and score points.</li>
+            <li>Prior to Event #1 adjudication, displays a clean **Pre-Season Quota &amp; Countdown View**.</li>
+          </ul>
+        </article>
+
+        <article class="req-card">
+          <div class="req-card__top">
+            <span class="req-id">FR-5</span>
+            <span class="req-route">/competition/selection-rules/</span>
+          </div>
+          <h3 class="req-title">Selection Rules v1.0, Q&amp;A, Score Examples &amp; 3 PDFs</h3>
+          <p class="req-desc">Preserves 100% of the official Selection Rules v1.0 document, Q&amp;A, and Score Calculation Examples with a sticky sidebar.</p>
+          <ul class="req-ac">
+            <li>3 switchable tabs + collapsible numbered Table of Contents (`Sections 1–11`).</li>
+            <li>All 7 official tables rendered with monospace callsign/numeric alignment.</li>
+            <li>Direct download card for the 3 official PDF files.</li>
+          </ul>
+        </article>
+
+        <article class="req-card">
+          <div class="req-card__top">
+            <span class="req-id">FR-6</span>
+            <span class="req-route">/competition/qualifying-events/</span>
+          </div>
+          <h3 class="req-title">Interactive 24-Contest Qualifying Calendar (2026–2028)</h3>
+          <p class="req-desc">Visual schedule of all 24 Qualifying Events from `#1 9A DX Contest` (Dec 19–20, 2026) to `#24 CQ WW DX CW` (Nov 2028).</p>
+          <ul class="req-ac">
+            <li>Filter by status (`Upcoming` vs `Completed / Standings Published`), mode, and Table 2 weight.</li>
+            <li>Powers the live **"Next Qualifying Event"** banner on the homepage.</li>
+          </ul>
+        </article>
+
+        <article class="req-card">
+          <div class="req-card__top">
+            <span class="req-id">FR-7</span>
+            <span class="req-route">/croatia-slavonia/</span>
+          </div>
+          <h3 class="req-title">Slavonia Propagation Arena &amp; 60-Station Technical Profile</h3>
+          <p class="req-desc">Showcases why northeastern Croatia (Osijek, Čepin, Đakovo) was chosen as the championship arena.</p>
+          <ul class="req-ac">
+            <li>Highlights the flat Pannonian plain (0° take-off angle, 85–110m ASL elevation) and 100% identical 60-station field setup.</li>
+          </ul>
+        </article>
+
+        <article class="req-card">
+          <div class="req-card__top">
+            <span class="req-id">FR-8</span>
+            <span class="req-route">/croatia-slavonia/</span>
+          </div>
+          <h3 class="req-title">Host Cities (`Osijek · Čepin · Đakovo`) &amp; Visitor Guide</h3>
+          <p class="req-desc">Welcomes international competitors, referees, and visiting families to Slavonia and Croatia.</p>
+          <ul class="req-ac">
+            <li>Features Osijek (Tvrđa baroque fortress, Drava riverfront), Đakovo (Cathedral &amp; Lipizzaner Stud Farm), Čepin, and Kopački Rit Nature Park, plus airport/highway arrival routes.</li>
+          </ul>
+        </article>
+
+        <article class="req-card">
+          <div class="req-card__top">
+            <span class="req-id">FR-9</span>
+            <span class="req-route">/news/ &amp; /feed.xml</span>
+          </div>
+          <h3 class="req-title">Structured News &amp; Official Announcements Feed</h3>
+          <p class="req-desc">Chronological news hub with individual article permalinks, category tags, social preview cards, and RSS feed.</p>
+          <ul class="req-ac">
+            <li>Seeded with the Oct 3, 2026 Poreč announcement, Oct 16 notice, and Oct 19 Selection Rules v1.0 approval.</li>
+          </ul>
+        </article>
+
+        <article class="req-card">
+          <div class="req-card__top">
+            <span class="req-id">FR-10</span>
+            <span class="req-route">/sponsors/</span>
+          </div>
+          <h3 class="req-title">Clean, Dignified Sponsors &amp; Partners Recognition</h3>
+          <p class="req-desc">Static tier recognition modelled on `wrtc2026.org` without any crowdfunding or tent-picking gimmicks.</p>
+          <ul class="req-ac">
+            <li>Recognizes Institutional Host (`HRS`), Commercial Partners, Club &amp; DX Foundations, and Individual Donors, with inquiry CTA to `wrtc2030@hamradio.hr`.</li>
+          </ul>
+        </article>
+
+        <article class="req-card">
+          <div class="req-card__top">
+            <span class="req-id">FR-11</span>
+            <span class="req-route">/ &amp; /about/</span>
+          </div>
+          <h3 class="req-title">Organizing Committee Roster (11) &amp; Past WRTC Archive (1990–2026)</h3>
+          <p class="req-desc">Preserves the complete 11-member WRTC 2030 Organizing Committee (`9A4M` Mate Botica and team) and historical archive of all 9 past WRTC editions.</p>
+        </article>
+
+        <article class="req-card">
+          <div class="req-card__top">
+            <span class="req-id">FR-12</span>
+            <span class="req-route">scripts/import-standings.ts</span>
+          </div>
+          <h3 class="req-title">One-Step Validated Standings Upload (CSV / JSON)</h3>
+          <p class="req-desc">Allows the WRTC OC IT/Scoring team (`9A3XV` / `9A5W`) to publish updated standings after each contest by dropping a CSV or JSON file.</p>
+          <ul class="req-ac">
+            <li>Automated `Zod` schema validation verifies all 29 QAs, quotas, and scores at build time so broken data can never go live.</li>
+          </ul>
+        </article>
+
+        <article class="req-card req-card--red">
+          <div class="req-card__top">
+            <span class="req-id">FR-13</span>
+            <span class="req-route">Global Widget + /api/chat</span>
+          </div>
+          <h3 class="req-title">AI Assistant (WRTC Rules &amp; Croatia/Slavonia Concierge)</h3>
+          <p class="req-desc">On-page AI Assistant that answers questions about website content/rules as well as Croatia &amp; Slavonia tourism, accommodations, and local food.</p>
+          <ul class="req-ac">
+            <li>Answers Selection Rules v1.0, Q&amp;A, and 24-contest questions (citing exact rule sections).</li>
+            <li>Answers Osijek, Đakovo, Čepin &amp; Croatia tourism, hotel/accommodation, food (*kulen*, *fiš paprikaš*, *čobanac*), and airport travel questions.</li>
+          </ul>
+        </article>
+
+        <article class="req-card req-card--red">
+          <div class="req-card__top">
+            <span class="req-id">FR-14</span>
+            <span class="req-route">netlify.toml + GitHub Actions</span>
+          </div>
+          <h3 class="req-title">GitHub → Netlify CI/CD Deployment Pipeline</h3>
+          <p class="req-desc">Automated build, data schema verification, testing, and deployment to Netlify directly from GitHub.</p>
+          <ul class="req-ac">
+            <li>Runs TypeScript typecheck, `Zod` standings validation, and tests on every push/PR before publishing Preview &amp; Production builds to Netlify.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- 3. TECHNICAL & QUALITY STANDARDS -->
+    <section class="section" id="quality">
+      <div class="section-head">
+        <div>
+          <div class="section-kicker"><span class="checker"></span>3. QUALITY &amp; TECHNICAL STANDARDS (NFR-1 TO NFR-3)</div>
+          <h2 class="section-title">Performance, Accessibility &amp; Architecture</h2>
+        </div>
+      </div>
+
+      <div class="scope-cols">
+        <div class="scope-box">
+          <h3><span class="checker"></span>NFR-1: Speed &amp; Traffic Spikes</h3>
+          <p style="font-size:15px; color:var(--muted);">
+            Built with <strong>Next.js 15 Static Generation (SSG)</strong>. Every page is pre-rendered to static edge HTML (`&lt; 200ms` load time worldwide) so post-contest traffic spikes cost nothing and never crash a database.
+          </p>
+        </div>
+        <div class="scope-box">
+          <h3><span class="checker"></span>NFR-2: Callsign Legibility &amp; WCAG AA</h3>
+          <p style="font-size:15px; color:var(--muted);">
+            All callsigns (`9A4M`, `DJ5MW`), QA codes, and scores use `JetBrains Mono` with slashed zero (`0` vs `O`) and `tabular-nums` alignment. Both Day and Night modes pass <strong>WCAG 2.1 AA</strong> contrast.
+          </p>
+        </div>
+        <div class="scope-box">
+          <h3><span class="checker"></span>NFR-3: Zero Tracking Cookies</h3>
+          <p style="font-size:15px; color:var(--muted);">
+            Operates with zero third-party tracking cookies, meaning visitors are never interrupted by annoying GDPR cookie popups when checking standings or rules.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. OPEN QUESTIONS FOR STAKEHOLDERS -->
+    <section class="section" id="questions" style="border-bottom:0;">
+      <div class="section-head">
+        <div>
+          <div class="section-kicker"><span class="checker"></span>4. STAKEHOLDER DISCUSSION ITEMS</div>
+          <h2 class="section-title">2 Questions to Review with Your Stakeholders</h2>
+        </div>
+      </div>
+
+      <div class="req-grid">
+        <div class="req-card">
+          <div class="req-card__top"><span class="req-id">QUESTION 1</span><span class="req-route">Photography &amp; Media</span></div>
+          <h3 class="req-title">Official Photos from Poreč &amp; Slavonia</h3>
+          <p class="req-desc">
+            Which official photos from the Oct 3, 2026 Poreč announcement (`HRS` ceremony) and regional photos of Osijek (`Tvrđa`), Đakovo, and Čepin would the Organizing Committee like featured on the Homepage and `/croatia-slavonia/` venue page?
+          </p>
+        </div>
+        <div class="req-card">
+          <div class="req-card__top"><span class="req-id">QUESTION 2</span><span class="req-route">Scoring Export Format</span></div>
+          <h3 class="req-title">Standings Export File Format (CSV vs. JSON)</h3>
+          <p class="req-desc">
+            When the first Qualification Standings are calculated after the `9A DX Contest` (Dec 19–20, 2026), what exact columns/format will the scoring script export? (Our importer supports both CSV and JSON and can be tailored to match `9A3XV`'s exact export format).
+          </p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+</body>
+</html>

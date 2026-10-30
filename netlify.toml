@@ -1,0 +1,23 @@
+# WRTC 2030 Croatia (wrtc2030.hr) — Netlify Configuration (AD-8 / FR-14)
+# During the Stakeholder Review phase, publishes the live Stakeholder & Site Preview Portal (`docs/`).
+# When Astro 5 build begins in Epic 1 Story 1.1, `command = "npm run build"` and `publish = "dist"` take over.
+
+[build]
+  publish = "docs"
+  command = "echo 'Publishing WRTC 2030 Stakeholder Review Portal & Interactive Site Preview'"
+
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
+
+[[redirects]]
+  from = "/api/chat"
+  to = "/.netlify/functions/chat"
+  status = 200
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
