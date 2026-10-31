@@ -5,6 +5,11 @@ import {
   CommitteeListSchema,
   PastEventListSchema,
 } from '../src/lib/schemas/homepage-data.schema';
+import {
+  NewsArticleSchema,
+  NewsFrontmatterSchema,
+} from '../src/lib/schemas/news.schema';
+import { parseMarkdownFrontmatter } from '../src/lib/news-loader';
 
 const ROOT = process.cwd();
 
@@ -25,6 +30,7 @@ export function validateAssets(rootDir: string = ROOT): {
   pdfsChecked: number;
   committeeMembersChecked: number;
   pastEventsChecked: number;
+  newsArticlesChecked: number;
 } {
   for (const relPath of REQUIRED_SVGS) {
     const fullPath = path.join(rootDir, relPath);
@@ -72,11 +78,31 @@ export function validateAssets(rootDir: string = ROOT): {
     JSON.parse(fs.readFileSync(pastEventsPath, 'utf8'))
   );
 
+  const newsDir = path.join(rootDir, 'content/news');
+  if (!fs.existsSync(newsDir)) {
+    throw new Error('Missing required directory: content/news');
+  }
+  const newsFiles = fs.readdirSync(newsDir).filter((file) => file.endsWith('.md'));
+  if (newsFiles.length === 0) {
+    throw new Error('No news articles found in content/news');
+  }
+
+  for (const filename of newsFiles) {
+    const raw = fs.readFileSync(path.join(newsDir, filename), 'utf8');
+    const { frontmatter, content } = parseMarkdownFrontmatter(raw);
+    const parsedFrontmatter = NewsFrontmatterSchema.parse(frontmatter);
+    NewsArticleSchema.parse({
+      ...parsedFrontmatter,
+      content,
+    });
+  }
+
   return {
     svgsChecked: REQUIRED_SVGS.length,
     pdfsChecked: REQUIRED_PDFS.length,
     committeeMembersChecked: committeeData.length,
     pastEventsChecked: pastEventsData.length,
+    newsArticlesChecked: newsFiles.length,
   };
 }
 
@@ -86,6 +112,6 @@ if (
 ) {
   const result = validateAssets();
   console.log(
-    `[validate:data] OK — verified ${result.svgsChecked} official brand SVGs, ${result.pdfsChecked} Selection Rules v1.0 PDFs, ${result.committeeMembersChecked} OC members in data/committee.json, and ${result.pastEventsChecked} Past WRTC editions in data/past-events.json.`
+    `[validate:data] OK — verified ${result.svgsChecked} official brand SVGs, ${result.pdfsChecked} Selection Rules v1.0 PDFs, ${result.committeeMembersChecked} OC members, ${result.pastEventsChecked} Past WRTCs, and ${result.newsArticlesChecked} news articles.`
   );
 }

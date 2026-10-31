@@ -2,7 +2,9 @@
 title: 'Story 1.3: Structured News & Official Announcements Feed (/news/, /news/[slug]/ & /feed.xml)'
 type: 'feature'
 created: '2026-10-31'
-status: 'ready-for-dev'
+status: 'done'
+baseline_revision: '605e9821313b580e4dfb61907a92309b81a83187'
+followup_review_recommended: false
 route: 'dispatch'
 review_loop_iteration: 0
 context:
@@ -59,11 +61,11 @@ context:
 ## Tasks & Acceptance
 
 **Execution:**
-- [ ] `content/news/*.md`, `src/lib/schemas/news.schema.ts`, `src/lib/news-loader.ts` -- Author seed news articles, `Zod` schema, and server news loader -- Satisfies `FR-9`.
-- [ ] `tests/unit/news-engine.test.tsx`, `tests/e2e/news-feed.spec.ts` -- Author failing unit tests and Playwright E2E tests verifying article listing, category filtering, permalink rendering, 404 on invalid slug, and RSS feed -- Enforces TDD Red phase.
-- [ ] `src/app/news/page.tsx`, `src/app/news/[slug]/page.tsx`, `src/app/feed.xml/route.ts` -- Implement news index, static article permalinks, and `/feed.xml` Route Handler -- Satisfies `FR-9`, `NFR-1`.
-- [ ] `src/app/page.tsx` -- Update homepage `#news` section to dynamically display latest news articles from loader -- Satisfies `FR-9`.
-- [ ] `scripts/validate-data.ts` -- Add news article validation to `npm run validate:data` verifying all Markdown articles pass schema -- Satisfies `FR-9`, `AD-8`.
+- [x] `content/news/*.md`, `src/lib/schemas/news.schema.ts`, `src/lib/news-loader.ts` -- Author seed news articles, `Zod` schema, and server news loader -- Satisfies `FR-9`.
+- [x] `tests/unit/news-engine.test.tsx`, `tests/e2e/news-feed.spec.ts` -- Author failing unit tests and Playwright E2E tests verifying article listing, category filtering, permalink rendering, 404 on invalid slug, and RSS feed -- Enforces TDD Red phase.
+- [x] `src/app/news/page.tsx`, `src/app/news/[slug]/page.tsx`, `src/app/feed.xml/route.ts` -- Implement news index, static article permalinks, and `/feed.xml` Route Handler -- Satisfies `FR-9`, `NFR-1`.
+- [x] `src/app/page.tsx` -- Update homepage `#news` section to dynamically display latest news articles from loader -- Satisfies `FR-9`.
+- [x] `scripts/validate-data.ts` -- Add news article validation to `npm run validate:data` verifying all Markdown articles pass schema -- Satisfies `FR-9`, `AD-8`.
 
 **Acceptance Criteria:**
 - Given `content/news/` contains seed markdown files, when `getAllNewsPosts()` is called, then articles are returned sorted newest-first with valid categories and parsed frontmatter (`FR-9`).
@@ -73,9 +75,61 @@ context:
 
 ## Implementation Notes
 
+- Seeded 3 official historical WRTC 2030 announcements in `content/news/`: Poreč Host Award (2026-10-03), Selection Rules Verification Notice (2026-10-16), and Selection Rules v1.0 Approval (2026-10-19).
+- Created `src/lib/schemas/news.schema.ts` defining strict `Zod` validation for frontmatter, categories, and article content.
+- Created `src/lib/news-loader.ts` with zero external dependencies to parse markdown frontmatter, sort posts descending by date, retrieve individual posts by slug, and generate valid RSS 2.0 XML with CDATA wrappers.
+- Implemented `/news/` index with `NewsExplorer` interactive category filtering pills and Proposal 1 checker brand aesthetics.
+- Implemented static permalinks at `/news/[slug]/` using `generateStaticParams()` and Next.js 15 asynchronous `params`.
+- Implemented static Route Handler at `/feed.xml` returning valid RSS 2.0 XML with `Content-Type: application/xml`.
+- Connected homepage news ribbon `#news` to render the latest announcements from `getAllNewsPosts().slice(0, 2)` with links to full articles and dispatches index.
+- Extended `scripts/validate-data.ts` to validate that all articles in `content/news/` parse and satisfy `NewsArticleSchema`.
+
 ## Spec Change Log
 
+None.
+
 ## Review Triage Log
+
+### 2026-10-31 — Review pass
+- verdicts: 0 findings — high 0, medium 0, low 0, false 0, maybe-false 0
+- findings: none
+
+## Auto Run Result
+
+**Status:** done
+
+**Summary:**
+Implemented the complete structured News & Official Announcements engine for WRTC 2030 Croatia (`wrtc2030.hr`). Added canonical seed announcements, a `Zod` validation schema, server-side markdown loader, client-side category filtering explorer, static news index page (`/news`), static article permalink routes (`/news/[slug]`), RSS 2.0 XML feed (`/feed.xml`), and dynamic homepage news ribbon connection (`#news`).
+
+**Files Changed:**
+- `content/news/2026-10-03-hrs-awarded-wrtc-2030-in-slavonia.md` -- Official Poreč host award announcement
+- `content/news/2026-10-16-qualification-rules-deferral-notice.md` -- Rules verification & QA quotas notice
+- `content/news/2026-10-19-wrtc-2030-selection-rules-v1-approved.md` -- Selection Rules v1.0 approval and 9A DX Contest release
+- `src/lib/schemas/news.schema.ts` -- Zod schema for news article frontmatter and content
+- `src/lib/news-loader.ts` -- Markdown frontmatter parser, post loader, and RSS XML generator
+- `src/components/news/NewsExplorer.tsx` -- Interactive category filter pills and article cards grid
+- `src/app/news/page.tsx` -- Static news index page with RSS feed link
+- `src/app/news/[slug]/page.tsx` -- Static article permalink with breadcrumbs, author, date, and markdown body
+- `src/app/feed.xml/route.ts` -- Static RSS 2.0 XML Route Handler
+- `src/app/page.tsx` -- Connected homepage news ribbon `#news` to dynamic loader
+- `src/app/globals.css` -- Added Proposal 1 styling for `.news-ribbon`, `.news-cards`, and `.news-card`
+- `scripts/validate-data.ts` -- Added news articles verification to `npm run validate:data`
+- `tests/unit/news-engine.test.tsx` -- Unit tests for schemas, loader, frontmatter parsing, and RSS generation
+- `tests/e2e/news-feed.spec.ts` -- Playwright E2E tests for `/news`, `/news/[slug]`, `/feed.xml`, and category filtering
+
+**Review Findings Breakdown:**
+- 0 findings (all checks and edge cases verified)
+- Follow-up review recommended: false
+
+**Verification Performed:**
+- `npm run validate:data`: verified 3 official brand SVGs, 3 Selection Rules v1.0 PDFs, 11 OC members, 10 Past WRTCs, and 3 news articles.
+- `npm run typecheck`: `tsc --noEmit` exited 0 with 0 errors.
+- `npm run test:unit`: 22/22 Vitest tests passed across 3 test suites.
+- `npm run build`: static pre-rendering of `/`, `/news`, `/news/[slug]`, and `/feed.xml` succeeded with 0 errors.
+- `npm run test:e2e`: 22/22 Playwright tests passed across Desktop Chrome (`1440×900`) and Mobile iPhone (`375×812`).
+
+**Residual Risks:**
+None. All routes compile statically and meet zero-cookie privacy, zero-FOUC, and mobile phone ergonomics constraints.
 
 ## Verification
 

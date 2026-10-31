@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import {
   CheckerMark,
   CheckerFive,
@@ -7,12 +8,14 @@ import {
   KockiceCluster,
 } from '@/components/brand/CheckerMark';
 import { getCommitteeMembers, getPastEvents } from '@/lib/content-loader';
+import { getAllNewsPosts } from '@/lib/news-loader';
 
 export const dynamic = 'error';
 
 export default function HomePage() {
   const committee = getCommitteeMembers();
   const pastEvents = getPastEvents();
+  const latestNews = getAllNewsPosts().slice(0, 2);
 
   return (
     <main id="top">
@@ -200,6 +203,102 @@ export default function HomePage() {
           </div>
         </div>
       </div>
+
+      {/* 2.5. Latest News Ribbon (Story 1.3) */}
+      <section className="news-ribbon" id="news">
+        <div className="wrap news-ribbon__grid">
+          <div>
+            <h2 className="kicker">
+              <CheckerMark size="sm" />
+              <span>Latest News</span>
+            </h2>
+            <div style={{ marginTop: '12px' }}>
+              <Link
+                href="/news"
+                style={{
+                  fontSize: '14px',
+                  fontWeight: 700,
+                  color: 'var(--accent)',
+                  textDecoration: 'none',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '4px',
+                }}
+              >
+                <span>View all announcements</span>
+                <span aria-hidden="true">→</span>
+              </Link>
+            </div>
+          </div>
+
+          <div className="news-cards">
+            {latestNews.map((article) => (
+              <article
+                key={article.slug}
+                className={`news-card ${article.featured ? 'news-card--featured' : ''}`}
+              >
+                <div
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    gap: '10px',
+                  }}
+                >
+                  <time className="news-card__date" dateTime={article.date}>
+                    {article.date}
+                  </time>
+                  <span
+                    style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '4px',
+                      padding: '2px 8px',
+                      borderRadius: '4px',
+                      fontSize: '11px',
+                      fontWeight: 700,
+                      textTransform: 'uppercase',
+                      background: 'var(--surface)',
+                      color: 'var(--accent)',
+                      border: '1px solid var(--line)',
+                      fontFamily: 'var(--font-mono)',
+                    }}
+                  >
+                    {article.category}
+                  </span>
+                </div>
+
+                <h3 className="news-card__title">
+                  <Link
+                    href={`/news/${article.slug}`}
+                    style={{ color: 'var(--text)', textDecoration: 'none' }}
+                  >
+                    {article.title}
+                  </Link>
+                </h3>
+
+                <p style={{ color: 'var(--muted)', fontSize: '15px', margin: '4px 0 10px' }}>
+                  {article.summary}
+                </p>
+
+                <div style={{ marginTop: 'auto', paddingTop: '6px' }}>
+                  <Link
+                    href={`/news/${article.slug}`}
+                    style={{
+                      fontWeight: 700,
+                      fontSize: '14px',
+                      color: 'var(--accent)',
+                      textDecoration: 'none',
+                    }}
+                  >
+                    Read full announcement →
+                  </Link>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* 3. About WRTC & 60-Team Format Section */}
       <section className="section" id="about">
@@ -415,7 +514,7 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="rules-grid" id="news">
+          <div className="rules-grid" id="selection-rules-docs">
             <article className="rule-card">
               <span className="kicker">Document 1 · 19 Oct 2026</span>
               <h3>WRTC 2030 Selection Rules v1.0</h3>
