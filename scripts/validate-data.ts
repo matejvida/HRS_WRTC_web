@@ -15,6 +15,7 @@ import {
   WeightingFactorsSchema,
   SpecialTeamListSchema,
 } from '../src/lib/schemas/rules.schema';
+import { StandingsSnapshotSchema } from '../src/lib/schemas/standings.schema';
 import { parseMarkdownFrontmatter } from '../src/lib/news-loader';
 
 const ROOT = process.cwd();
@@ -40,6 +41,7 @@ export function validateAssets(rootDir: string = ROOT): {
   rulesEventsChecked: number;
   qualifyingAreasChecked: number;
   specialTeamsChecked: number;
+  standingsAreasChecked: number;
 } {
   for (const relPath of REQUIRED_SVGS) {
     const fullPath = path.join(rootDir, relPath);
@@ -139,6 +141,14 @@ export function validateAssets(rootDir: string = ROOT): {
     JSON.parse(fs.readFileSync(specialPath, 'utf8'))
   );
 
+  const simStandingsPath = path.join(rootDir, 'data/standings/example-simulation.json');
+  if (!fs.existsSync(simStandingsPath)) {
+    throw new Error('Missing required dataset: data/standings/example-simulation.json');
+  }
+  const standingsData = StandingsSnapshotSchema.parse(
+    JSON.parse(fs.readFileSync(simStandingsPath, 'utf8'))
+  );
+
   return {
     svgsChecked: REQUIRED_SVGS.length,
     pdfsChecked: REQUIRED_PDFS.length,
@@ -148,6 +158,7 @@ export function validateAssets(rootDir: string = ROOT): {
     rulesEventsChecked: events.length,
     qualifyingAreasChecked: qas.length,
     specialTeamsChecked: special.length,
+    standingsAreasChecked: standingsData.areas.length,
   };
 }
 
@@ -157,6 +168,6 @@ if (
 ) {
   const result = validateAssets();
   console.log(
-    `[validate:data] OK — verified ${result.svgsChecked} brand SVGs, ${result.pdfsChecked} Selection Rules PDFs, ${result.committeeMembersChecked} OC members, ${result.pastEventsChecked} Past WRTCs, ${result.newsArticlesChecked} news articles, ${result.rulesEventsChecked} qualifying events, ${result.qualifyingAreasChecked} QAs (50 slots), and ${result.specialTeamsChecked} special team categories.`
+    `[validate:data] OK — verified ${result.svgsChecked} brand SVGs, ${result.pdfsChecked} Selection Rules PDFs, ${result.committeeMembersChecked} OC members, ${result.pastEventsChecked} Past WRTCs, ${result.newsArticlesChecked} news articles, ${result.rulesEventsChecked} qualifying events, ${result.qualifyingAreasChecked} QAs (50 slots), ${result.specialTeamsChecked} special team categories, and ${result.standingsAreasChecked} simulation standings areas.`
   );
 }

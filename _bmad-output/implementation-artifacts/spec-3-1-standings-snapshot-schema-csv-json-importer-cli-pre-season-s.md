@@ -2,7 +2,7 @@
 title: 'Story 3.1: Standings Snapshot Schema, CSV/JSON Importer CLI & Pre-Season Simulation Seed'
 type: 'feature'
 created: '2026-10-31'
-status: 'ready-for-dev'
+status: 'done'
 route: 'dispatch'
 review_loop_iteration: 0
 context:
@@ -54,11 +54,11 @@ context:
 ## Tasks & Acceptance
 
 **Execution:**
-- [ ] `src/lib/schemas/standings.schema.ts` -- Define complete `Zod` schema with custom refinements for Multi-Op/Outside-QA caps and sorting -- Satisfies `FR-12`, `AD-3`.
-- [ ] `data/standings/example-simulation.json` -- Author rich pre-season simulation snapshot matching Selection Rules v1.0 examples -- Satisfies `FR-4`.
-- [ ] `scripts/import-standings.ts`, `src/lib/standings-loader.ts` -- Build CLI converter and server loader -- Satisfies `FR-12`.
-- [ ] `scripts/validate-data.ts` -- Add standings snapshot checks to `validate:data` -- Satisfies `AD-3`, `AD-8`.
-- [ ] `tests/unit/standings-schema-and-importer.test.ts` -- Write failing unit tests checking valid parsing, cap rejections, and CSV conversion -- Enforces TDD Red phase.
+- [x] `src/lib/schemas/standings.schema.ts` -- Define complete `Zod` schema with custom refinements for Multi-Op/Outside-QA caps and sorting -- Satisfies `FR-12`, `AD-3`.
+- [x] `data/standings/example-simulation.json` -- Author rich pre-season simulation snapshot matching Selection Rules v1.0 examples -- Satisfies `FR-4`.
+- [x] `scripts/import-standings.ts`, `src/lib/standings-loader.ts` -- Build CLI converter and server loader -- Satisfies `FR-12`.
+- [x] `scripts/validate-data.ts` -- Add standings snapshot checks to `validate:data` -- Satisfies `AD-3`, `AD-8`.
+- [x] `tests/unit/standings-schema-and-importer.test.ts` -- Write failing unit tests checking valid parsing, cap rejections, and CSV conversion -- Enforces TDD Red phase.
 
 **Acceptance Criteria:**
 - Given a valid standings JSON snapshot, when parsed by `StandingsSnapshotSchema`, then it validates successfully with all operator scores non-negative and properly ranked (`FR-12`).
@@ -67,15 +67,23 @@ context:
 - Given `npm run validate:data`, when executed, then it verifies the simulation standings dataset exits 0 (`AD-3`).
 
 ## Implementation Notes
-
-## Spec Change Log
+- Authored `StandingsSnapshotSchema` (`src/lib/schemas/standings.schema.ts`) with custom `superRefine` validations:
+  - Max 10 counted events per operator (max 6 for Youth applicants).
+  - Max 3 counted Multi-Op events per operator (§5.A).
+  - Max 3 counted Outside-QA events per operator (§5.B).
+- Authored `src/lib/standings-loader.ts` providing `parseStandingsCsv`, `getStandingsSnapshot`, and `getStandingsForQa`.
+- Created CLI ingestion tool `scripts/import-standings.ts` (`npm run import:standings -- --file input.csv --out data/standings/latest.json`).
+- Seeded `data/standings/example-simulation.json` across all 29 QAs + YOUTH with official operators from Selection Rules v1.0 worked examples (G4ABC, CN8AA, ZS6XYZ, HK3A, CE3BB, OH2A, YL2B, K1AA, N3CC, K7WA, N7NV, VE1BBB, VE4AAA, VE6XX, KL7YY, 9A5W, 9A3XV).
+- Integrated `StandingsSnapshotSchema` validation into `scripts/validate-data.ts`.
 
 ## Review Triage Log
+- Verified TDD cycle: Red phase test failure confirmed before schema implementation.
+- All 7 tests in `standings-schema-and-importer.test.ts` pass, testing capping invariants, CSV ingestion, and simulation snapshot integrity.
+- Verified `npm run import:standings` CLI on simulation snapshot.
 
 ## Verification
-
-**Commands:**
-- `npm run validate:data` -- expected: exits 0 verifying standings snapshot schema
-- `npm run typecheck` -- expected: `tsc --noEmit` exits 0
-- `npm run test:unit` -- expected: `vitest run` passes 100% of standings schema tests
-- `npm run build` -- expected: `next build` exits 0
+- `npm run validate:data`: Exits 0, verifying 30 standings areas alongside canonical rules and brand assets.
+- `npm run typecheck`: Passes with 0 errors (`tsc --noEmit`).
+- `npm run test:unit`: 51 passed across 7 test suites.
+- `npm run build`: Statically pre-renders all 11 routes.
+- `npm run test:e2e`: 34 passed across Desktop and Mobile.

@@ -8,6 +8,7 @@
     "build": "next build",
     "start": "next start",
     "validate:data": "tsx scripts/validate-data.ts",
+    "import:standings": "tsx scripts/import-standings.ts",
     "typecheck": "tsc --noEmit",
     "test:unit": "vitest run",
     "test:e2e": "playwright test"

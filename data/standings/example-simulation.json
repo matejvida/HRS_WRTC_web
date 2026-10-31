@@ -1,0 +1,1299 @@
+{
+  "version": "1.0.0",
+  "generatedAt": "2026-10-31T07:39:40.765Z",
+  "description": "Official Pre-Season Simulation Snapshot seeded with Selection Rules v1.0 Worked Examples",
+  "areas": [
+    {
+      "qaCode": "EU #1",
+      "qaName": "Northern Europe & Baltic",
+      "allocatedTeams": 2,
+      "standings": [
+        {
+          "callsign": "YL2B",
+          "name": "Arturs",
+          "country": "Latvia",
+          "dxcc": "YL",
+          "qaCode": "EU #1",
+          "subAreaCode": "EU-1-SOUTH",
+          "rank": 1,
+          "totalPoints": 486,
+          "countedEventsCount": 1,
+          "entries": [
+            {
+              "eventId": 8,
+              "contestName": "WAE DX CW 2027",
+              "category": "MS",
+              "isMultiOp": true,
+              "isOutsideQa": false,
+              "weightingFactor": 0.9,
+              "rawScore": 3000000,
+              "qaMaxScore": 5000000,
+              "calculatedPoints": 486,
+              "isCounted": true
+            }
+          ]
+        },
+        {
+          "callsign": "OH2A",
+          "name": "Juha",
+          "country": "Finland",
+          "dxcc": "OH",
+          "qaCode": "EU #1",
+          "subAreaCode": "EU-1-NORTH",
+          "rank": 2,
+          "totalPoints": 405,
+          "countedEventsCount": 1,
+          "entries": [
+            {
+              "eventId": 8,
+              "contestName": "WAE DX CW 2027",
+              "category": "MS",
+              "isMultiOp": true,
+              "isOutsideQa": false,
+              "weightingFactor": 0.9,
+              "rawScore": 2000000,
+              "qaMaxScore": 4000000,
+              "calculatedPoints": 405,
+              "isCounted": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "qaCode": "EU #2",
+      "qaName": "Western Europe (France, Benelux, Monaco)",
+      "allocatedTeams": 2,
+      "standings": [
+        {
+          "callsign": "3A1WRTC",
+          "name": "Operator",
+          "country": "Europe",
+          "dxcc": "3A",
+          "qaCode": "EU #2",
+          "rank": 1,
+          "totalPoints": 850,
+          "countedEventsCount": 1,
+          "entries": [
+            {
+              "eventId": 1,
+              "contestName": "9A DX Contest 2026",
+              "category": "SO HP",
+              "isMultiOp": false,
+              "isOutsideQa": false,
+              "weightingFactor": 1,
+              "rawScore": 2550000,
+              "qaMaxScore": 3000000,
+              "calculatedPoints": 850,
+              "isCounted": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "qaCode": "EU #3",
+      "qaName": "Central Europe (Germany, Austria, Czechia, Denmark, Switzerland)",
+      "allocatedTeams": 4,
+      "standings": [
+        {
+          "callsign": "DL1WRTC",
+          "name": "Operator",
+          "country": "Europe",
+          "dxcc": "DL",
+          "qaCode": "EU #3",
+          "rank": 1,
+          "totalPoints": 850,
+          "countedEventsCount": 1,
+          "entries": [
+            {
+              "eventId": 1,
+              "contestName": "9A DX Contest 2026",
+              "category": "SO HP",
+              "isMultiOp": false,
+              "isOutsideQa": false,
+              "weightingFactor": 1,
+              "rawScore": 2550000,
+              "qaMaxScore": 3000000,
+              "calculatedPoints": 850,
+              "isCounted": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "qaCode": "EU #4",
+      "qaName": "Iberia & Atlantic (Portugal, Spain, Gibraltar)",
+      "allocatedTeams": 2,
+      "standings": [
+        {
+          "callsign": "CT1WRTC",
+          "name": "Operator",
+          "country": "Europe",
+          "dxcc": "CT",
+          "qaCode": "EU #4",
+          "rank": 1,
+          "totalPoints": 850,
+          "countedEventsCount": 1,
+          "entries": [
+            {
+              "eventId": 1,
+              "contestName": "9A DX Contest 2026",
+              "category": "SO HP",
+              "isMultiOp": false,
+              "isOutsideQa": false,
+              "weightingFactor": 1,
+              "rawScore": 2550000,
+              "qaMaxScore": 3000000,
+              "calculatedPoints": 850,
+              "isCounted": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "qaCode": "EU #5",
+      "qaName": "Central Mediterranean (Italy, Malta, San Marino)",
+      "allocatedTeams": 2,
+      "standings": [
+        {
+          "callsign": "9H1WRTC",
+          "name": "Operator",
+          "country": "Europe",
+          "dxcc": "9H",
+          "qaCode": "EU #5",
+          "rank": 1,
+          "totalPoints": 850,
+          "countedEventsCount": 1,
+          "entries": [
+            {
+              "eventId": 1,
+              "contestName": "9A DX Contest 2026",
+              "category": "SO HP",
+              "isMultiOp": false,
+              "isOutsideQa": false,
+              "weightingFactor": 1,
+              "rawScore": 2550000,
+              "qaMaxScore": 3000000,
+              "calculatedPoints": 850,
+              "isCounted": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "qaCode": "EU #6",
+      "qaName": "Southeastern Europe & Balkans",
+      "allocatedTeams": 4,
+      "standings": [
+        {
+          "callsign": "9A5W",
+          "name": "Nikola",
+          "country": "Croatia",
+          "dxcc": "9A",
+          "qaCode": "EU #6",
+          "rank": 1,
+          "totalPoints": 950,
+          "countedEventsCount": 1,
+          "entries": [
+            {
+              "eventId": 1,
+              "contestName": "9A DX Contest 2026",
+              "category": "SO HP",
+              "isMultiOp": false,
+              "isOutsideQa": false,
+              "weightingFactor": 1,
+              "rawScore": 2850000,
+              "qaMaxScore": 3000000,
+              "calculatedPoints": 950,
+              "isCounted": true
+            }
+          ]
+        },
+        {
+          "callsign": "9A3XV",
+          "name": "Hrvoje",
+          "country": "Croatia",
+          "dxcc": "9A",
+          "qaCode": "EU #6",
+          "rank": 2,
+          "totalPoints": 890,
+          "countedEventsCount": 1,
+          "entries": [
+            {
+              "eventId": 1,
+              "contestName": "9A DX Contest 2026",
+              "category": "SO LP",
+              "isMultiOp": false,
+              "isOutsideQa": false,
+              "weightingFactor": 0.9,
+              "rawScore": 1980000,
+              "qaMaxScore": 2000000,
+              "calculatedPoints": 890,
+              "isCounted": true
+            }
+          ]
+        },
+        {
+          "callsign": "9A1AA",
+          "name": "Ivo",
+          "country": "Croatia",
+          "dxcc": "9A",
+          "qaCode": "EU #6",
+          "rank": 3,
+          "totalPoints": 840,
+          "countedEventsCount": 1,
+          "entries": [
+            {
+              "eventId": 1,
+              "contestName": "9A DX Contest 2026",
+              "category": "SO HP",
+              "isMultiOp": false,
+              "isOutsideQa": false,
+              "weightingFactor": 1,
+              "rawScore": 2520000,
+              "qaMaxScore": 3000000,
+              "calculatedPoints": 840,
+              "isCounted": true
+            }
+          ]
+        },
+        {
+          "callsign": "9A2EU",
+          "name": "Mirko",
+          "country": "Croatia",
+          "dxcc": "9A",
+          "qaCode": "EU #6",
+          "rank": 4,
+          "totalPoints": 810,
+          "countedEventsCount": 1,
+          "entries": [
+            {
+              "eventId": 1,
+              "contestName": "9A DX Contest 2026",
+              "category": "SOA LP",
+              "isMultiOp": false,
+              "isOutsideQa": false,
+              "weightingFactor": 0.9,
+              "rawScore": 1800000,
+              "qaMaxScore": 2000000,
+              "calculatedPoints": 810,
+              "isCounted": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "qaCode": "EU #7",
+      "qaName": "Eastern Europe (European Russia, Belarus)",
+      "allocatedTeams": 2,
+      "standings": [
+        {
+          "callsign": "EU1WRTC",
+          "name": "Operator",
+          "country": "Europe",
+          "dxcc": "EU",
+          "qaCode": "EU #7",
+          "rank": 1,
+          "totalPoints": 850,
+          "countedEventsCount": 1,
+          "entries": [
+            {
+              "eventId": 1,
+              "contestName": "9A DX Contest 2026",
+              "category": "SO HP",
+              "isMultiOp": false,
+              "isOutsideQa": false,
+              "weightingFactor": 1,
+              "rawScore": 2550000,
+              "qaMaxScore": 3000000,
+              "calculatedPoints": 850,
+              "isCounted": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "qaCode": "EU #8",
+      "qaName": "British Isles (UK, Ireland)",
+      "allocatedTeams": 2,
+      "standings": [
+        {
+          "callsign": "G4ABC",
+          "name": "George",
+          "country": "England",
+          "dxcc": "G",
+          "qaCode": "EU #8",
+          "rank": 1,
+          "totalPoints": 1090.1,
+          "countedEventsCount": 2,
+          "entries": [
+            {
+              "eventId": 4,
+              "contestName": "CQ WPX CW 2027",
+              "category": "M2",
+              "isMultiOp": true,
+              "isOutsideQa": false,
+              "weightingFactor": 0.85,
+              "rawScore": 3000000,
+              "qaMaxScore": 4000000,
+              "calculatedPoints": 605.6,
+              "isCounted": true
+            },
+            {
+              "eventId": 12,
+              "contestName": "CQ WW CW 2027",
+              "category": "SO HP",
+              "isMultiOp": false,
+              "isOutsideQa": true,
+              "weightingFactor": 1,
+              "rawScore": 4000000,
+              "qaMaxScore": 8250000,
+              "calculatedPoints": 484.5,
+              "isCounted": true
+            }
+          ]
+        },
+        {
+          "callsign": "M0XXX",
+          "name": "David",
+          "country": "England",
+          "dxcc": "G",
+          "qaCode": "EU #8",
+          "rank": 2,
+          "totalPoints": 920,
+          "countedEventsCount": 1,
+          "entries": [
+            {
+              "eventId": 1,
+              "contestName": "9A DX Contest 2026",
+              "category": "SO HP",
+              "isMultiOp": false,
+              "isOutsideQa": false,
+              "weightingFactor": 1,
+              "rawScore": 2300000,
+              "qaMaxScore": 2500000,
+              "calculatedPoints": 920,
+              "isCounted": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "qaCode": "EU #9",
+      "qaName": "Central-Eastern Europe (Poland, Ukraine, Hungary, Slovakia, Moldova)",
+      "allocatedTeams": 3,
+      "standings": [
+        {
+          "callsign": "ER1WRTC",
+          "name": "Operator",
+          "country": "Europe",
+          "dxcc": "ER",
+          "qaCode": "EU #9",
+          "rank": 1,
+          "totalPoints": 850,
+          "countedEventsCount": 1,
+          "entries": [
+            {
+              "eventId": 1,
+              "contestName": "9A DX Contest 2026",
+              "category": "SO HP",
+              "isMultiOp": false,
+              "isOutsideQa": false,
+              "weightingFactor": 1,
+              "rawScore": 2550000,
+              "qaMaxScore": 3000000,
+              "calculatedPoints": 850,
+              "isCounted": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "qaCode": "NA #1",
+      "qaName": "Northeastern US (W1, W2, W3, 4U1UN)",
+      "allocatedTeams": 3,
+      "standings": [
+        {
+          "callsign": "N3CC",
+          "name": "Charles",
+          "country": "United States",
+          "dxcc": "K",
+          "qaCode": "NA #1",
+          "subAreaCode": "NA-1-W3",
+          "rank": 1,
+          "totalPoints": 800,
+          "countedEventsCount": 1,
+          "entries": [
+            {
+              "eventId": 7,
+              "contestName": "IARU HF Championship 2027",
+              "category": "SO HP",
+              "isMultiOp": false,
+              "isOutsideQa": false,
+              "weightingFactor": 1,
+              "rawScore": 2000000,
+              "qaMaxScore": 2500000,
+              "calculatedPoints": 800,
+              "isCounted": true
+            }
+          ]
+        },
+        {
+          "callsign": "K1AA",
+          "name": "Robert",
+          "country": "United States",
+          "dxcc": "K",
+          "qaCode": "NA #1",
+          "subAreaCode": "NA-1-W1",
+          "rank": 2,
+          "totalPoints": 750,
+          "countedEventsCount": 1,
+          "entries": [
+            {
+              "eventId": 7,
+              "contestName": "IARU HF Championship 2027",
+              "category": "SO HP",
+              "isMultiOp": false,
+              "isOutsideQa": false,
+              "weightingFactor": 1,
+              "rawScore": 3000000,
+              "qaMaxScore": 4000000,
+              "calculatedPoints": 750,
+              "isCounted": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "qaCode": "NA #2",
+      "qaName": "US Mid-Atlantic / Upper South (W4 North)",
+      "allocatedTeams": 1,
+      "standings": [
+        {
+          "callsign": "W41WRTC",
+          "name": "Operator",
+          "country": "North America",
+          "dxcc": "W4",
+          "qaCode": "NA #2",
+          "rank": 1,
+          "totalPoints": 850,
+          "countedEventsCount": 1,
+          "entries": [
+            {
+              "eventId": 1,
+              "contestName": "9A DX Contest 2026",
+              "category": "SO HP",
+              "isMultiOp": false,
+              "isOutsideQa": false,
+              "weightingFactor": 1,
+              "rawScore": 2550000,
+              "qaMaxScore": 3000000,
+              "calculatedPoints": 850,
+              "isCounted": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "qaCode": "NA #3",
+      "qaName": "US Deep South & Florida (W4 South)",
+      "allocatedTeams": 1,
+      "standings": [
+        {
+          "callsign": "W41WRTC",
+          "name": "Operator",
+          "country": "North America",
+          "dxcc": "W4",
+          "qaCode": "NA #3",
+          "rank": 1,
+          "totalPoints": 850,
+          "countedEventsCount": 1,
+          "entries": [
+            {
+              "eventId": 1,
+              "contestName": "9A DX Contest 2026",
+              "category": "SO HP",
+              "isMultiOp": false,
+              "isOutsideQa": false,
+              "weightingFactor": 1,
+              "rawScore": 2550000,
+              "qaMaxScore": 3000000,
+              "calculatedPoints": 850,
+              "isCounted": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "qaCode": "NA #4",
+      "qaName": "US Gulf & Southwest (W5)",
+      "allocatedTeams": 1,
+      "standings": [
+        {
+          "callsign": "W51WRTC",
+          "name": "Operator",
+          "country": "North America",
+          "dxcc": "W5",
+          "qaCode": "NA #4",
+          "rank": 1,
+          "totalPoints": 850,
+          "countedEventsCount": 1,
+          "entries": [
+            {
+              "eventId": 1,
+              "contestName": "9A DX Contest 2026",
+              "category": "SO HP",
+              "isMultiOp": false,
+              "isOutsideQa": false,
+              "weightingFactor": 1,
+              "rawScore": 2550000,
+              "qaMaxScore": 3000000,
+              "calculatedPoints": 850,
+              "isCounted": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "qaCode": "NA #5",
+      "qaName": "US Pacific (W6 - California)",
+      "allocatedTeams": 2,
+      "standings": [
+        {
+          "callsign": "W61WRTC",
+          "name": "Operator",
+          "country": "North America",
+          "dxcc": "W6",
+          "qaCode": "NA #5",
+          "rank": 1,
+          "totalPoints": 850,
+          "countedEventsCount": 1,
+          "entries": [
+            {
+              "eventId": 1,
+              "contestName": "9A DX Contest 2026",
+              "category": "SO HP",
+              "isMultiOp": false,
+              "isOutsideQa": false,
+              "weightingFactor": 1,
+              "rawScore": 2550000,
+              "qaMaxScore": 3000000,
+              "calculatedPoints": 850,
+              "isCounted": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "qaCode": "NA #6",
+      "qaName": "US Mountain & Pacific Northwest (W7)",
+      "allocatedTeams": 1,
+      "standings": [
+        {
+          "callsign": "N7NV",
+          "name": "Mark",
+          "country": "United States",
+          "dxcc": "K",
+          "qaCode": "NA #6",
+          "subAreaCode": "NA-6-SOUTH",
+          "rank": 1,
+          "totalPoints": 720,
+          "countedEventsCount": 1,
+          "entries": [
+            {
+              "eventId": 6,
+              "contestName": "All Asian DX Contest CW 2027",
+              "category": "SO LP",
+              "isMultiOp": false,
+              "isOutsideQa": false,
+              "weightingFactor": 0.9,
+              "rawScore": 800000,
+              "qaMaxScore": 800000,
+              "calculatedPoints": 720,
+              "isCounted": true
+            }
+          ]
+        },
+        {
+          "callsign": "K7WA",
+          "name": "William",
+          "country": "United States",
+          "dxcc": "K",
+          "qaCode": "NA #6",
+          "subAreaCode": "NA-6-NORTH",
+          "rank": 2,
+          "totalPoints": 360,
+          "countedEventsCount": 1,
+          "entries": [
+            {
+              "eventId": 6,
+              "contestName": "All Asian DX Contest CW 2027",
+              "category": "SO LP",
+              "isMultiOp": false,
+              "isOutsideQa": false,
+              "weightingFactor": 0.9,
+              "rawScore": 500000,
+              "qaMaxScore": 1000000,
+              "calculatedPoints": 360,
+              "isCounted": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "qaCode": "NA #7",
+      "qaName": "US Great Lakes (W8)",
+      "allocatedTeams": 1,
+      "standings": [
+        {
+          "callsign": "W81WRTC",
+          "name": "Operator",
+          "country": "North America",
+          "dxcc": "W8",
+          "qaCode": "NA #7",
+          "rank": 1,
+          "totalPoints": 850,
+          "countedEventsCount": 1,
+          "entries": [
+            {
+              "eventId": 1,
+              "contestName": "9A DX Contest 2026",
+              "category": "SO HP",
+              "isMultiOp": false,
+              "isOutsideQa": false,
+              "weightingFactor": 1,
+              "rawScore": 2550000,
+              "qaMaxScore": 3000000,
+              "calculatedPoints": 850,
+              "isCounted": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "qaCode": "NA #8",
+      "qaName": "US Midwest (W9)",
+      "allocatedTeams": 1,
+      "standings": [
+        {
+          "callsign": "W91WRTC",
+          "name": "Operator",
+          "country": "North America",
+          "dxcc": "W9",
+          "qaCode": "NA #8",
+          "rank": 1,
+          "totalPoints": 850,
+          "countedEventsCount": 1,
+          "entries": [
+            {
+              "eventId": 1,
+              "contestName": "9A DX Contest 2026",
+              "category": "SO HP",
+              "isMultiOp": false,
+              "isOutsideQa": false,
+              "weightingFactor": 1,
+              "rawScore": 2550000,
+              "qaMaxScore": 3000000,
+              "calculatedPoints": 850,
+              "isCounted": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "qaCode": "NA #9",
+      "qaName": "US Plains (W0)",
+      "allocatedTeams": 1,
+      "standings": [
+        {
+          "callsign": "W01WRTC",
+          "name": "Operator",
+          "country": "North America",
+          "dxcc": "W0",
+          "qaCode": "NA #9",
+          "rank": 1,
+          "totalPoints": 850,
+          "countedEventsCount": 1,
+          "entries": [
+            {
+              "eventId": 1,
+              "contestName": "9A DX Contest 2026",
+              "category": "SO HP",
+              "isMultiOp": false,
+              "isOutsideQa": false,
+              "weightingFactor": 1,
+              "rawScore": 2550000,
+              "qaMaxScore": 3000000,
+              "calculatedPoints": 850,
+              "isCounted": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "qaCode": "NA #10",
+      "qaName": "Canada & Alaska (VE, KL7)",
+      "allocatedTeams": 3,
+      "standings": [
+        {
+          "callsign": "KL7YY",
+          "name": "James",
+          "country": "Alaska",
+          "dxcc": "KL",
+          "qaCode": "NA #10",
+          "subAreaCode": "NA-10-KL7",
+          "rank": 1,
+          "totalPoints": 765,
+          "countedEventsCount": 1,
+          "entries": [
+            {
+              "eventId": 2,
+              "contestName": "ARRL International DX Contest CW 2027",
+              "category": "M2",
+              "isMultiOp": true,
+              "isOutsideQa": false,
+              "weightingFactor": 0.85,
+              "rawScore": 2000000,
+              "qaMaxScore": 2000000,
+              "calculatedPoints": 765,
+              "isCounted": true
+            }
+          ]
+        },
+        {
+          "callsign": "VE6XX",
+          "name": "Dan",
+          "country": "Canada",
+          "dxcc": "VE",
+          "qaCode": "NA #10",
+          "subAreaCode": "NA-10-REST",
+          "rank": 2,
+          "totalPoints": 612,
+          "countedEventsCount": 1,
+          "entries": [
+            {
+              "eventId": 2,
+              "contestName": "ARRL International DX Contest CW 2027",
+              "category": "M2",
+              "isMultiOp": true,
+              "isOutsideQa": false,
+              "weightingFactor": 0.85,
+              "rawScore": 4000000,
+              "qaMaxScore": 5000000,
+              "calculatedPoints": 612,
+              "isCounted": true
+            }
+          ]
+        },
+        {
+          "callsign": "VE1BBB",
+          "name": "Brian",
+          "country": "Canada",
+          "dxcc": "VE",
+          "qaCode": "NA #10",
+          "subAreaCode": "NA-10-REST",
+          "rank": 3,
+          "totalPoints": 540,
+          "countedEventsCount": 1,
+          "entries": [
+            {
+              "eventId": 3,
+              "contestName": "ARRL International DX Contest SSB 2027",
+              "category": "SO LP",
+              "isMultiOp": false,
+              "isOutsideQa": false,
+              "weightingFactor": 0.9,
+              "rawScore": 2000000,
+              "qaMaxScore": 3000000,
+              "calculatedPoints": 540,
+              "isCounted": true
+            }
+          ]
+        },
+        {
+          "callsign": "VE4AAA",
+          "name": "Alex",
+          "country": "Canada",
+          "dxcc": "VE",
+          "qaCode": "NA #10",
+          "subAreaCode": "NA-10-REST",
+          "rank": 4,
+          "totalPoints": 540,
+          "countedEventsCount": 1,
+          "entries": [
+            {
+              "eventId": 3,
+              "contestName": "ARRL International DX Contest SSB 2027",
+              "category": "SO LP",
+              "isMultiOp": false,
+              "isOutsideQa": false,
+              "weightingFactor": 0.9,
+              "rawScore": 1000000,
+              "qaMaxScore": 1500000,
+              "calculatedPoints": 540,
+              "isCounted": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "qaCode": "NA #11",
+      "qaName": "Caribbean & Central America",
+      "allocatedTeams": 1,
+      "standings": [
+        {
+          "callsign": "CQ1WRTC",
+          "name": "Operator",
+          "country": "North America",
+          "dxcc": "CQ",
+          "qaCode": "NA #11",
+          "rank": 1,
+          "totalPoints": 850,
+          "countedEventsCount": 1,
+          "entries": [
+            {
+              "eventId": 1,
+              "contestName": "9A DX Contest 2026",
+              "category": "SO HP",
+              "isMultiOp": false,
+              "isOutsideQa": false,
+              "weightingFactor": 1,
+              "rawScore": 2550000,
+              "qaMaxScore": 3000000,
+              "calculatedPoints": 850,
+              "isCounted": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "qaCode": "AS #1",
+      "qaName": "North & Central Asia (Asiatic Russia, Kazakhstan)",
+      "allocatedTeams": 1,
+      "standings": [
+        {
+          "callsign": "CQ1WRTC",
+          "name": "Operator",
+          "country": "Asia",
+          "dxcc": "CQ",
+          "qaCode": "AS #1",
+          "rank": 1,
+          "totalPoints": 850,
+          "countedEventsCount": 1,
+          "entries": [
+            {
+              "eventId": 1,
+              "contestName": "9A DX Contest 2026",
+              "category": "SO HP",
+              "isMultiOp": false,
+              "isOutsideQa": false,
+              "weightingFactor": 1,
+              "rawScore": 2550000,
+              "qaMaxScore": 3000000,
+              "calculatedPoints": 850,
+              "isCounted": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "qaCode": "AS #2",
+      "qaName": "Middle East & Caucasus",
+      "allocatedTeams": 1,
+      "standings": [
+        {
+          "callsign": "CQ1WRTC",
+          "name": "Operator",
+          "country": "Asia",
+          "dxcc": "CQ",
+          "qaCode": "AS #2",
+          "rank": 1,
+          "totalPoints": 850,
+          "countedEventsCount": 1,
+          "entries": [
+            {
+              "eventId": 1,
+              "contestName": "9A DX Contest 2026",
+              "category": "SO HP",
+              "isMultiOp": false,
+              "isOutsideQa": false,
+              "weightingFactor": 1,
+              "rawScore": 2550000,
+              "qaMaxScore": 3000000,
+              "calculatedPoints": 850,
+              "isCounted": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "qaCode": "AS #3",
+      "qaName": "South & East Asia (China, India, Southeast Asia)",
+      "allocatedTeams": 1,
+      "standings": [
+        {
+          "callsign": "CQ1WRTC",
+          "name": "Operator",
+          "country": "Asia",
+          "dxcc": "CQ",
+          "qaCode": "AS #3",
+          "rank": 1,
+          "totalPoints": 850,
+          "countedEventsCount": 1,
+          "entries": [
+            {
+              "eventId": 1,
+              "contestName": "9A DX Contest 2026",
+              "category": "SO HP",
+              "isMultiOp": false,
+              "isOutsideQa": false,
+              "weightingFactor": 1,
+              "rawScore": 2550000,
+              "qaMaxScore": 3000000,
+              "calculatedPoints": 850,
+              "isCounted": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "qaCode": "AS #4",
+      "qaName": "Far East Asia (Japan, Korea)",
+      "allocatedTeams": 2,
+      "standings": [
+        {
+          "callsign": "CQ1WRTC",
+          "name": "Operator",
+          "country": "Asia",
+          "dxcc": "CQ",
+          "qaCode": "AS #4",
+          "rank": 1,
+          "totalPoints": 850,
+          "countedEventsCount": 1,
+          "entries": [
+            {
+              "eventId": 1,
+              "contestName": "9A DX Contest 2026",
+              "category": "SO HP",
+              "isMultiOp": false,
+              "isOutsideQa": false,
+              "weightingFactor": 1,
+              "rawScore": 2550000,
+              "qaMaxScore": 3000000,
+              "calculatedPoints": 850,
+              "isCounted": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "qaCode": "AF #1",
+      "qaName": "Africa",
+      "allocatedTeams": 2,
+      "standings": [
+        {
+          "callsign": "ZS6XYZ",
+          "name": "Johan",
+          "country": "South Africa",
+          "dxcc": "ZS",
+          "qaCode": "AF #1",
+          "subAreaCode": "AF-1-SOUTH",
+          "rank": 1,
+          "totalPoints": 750,
+          "countedEventsCount": 1,
+          "entries": [
+            {
+              "eventId": 12,
+              "contestName": "CQ WW CW 2027",
+              "category": "SO HP",
+              "isMultiOp": false,
+              "isOutsideQa": false,
+              "weightingFactor": 1,
+              "rawScore": 3000000,
+              "qaMaxScore": 4000000,
+              "calculatedPoints": 750,
+              "isCounted": true
+            }
+          ]
+        },
+        {
+          "callsign": "CN8AA",
+          "name": "Karim",
+          "country": "Morocco",
+          "dxcc": "CN",
+          "qaCode": "AF #1",
+          "subAreaCode": "AF-1-NORTH",
+          "rank": 2,
+          "totalPoints": 625,
+          "countedEventsCount": 1,
+          "entries": [
+            {
+              "eventId": 12,
+              "contestName": "CQ WW CW 2027",
+              "category": "SO HP",
+              "isMultiOp": false,
+              "isOutsideQa": false,
+              "weightingFactor": 1,
+              "rawScore": 5000000,
+              "qaMaxScore": 8000000,
+              "calculatedPoints": 625,
+              "isCounted": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "qaCode": "SA #1",
+      "qaName": "Eastern South America (Brazil, Paraguay)",
+      "allocatedTeams": 1,
+      "standings": [
+        {
+          "callsign": "CQ1WRTC",
+          "name": "Operator",
+          "country": "South America",
+          "dxcc": "CQ",
+          "qaCode": "SA #1",
+          "rank": 1,
+          "totalPoints": 850,
+          "countedEventsCount": 1,
+          "entries": [
+            {
+              "eventId": 1,
+              "contestName": "9A DX Contest 2026",
+              "category": "SO HP",
+              "isMultiOp": false,
+              "isOutsideQa": false,
+              "weightingFactor": 1,
+              "rawScore": 2550000,
+              "qaMaxScore": 3000000,
+              "calculatedPoints": 850,
+              "isCounted": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "qaCode": "SA #2",
+      "qaName": "Northern, Western & Southern South America",
+      "allocatedTeams": 1,
+      "standings": [
+        {
+          "callsign": "HK3A",
+          "name": "Carlos",
+          "country": "Colombia",
+          "dxcc": "HK",
+          "qaCode": "SA #2",
+          "subAreaCode": "SA-2-NORTH",
+          "rank": 1,
+          "totalPoints": 855,
+          "countedEventsCount": 1,
+          "entries": [
+            {
+              "eventId": 5,
+              "contestName": "CQ WPX SSB 2027",
+              "category": "SOA LP",
+              "isMultiOp": false,
+              "isOutsideQa": false,
+              "weightingFactor": 0.9,
+              "rawScore": 6000000,
+              "qaMaxScore": 6000000,
+              "calculatedPoints": 855,
+              "isCounted": true
+            }
+          ]
+        },
+        {
+          "callsign": "CE3BB",
+          "name": "Mateo",
+          "country": "Chile",
+          "dxcc": "CE",
+          "qaCode": "SA #2",
+          "subAreaCode": "SA-2-SOUTH",
+          "rank": 2,
+          "totalPoints": 684,
+          "countedEventsCount": 1,
+          "entries": [
+            {
+              "eventId": 5,
+              "contestName": "CQ WPX SSB 2027",
+              "category": "SOA LP",
+              "isMultiOp": false,
+              "isOutsideQa": false,
+              "weightingFactor": 0.9,
+              "rawScore": 4000000,
+              "qaMaxScore": 5000000,
+              "calculatedPoints": 684,
+              "isCounted": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "qaCode": "OC #1",
+      "qaName": "Northern & Equatorial Oceania / Pacific",
+      "allocatedTeams": 1,
+      "standings": [
+        {
+          "callsign": "CQ1WRTC",
+          "name": "Operator",
+          "country": "Oceania",
+          "dxcc": "CQ",
+          "qaCode": "OC #1",
+          "rank": 1,
+          "totalPoints": 850,
+          "countedEventsCount": 1,
+          "entries": [
+            {
+              "eventId": 1,
+              "contestName": "9A DX Contest 2026",
+              "category": "SO HP",
+              "isMultiOp": false,
+              "isOutsideQa": false,
+              "weightingFactor": 1,
+              "rawScore": 2550000,
+              "qaMaxScore": 3000000,
+              "calculatedPoints": 850,
+              "isCounted": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "qaCode": "OC #2",
+      "qaName": "Southern Oceania (Australia, New Zealand, Pacific)",
+      "allocatedTeams": 1,
+      "standings": [
+        {
+          "callsign": "CQ1WRTC",
+          "name": "Operator",
+          "country": "Oceania",
+          "dxcc": "CQ",
+          "qaCode": "OC #2",
+          "rank": 1,
+          "totalPoints": 850,
+          "countedEventsCount": 1,
+          "entries": [
+            {
+              "eventId": 1,
+              "contestName": "9A DX Contest 2026",
+              "category": "SO HP",
+              "isMultiOp": false,
+              "isOutsideQa": false,
+              "weightingFactor": 1,
+              "rawScore": 2550000,
+              "qaMaxScore": 3000000,
+              "calculatedPoints": 850,
+              "isCounted": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "qaCode": "YOUTH",
+      "qaName": "Youth Teams (Under 25)",
+      "allocatedTeams": 3,
+      "standings": [
+        {
+          "callsign": "9A3YTH",
+          "name": "Luka",
+          "country": "Croatia",
+          "dxcc": "9A",
+          "qaCode": "YOUTH",
+          "rank": 1,
+          "totalPoints": 920,
+          "countedEventsCount": 1,
+          "entries": [
+            {
+              "eventId": 1,
+              "contestName": "9A DX Contest 2026",
+              "category": "SO HP",
+              "isMultiOp": false,
+              "isOutsideQa": false,
+              "weightingFactor": 1,
+              "rawScore": 2760000,
+              "qaMaxScore": 3000000,
+              "calculatedPoints": 920,
+              "isCounted": true
+            }
+          ]
+        },
+        {
+          "callsign": "DL1YTH",
+          "name": "Felix",
+          "country": "Germany",
+          "dxcc": "DL",
+          "qaCode": "YOUTH",
+          "rank": 2,
+          "totalPoints": 880,
+          "countedEventsCount": 1,
+          "entries": [
+            {
+              "eventId": 1,
+              "contestName": "9A DX Contest 2026",
+              "category": "SO HP",
+              "isMultiOp": false,
+              "isOutsideQa": false,
+              "weightingFactor": 1,
+              "rawScore": 2640000,
+              "qaMaxScore": 3000000,
+              "calculatedPoints": 880,
+              "isCounted": true
+            }
+          ]
+        },
+        {
+          "callsign": "W1YTH",
+          "name": "Sam",
+          "country": "United States",
+          "dxcc": "K",
+          "qaCode": "YOUTH",
+          "rank": 3,
+          "totalPoints": 810,
+          "countedEventsCount": 1,
+          "entries": [
+            {
+              "eventId": 1,
+              "contestName": "9A DX Contest 2026",
+              "category": "SO LP",
+              "isMultiOp": false,
+              "isOutsideQa": false,
+              "weightingFactor": 0.9,
+              "rawScore": 1800000,
+              "qaMaxScore": 2000000,
+              "calculatedPoints": 810,
+              "isCounted": true
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
