@@ -16,6 +16,7 @@ import {
   SpecialTeamListSchema,
 } from '../src/lib/schemas/rules.schema';
 import { StandingsSnapshotSchema } from '../src/lib/schemas/standings.schema';
+import { SponsorsDataSchema } from '../src/lib/schemas/sponsors.schema';
 import { parseMarkdownFrontmatter } from '../src/lib/news-loader';
 
 const ROOT = process.cwd();
@@ -42,6 +43,7 @@ export function validateAssets(rootDir: string = ROOT): {
   qualifyingAreasChecked: number;
   specialTeamsChecked: number;
   standingsAreasChecked: number;
+  sponsorTiersChecked: number;
 } {
   for (const relPath of REQUIRED_SVGS) {
     const fullPath = path.join(rootDir, relPath);
@@ -149,6 +151,14 @@ export function validateAssets(rootDir: string = ROOT): {
     JSON.parse(fs.readFileSync(simStandingsPath, 'utf8'))
   );
 
+  const sponsorsPath = path.join(rootDir, 'data/sponsors.json');
+  if (!fs.existsSync(sponsorsPath)) {
+    throw new Error('Missing required dataset: data/sponsors.json');
+  }
+  const sponsorsData = SponsorsDataSchema.parse(
+    JSON.parse(fs.readFileSync(sponsorsPath, 'utf8'))
+  );
+
   return {
     svgsChecked: REQUIRED_SVGS.length,
     pdfsChecked: REQUIRED_PDFS.length,
@@ -159,6 +169,7 @@ export function validateAssets(rootDir: string = ROOT): {
     qualifyingAreasChecked: qas.length,
     specialTeamsChecked: special.length,
     standingsAreasChecked: standingsData.areas.length,
+    sponsorTiersChecked: sponsorsData.tiers.length,
   };
 }
 
@@ -168,6 +179,6 @@ if (
 ) {
   const result = validateAssets();
   console.log(
-    `[validate:data] OK — verified ${result.svgsChecked} brand SVGs, ${result.pdfsChecked} Selection Rules PDFs, ${result.committeeMembersChecked} OC members, ${result.pastEventsChecked} Past WRTCs, ${result.newsArticlesChecked} news articles, ${result.rulesEventsChecked} qualifying events, ${result.qualifyingAreasChecked} QAs (50 slots), ${result.specialTeamsChecked} special team categories, and ${result.standingsAreasChecked} simulation standings areas.`
+    `[validate:data] OK — verified ${result.svgsChecked} brand SVGs, ${result.pdfsChecked} Selection Rules PDFs, ${result.committeeMembersChecked} OC members, ${result.pastEventsChecked} Past WRTCs, ${result.newsArticlesChecked} news articles, ${result.rulesEventsChecked} qualifying events, ${result.qualifyingAreasChecked} QAs (50 slots), ${result.specialTeamsChecked} special team categories, ${result.standingsAreasChecked} simulation standings areas, and ${result.sponsorTiersChecked} sponsor tiers.`
   );
 }

@@ -2,7 +2,7 @@
 title: 'Story 4.2: Clean, Dignified Static Sponsors & Partners Hub (/sponsors/)'
 type: 'feature'
 created: '2026-10-31'
-status: 'ready-for-dev'
+status: 'done'
 route: 'dispatch'
 review_loop_iteration: 0
 context:
@@ -54,10 +54,10 @@ context:
 ## Tasks & Acceptance
 
 **Execution:**
-- [ ] `data/sponsors.json`, `src/lib/schemas/sponsors.schema.ts` -- Create canonical sponsor tier dataset and schema -- Satisfies `FR-10`, `AD-6`.
-- [ ] `src/components/sponsors/SponsorTierGrid.tsx`, `src/components/sponsors/SponsoredTeamNotice.tsx` -- Implement clean presentational tier components -- Satisfies `FR-10`.
-- [ ] `src/app/sponsors/page.tsx` -- Assemble `/sponsors/` static route segment -- Satisfies `FR-10`, `NFR-1`.
-- [ ] `tests/unit/sponsors-hub.test.tsx`, `tests/e2e/sponsors.spec.ts` -- Author failing unit and E2E tests enforcing `AD-6` non-transactional invariants -- Enforces TDD Red phase.
+- [x] `data/sponsors.json`, `src/lib/schemas/sponsors.schema.ts` -- Create canonical sponsor tier dataset and schema -- Satisfies `FR-10`, `AD-6`.
+- [x] `src/components/sponsors/SponsorTierGrid.tsx`, `src/components/sponsors/SponsoredTeamNotice.tsx` -- Implement clean presentational tier components -- Satisfies `FR-10`.
+- [x] `src/app/sponsors/page.tsx` -- Assemble `/sponsors/` static route segment -- Satisfies `FR-10`, `NFR-1`.
+- [x] `tests/unit/sponsors-hub.test.tsx`, `tests/e2e/sponsors.spec.ts` -- Author failing unit and E2E tests enforcing `AD-6` non-transactional invariants -- Enforces TDD Red phase.
 
 **Acceptance Criteria:**
 - Given a visitor opens `/sponsors/`, when rendered, then the Institutional Host (HRS), Commercial Partners, Club Foundations, and Patron tiers are displayed with direct `mailto:wrtc2030@hamradio.hr` links (`FR-10`).
@@ -65,16 +65,18 @@ context:
 - Given the 2029 Sponsored Team notice, when viewed, then it cites Section 8.D of Selection Rules v1.0 and notes applications open after 1 January 2029 (`FR-10`).
 
 ## Implementation Notes
-
-## Spec Change Log
-
-## Review Triage Log
+- Created `data/sponsors.json` specifying Institutional Host (Hrvatski radioamaterski savez - HRS), Principal Partners, Equipment & Technology, Contest Clubs & Foundations, and Individual Patrons.
+- Created `src/lib/schemas/sponsors.schema.ts` and `src/lib/sponsors-loader.ts`, adding validation to `scripts/validate-data.ts`.
+- Implemented `<SponsorTierGrid />` and `<SponsoredTeamNotice />` adhering strictly to `AD-6` non-transactional requirements (zero payment forms, zero crowdfunding progress bars).
+- Formatted official Section 8.D notice for the 4 Sponsored Teams opening applications on 1 January 2029.
+- Built static route `/sponsors/` with `export const dynamic = 'error'`.
+- Updated navigation in `SiteHeader.tsx`.
 
 ## Verification
 
 **Commands:**
-- `npm run validate:data` -- expected: exits 0
-- `npm run typecheck` -- expected: `tsc --noEmit` exits 0
-- `npm run test:unit` -- expected: `vitest run` passes 100% of sponsor unit tests
-- `npm run build` -- expected: `next build` statically pre-renders `/sponsors/`
-- `npm run test:e2e` -- expected: `playwright test` passes all sponsor E2E tests
+- `npm run validate:data` -- verified: exits 0 (including 4 sponsor tiers)
+- `npm run typecheck` -- verified: `tsc --noEmit` exits 0
+- `npm run test:unit` -- verified: 73/73 unit tests pass across 11 test suites
+- `npm run build` -- verified: statically builds all 14 routes
+- `npm run test:e2e` -- verified: 58/58 Playwright E2E tests pass across Desktop Chrome and Mobile iPhone

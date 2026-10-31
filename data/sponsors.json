@@ -1,0 +1,103 @@
+{
+  "institutionalHost": {
+    "name": "Croatian Amateur Radio Association (HRS)",
+    "nativeName": "Hrvatski radioamaterski savez",
+    "acronym": "HRS",
+    "role": "Official Host Organization & National Amateur Radio Society of Croatia (IARU Member Society)",
+    "url": "https://www.hamradio.hr/",
+    "foundedYear": 1924,
+    "description": "Founded in 1924, Hrvatski radioamaterski savez (HRS) unites amateur radio clubs and operators across Croatia. HRS proudly presents WRTC 2030 in Slavonia under the auspices of the WRTC Sanctioning Committee."
+  },
+  "contactEmail": "wrtc2030@hamradio.hr",
+  "tiers": [
+    {
+      "id": "principal",
+      "title": "Principal Partners",
+      "badge": "Diamond Tier",
+      "description": "Leading global equipment manufacturers and corporate leaders providing foundational infrastructure for the 60 competition stations.",
+      "packageScope": "Transceivers, tower systems, directional yagi arrays, and synchronized power generation for 60 identical field stations.",
+      "inquirySubject": "Principal Partner Inquiry",
+      "partners": [
+        {
+          "id": "partner-opportunity-1",
+          "name": "Official Transceiver Partner",
+          "subtitle": "Equipment Category Leader",
+          "description": "Providing 120 synchronized transceivers ensuring identical receiver sensitivity, dynamic range, and filter skirts across all operating tents.",
+          "country": "International"
+        },
+        {
+          "id": "partner-opportunity-2",
+          "name": "Official Mast & Antenna Systems Partner",
+          "subtitle": "Field Hardware Leader",
+          "description": "Standardized 15-meter crank-up mast systems and matched triband directional yagi arrays engineered for uniform HF launch.",
+          "country": "International"
+        }
+      ]
+    },
+    {
+      "id": "equipment",
+      "title": "Equipment & Technology",
+      "badge": "Platinum & Gold Tier",
+      "description": "Specialized RF, cabling, network telemetry, and station hardware partners.",
+      "packageScope": "Low-loss coaxial feedlines, high-isolation bandpass filters, station automation, uninterruptible power, and referee telemetry systems.",
+      "inquirySubject": "Equipment Partner Inquiry",
+      "partners": [
+        {
+          "id": "tech-rf",
+          "name": "RF Filtration & Coaxial Partner",
+          "subtitle": "Interference Suppression",
+          "description": "Precision high-power bandpass filtration ensuring zero inter-station intermodulation across the 60 field sites.",
+          "country": "International"
+        },
+        {
+          "id": "tech-telemetry",
+          "name": "Contest Logging & Live Telemetry",
+          "subtitle": "Software & Networking",
+          "description": "Low-latency wireless station networking streaming score packets to the central scoring engine in Osijek.",
+          "country": "International"
+        }
+      ]
+    },
+    {
+      "id": "clubs",
+      "title": "Contest Clubs & DX Foundations",
+      "badge": "Radiosport Patronage",
+      "description": "International DX foundations, regional contest clubs, and amateur radio federations supporting youth participation and fair competition.",
+      "packageScope": "Support for the 3 Youth Teams (under 25), referee travel subsidies, and public radiosport promotion.",
+      "inquirySubject": "Contest Club & Foundation Inquiry",
+      "partners": [
+        {
+          "id": "club-dx-foundations",
+          "name": "Worldwide DX & Contest Foundations",
+          "subtitle": "Global Radiosport Patronage",
+          "description": "Supporting international radiosport fellowship, youth development, and referee travel logistics.",
+          "country": "Global"
+        },
+        {
+          "id": "club-hrs-local",
+          "name": "Slavonian Radio Clubs (9A1A, 9A1P, 9A5D, 9A7A)",
+          "subtitle": "Regional Volunteer Host Network",
+          "description": "Over 100 dedicated Croatian radio amateur volunteers providing local site preparation, antenna erection, and logistics.",
+          "country": "Croatia"
+        }
+      ]
+    },
+    {
+      "id": "patrons",
+      "title": "Individual Patrons & Donors",
+      "badge": "Honorary Benefactors",
+      "description": "Individual contesters and radiosport enthusiasts worldwide who cherish the heritage and sportsmanship of the World Radiosport Team Championship.",
+      "packageScope": "Personal acknowledgement in the official WRTC 2030 commemorative program, website donor roll, and commemorative donor pin.",
+      "inquirySubject": "Individual Patron Inquiry",
+      "partners": [
+        {
+          "id": "patrons-global",
+          "name": "WRTC 2030 International Patron Roll",
+          "subtitle": "Friends of WRTC",
+          "description": "Honoring individual operators across all 6 continents whose personal generosity empowers this historic edition in Slavonia.",
+          "country": "Worldwide"
+        }
+      ]
+    }
+  ]
+}
