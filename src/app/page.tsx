@@ -201,6 +201,18 @@ export default function HomePage() {
           <div className="ticker-meta font-mono-tabular">
             19–20 December 2026 UTC · EF 0.80
           </div>
+          <Link
+            href="/competition/qualifying-events"
+            style={{
+              marginLeft: 'auto',
+              fontWeight: 700,
+              fontSize: '13px',
+              color: 'var(--brand-red)',
+              whiteSpace: 'nowrap',
+            }}
+          >
+            Full 24-Contest Calendar →
+          </Link>
         </div>
       </div>
 

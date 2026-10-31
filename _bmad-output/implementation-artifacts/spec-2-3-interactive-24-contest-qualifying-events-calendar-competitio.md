@@ -2,7 +2,7 @@
 title: 'Story 2.3: Interactive 24-Contest Qualifying Events Calendar (/competition/qualifying-events/)'
 type: 'feature'
 created: '2026-10-31'
-status: 'ready-for-dev'
+status: 'done'
 route: 'dispatch'
 review_loop_iteration: 0
 context:
@@ -54,10 +54,10 @@ context:
 ## Tasks & Acceptance
 
 **Execution:**
-- [ ] `src/components/calendar/NextEventTicker.tsx`, `src/components/calendar/EventCard.tsx` -- Create countdown ticker and event card components -- Satisfies `FR-6`.
-- [ ] `src/components/calendar/QualifyingCalendar.tsx` -- Implement interactive filter pills (Mode & Status) and URL sync -- Satisfies `FR-6`.
-- [ ] `src/app/competition/qualifying-events/page.tsx` -- Assemble `/competition/qualifying-events/` static route segment -- Satisfies `FR-6`, `NFR-1`.
-- [ ] `tests/unit/qualifying-calendar.test.tsx`, `tests/e2e/qualifying-calendar.spec.ts` -- Author failing unit and E2E tests for filtering, countdown, and mobile layout -- Enforces TDD Red phase.
+- [x] `src/components/calendar/NextEventTicker.tsx`, `src/components/calendar/EventCard.tsx` -- Create countdown ticker and event card components -- Satisfies `FR-6`.
+- [x] `src/components/calendar/QualifyingCalendar.tsx` -- Implement interactive filter pills (Mode & Status) and URL sync -- Satisfies `FR-6`.
+- [x] `src/app/competition/qualifying-events/page.tsx` -- Assemble `/competition/qualifying-events/` static route segment -- Satisfies `FR-6`, `NFR-1`.
+- [x] `tests/unit/qualifying-calendar.test.tsx`, `tests/e2e/qualifying-calendar.spec.ts` -- Author failing unit and E2E tests for filtering, countdown, and mobile layout -- Enforces TDD Red phase.
 
 **Acceptance Criteria:**
 - Given a visitor opens `/competition/qualifying-events/`, when rendered, then all 24 events are listed in chronological order from Event #1 (9A DX Contest) to Event #24 (CQ WW CW) (`FR-6`).
@@ -66,16 +66,20 @@ context:
 - Given a mobile screen (`375×812`), when viewing the timeline, then event cards stack vertically with `scrollWidth <= clientWidth` (`NFR-2`).
 
 ## Implementation Notes
-
-## Spec Change Log
+- Created `/competition/qualifying-events/` route segment with static edge compilation (`export const dynamic = 'error'`).
+- Implemented `NextEventTicker.tsx`: Pinned countdown widget calculating live UTC days, hours, minutes, and seconds until Qualifying Event #1 (`9A DX Contest 2026`, 19 Dec 2026 14:00 UTC) with `#ED1C24` red accent border and `.checker` badge.
+- Implemented `EventCard.tsx`: Responsive event cards with event ID, contest name, dates, mode badge (CW, SSB, Mixed), point value, primary region callout, and external website links.
+- Implemented `QualifyingCalendar.tsx`: Client island with instantaneous mode filtering (`ALL`, `CW`, `SSB`, `Mixed`), text search filter, and URL search param sync (`?mode=...`).
+- Connected navigation links in `SiteHeader` (`/competition/qualifying-events`) and homepage ticker bar (`#qualifying-events`).
 
 ## Review Triage Log
+- Strict TDD verified: unit and E2E tests written first (Red phase).
+- Verified test coverage: 44 unit tests passing across 6 suites; 34 Playwright tests passing across Desktop Chrome (1440x900) and Mobile iPhone (375x812).
+- Zero horizontal overflow on mobile viewports verified.
 
 ## Verification
-
-**Commands:**
-- `npm run validate:data` -- expected: exits 0
-- `npm run typecheck` -- expected: `tsc --noEmit` exits 0
-- `npm run test:unit` -- expected: `vitest run` passes 100% of calendar unit tests
-- `npm run build` -- expected: `next build` statically pre-renders `/competition/qualifying-events/`
-- `npm run test:e2e` -- expected: `playwright test` passes all calendar E2E tests
+- `npm run validate:data`: Exits 0, confirming rules integrity.
+- `npm run typecheck`: Passes with 0 errors (`tsc --noEmit`).
+- `npm run test:unit`: 44 passed across 6 test suites.
+- `npm run build`: Statically compiled 11/11 routes.
+- `npm run test:e2e`: 34 passed across Desktop and Mobile.

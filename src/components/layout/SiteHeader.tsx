@@ -15,7 +15,7 @@ const PRIMARY_NAV_ITEMS: NavItem[] = [
   { label: 'Competition', href: '#competition' },
   { label: 'Selection Rules', href: '/competition/selection-rules' },
   { label: 'Standings', href: '#standings' },
-  { label: 'Qualifying Events', href: '#qualifying-events' },
+  { label: 'Qualifying Events', href: '/competition/qualifying-events' },
   { label: 'Croatia & Slavonia', href: '#slavonia' },
   { label: 'News', href: '#news' },
   { label: 'Sponsors', href: '#sponsors' },

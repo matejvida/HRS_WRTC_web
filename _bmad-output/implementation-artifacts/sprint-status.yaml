@@ -41,10 +41,10 @@ development_status:
   1-3-structured-news-official-announcements-feed-news-news-slug-f: done
   epic-1-retrospective: optional
 
-  epic-2: in-progress
+  epic-2: done
   2-1-canonical-rules-datasets-tables-1-7-build-time-zod-validatio: done
   2-2-selection-rules-v1-0-3-tab-hub-sticky-scroll-spy-toc-officia: done
-  2-3-interactive-24-contest-qualifying-events-calendar-competitio: ready-for-dev
+  2-3-interactive-24-contest-qualifying-events-calendar-competitio: done
   epic-2-retrospective: optional
 
   epic-3: backlog
