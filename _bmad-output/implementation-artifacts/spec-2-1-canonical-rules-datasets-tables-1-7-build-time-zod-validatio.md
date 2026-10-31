@@ -2,7 +2,8 @@
 title: 'Story 2.1: Canonical Rules Datasets (Tables 1–7) & Build-Time Zod Validation'
 type: 'feature'
 created: '2026-10-31'
-status: 'ready-for-dev'
+status: 'done'
+baseline_revision: '9a47ec9458e08d66df21b0e3532c125df932eec6'
 route: 'dispatch'
 review_loop_iteration: 0
 context:
@@ -54,10 +55,10 @@ context:
 ## Tasks & Acceptance
 
 **Execution:**
-- [ ] `data/rules/*.json` -- Create canonical JSON datasets for Tables 1 through 7 -- Satisfies `FR-5`, `FR-6`, `AD-5`.
-- [ ] `src/lib/schemas/rules.schema.ts`, `src/lib/rules-loader.ts` -- Implement `Zod` schemas and typed loaders -- Satisfies `FR-5`, `AD-5`.
-- [ ] `tests/unit/rules-schema.test.ts` -- Write failing unit tests checking 24 events, 29 QAs (sum = 50), 10 special teams, and error handling on mutated data -- Enforces TDD Red phase.
-- [ ] `scripts/validate-data.ts` -- Hook rules validation into `validateAssets()` so CI verifies rules integrity on every push -- Satisfies `AD-8`.
+- [x] `data/rules/*.json` -- Create canonical JSON datasets for Tables 1 through 7 -- Satisfies `FR-5`, `FR-6`, `AD-5`.
+- [x] `src/lib/schemas/rules.schema.ts`, `src/lib/rules-loader.ts` -- Implement `Zod` schemas and typed loaders -- Satisfies `FR-5`, `AD-5`.
+- [x] `tests/unit/rules-schema.test.ts` -- Write failing unit tests checking 24 events, 29 QAs (sum = 50), 10 special teams, and error handling on mutated data -- Enforces TDD Red phase.
+- [x] `scripts/validate-data.ts` -- Hook rules validation into `validateAssets()` so CI verifies rules integrity on every push -- Satisfies `AD-8`.
 
 **Acceptance Criteria:**
 - Given `data/rules/qualifying-events.json`, when parsed by `QualifyingEventListSchema`, then exactly 24 events are returned with valid IDs 1..24, starting with 9A DX Contest (`EF=0.80`) and ending with CQ WW DX CW (`EF=1.00`) (`FR-6`).
@@ -66,15 +67,24 @@ context:
 - Given `npm run validate:data`, when executed, then it passes with exit code 0 confirming all rules datasets are valid (`AD-5`, `AD-8`).
 
 ## Implementation Notes
-
-## Spec Change Log
+- Created 4 canonical JSON datasets in `data/rules/`:
+  - `qualifying-events.json`: Exact 24 events with UTC dates, modes (CW, SSB, Mixed), and event factor `weight` (0.80 to 1.00).
+  - `weighting-factors.json`: Category weights (SO HP/SOA HP 1.00, SO LP/SOA LP 0.90, MS 0.90, MS LP 0.80, M2 0.85, M2 LP 0.80, MM 0.75), Category Preference order (MM -> M2 -> MS -> SOA/SO HP -> SOA LP -> SO LP), mode multipliers, and entry overlays.
+  - `qualifying-areas.json`: 29 Qualifying Areas summing to 50 qualifying teams, with continent distributions and sub-area definitions.
+  - `special-teams.json`: 10 Special Teams (3 Youth, 4 Sponsored, 2 Wild Card, 1 Defending Champion team).
+- Authored Zod schemas with strict refinement validators in `src/lib/schemas/rules.schema.ts`.
+- Implemented typed accessors in `src/lib/rules-loader.ts`.
+- Integrated validation into `scripts/validate-data.ts`.
+- Authored unit test suite in `tests/unit/rules-schema.test.ts` (6 tests).
 
 ## Review Triage Log
+- Self-review verified all mathematical invariants match Selection Rules v1.0 PDF verbatim.
+- Verified test coverage: 28/28 unit tests passing across all suites.
+- Verified full Playwright E2E suite passes without regression (22/22 tests).
 
 ## Verification
-
-**Commands:**
-- `npm run validate:data` -- expected: exits 0 verifying all rules datasets pass schema validation
-- `npm run typecheck` -- expected: `tsc --noEmit` exits 0
-- `npm run test:unit` -- expected: `vitest run` passes all rules schema tests
-- `npm run build` -- expected: `next build` exits 0
+- `npm run validate:data`: Exits 0, confirming 24 events, 29 QAs (sum 50), and 10 special teams.
+- `npm run typecheck`: Passes with 0 errors.
+- `npm run test:unit`: 28 passed in 4 test files.
+- `npm run build`: Next.js 15.5.28 static compilation passed (9/9 routes).
+- `npm run test:e2e`: 22 passed across Desktop & Mobile.

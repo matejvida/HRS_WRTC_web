@@ -1,0 +1,30 @@
+[
+  {
+    "code": "defending",
+    "name": "Defending Champions",
+    "allocatedTeams": 1,
+    "description": "WRTC 2026 Champions (DJ5MW, DM5EE)",
+    "criteria": "Automatic invitation extended to the winning team of WRTC 2026 UK."
+  },
+  {
+    "code": "wildcard",
+    "name": "Wild Card Teams",
+    "allocatedTeams": 2,
+    "description": "Teams nominated by WRTC 2030 Organizing Committee",
+    "criteria": "Reserved at the discretion of the WRTC OC to recognize exceptional operators from the applicant pool who did not otherwise qualify (Autumn 2029)."
+  },
+  {
+    "code": "youth",
+    "name": "Youth Teams",
+    "allocatedTeams": 3,
+    "description": "Under age 25 at the finish of the first qualifying event (20 Dec 2026)",
+    "criteria": "Best 6 of 24 qualifying event scores worldwide among youth applicants under age 25."
+  },
+  {
+    "code": "sponsored",
+    "name": "Sponsored Teams",
+    "allocatedTeams": 4,
+    "description": "Teams selected through applications and bidding auction",
+    "criteria": "Selected through formal application and sponsorship auction opening after 1 January 2029 per Selection Rules §8.D."
+  }
+]

@@ -1,0 +1,104 @@
+{
+  "categories": [
+    {
+      "code": "SO HP",
+      "description": "Single Operator High Power",
+      "weight": 1.00,
+      "notes": "All Band or Single Band; Unassisted or Assisted; Single or Mixed Mode"
+    },
+    {
+      "code": "SOA HP",
+      "description": "Single Operator Assisted High Power",
+      "weight": 1.00,
+      "notes": "All Band or Single Band; Unassisted or Assisted; Single or Mixed Mode"
+    },
+    {
+      "code": "SO LP",
+      "description": "Single Operator Low Power",
+      "weight": 0.90,
+      "notes": "All Band or Single Band, 2-Band (9A DX Contest only); Unassisted; Single or Mixed Mode"
+    },
+    {
+      "code": "SOA LP",
+      "description": "Single Operator Assisted Low Power",
+      "weight": 0.90,
+      "notes": "All Band or Single Band, 2-Band (9A DX Contest only); Assisted; Single or Mixed Mode"
+    },
+    {
+      "code": "MS",
+      "description": "Multi-Operator Single Transmitter High Power",
+      "weight": 0.90,
+      "notes": "HP only"
+    },
+    {
+      "code": "MS LP",
+      "description": "Multi-Operator Single Transmitter Low Power",
+      "weight": 0.80,
+      "notes": "Low Power only"
+    },
+    {
+      "code": "M2",
+      "description": "Multi-Operator Two Transmitter High Power",
+      "weight": 0.85,
+      "notes": "HP only"
+    },
+    {
+      "code": "M2 LP",
+      "description": "Multi-Operator Two Transmitter Low Power",
+      "weight": 0.80,
+      "notes": "IARU HF only"
+    },
+    {
+      "code": "MM",
+      "description": "Multi-Operator Multi Transmitter",
+      "weight": 0.75,
+      "notes": "All Band Multi-Multi"
+    }
+  ],
+  "categoryOrder": [
+    {
+      "order": 1,
+      "code": "MM",
+      "criteria": "The highest category in the order of reference results"
+    },
+    {
+      "order": 2,
+      "code": "M2",
+      "criteria": "May be compared with lower category results"
+    },
+    {
+      "order": 3,
+      "code": "MS",
+      "criteria": "May be compared with lower category results"
+    },
+    {
+      "order": 4,
+      "code": "SOA HP, SO HP",
+      "criteria": "May be compared with lower category results"
+    },
+    {
+      "order": 5,
+      "code": "SOA LP",
+      "criteria": "May be compared with SO LP"
+    },
+    {
+      "order": 6,
+      "code": "SO LP",
+      "criteria": "Lowest category"
+    }
+  ],
+  "entryOverlays": [
+    {
+      "code": "FULL",
+      "name": "Full Entry (All-Band Unassisted / Assisted)",
+      "multiplier": 1.00,
+      "description": "Standard all-band entry"
+    },
+    {
+      "code": "OVERLAY",
+      "name": "Classic / TB-Wires Overlay",
+      "multiplier": 0.95,
+      "description": "Limited antenna / classic overlay entry"
+    }
+  ]
+}

@@ -9,6 +9,12 @@ import {
   NewsArticleSchema,
   NewsFrontmatterSchema,
 } from '../src/lib/schemas/news.schema';
+import {
+  QualifyingEventListSchema,
+  QualifyingAreaListSchema,
+  WeightingFactorsSchema,
+  SpecialTeamListSchema,
+} from '../src/lib/schemas/rules.schema';
 import { parseMarkdownFrontmatter } from '../src/lib/news-loader';
 
 const ROOT = process.cwd();
@@ -31,6 +37,9 @@ export function validateAssets(rootDir: string = ROOT): {
   committeeMembersChecked: number;
   pastEventsChecked: number;
   newsArticlesChecked: number;
+  rulesEventsChecked: number;
+  qualifyingAreasChecked: number;
+  specialTeamsChecked: number;
 } {
   for (const relPath of REQUIRED_SVGS) {
     const fullPath = path.join(rootDir, relPath);
@@ -97,12 +106,48 @@ export function validateAssets(rootDir: string = ROOT): {
     });
   }
 
+  // Canonical Rules Datasets (Story 2.1 / AD-5)
+  const eventsPath = path.join(rootDir, 'data/rules/qualifying-events.json');
+  if (!fs.existsSync(eventsPath)) {
+    throw new Error('Missing canonical rules dataset: data/rules/qualifying-events.json');
+  }
+  const events = QualifyingEventListSchema.parse(
+    JSON.parse(fs.readFileSync(eventsPath, 'utf8'))
+  );
+
+  const wfPath = path.join(rootDir, 'data/rules/weighting-factors.json');
+  if (!fs.existsSync(wfPath)) {
+    throw new Error('Missing canonical rules dataset: data/rules/weighting-factors.json');
+  }
+  WeightingFactorsSchema.parse(
+    JSON.parse(fs.readFileSync(wfPath, 'utf8'))
+  );
+
+  const qasPath = path.join(rootDir, 'data/rules/qualifying-areas.json');
+  if (!fs.existsSync(qasPath)) {
+    throw new Error('Missing canonical rules dataset: data/rules/qualifying-areas.json');
+  }
+  const qas = QualifyingAreaListSchema.parse(
+    JSON.parse(fs.readFileSync(qasPath, 'utf8'))
+  );
+
+  const specialPath = path.join(rootDir, 'data/rules/special-teams.json');
+  if (!fs.existsSync(specialPath)) {
+    throw new Error('Missing canonical rules dataset: data/rules/special-teams.json');
+  }
+  const special = SpecialTeamListSchema.parse(
+    JSON.parse(fs.readFileSync(specialPath, 'utf8'))
+  );
+
   return {
     svgsChecked: REQUIRED_SVGS.length,
     pdfsChecked: REQUIRED_PDFS.length,
     committeeMembersChecked: committeeData.length,
     pastEventsChecked: pastEventsData.length,
     newsArticlesChecked: newsFiles.length,
+    rulesEventsChecked: events.length,
+    qualifyingAreasChecked: qas.length,
+    specialTeamsChecked: special.length,
   };
 }
 
@@ -112,6 +157,6 @@ if (
 ) {
   const result = validateAssets();
   console.log(
-    `[validate:data] OK — verified ${result.svgsChecked} official brand SVGs, ${result.pdfsChecked} Selection Rules v1.0 PDFs, ${result.committeeMembersChecked} OC members, ${result.pastEventsChecked} Past WRTCs, and ${result.newsArticlesChecked} news articles.`
+    `[validate:data] OK — verified ${result.svgsChecked} brand SVGs, ${result.pdfsChecked} Selection Rules PDFs, ${result.committeeMembersChecked} OC members, ${result.pastEventsChecked} Past WRTCs, ${result.newsArticlesChecked} news articles, ${result.rulesEventsChecked} qualifying events, ${result.qualifyingAreasChecked} QAs (50 slots), and ${result.specialTeamsChecked} special team categories.`
   );
 }

@@ -1,0 +1,311 @@
+[
+  {
+    "code": "EU #1",
+    "name": "Northern Europe & Baltic",
+    "continent": "Europe",
+    "allocatedTeams": 2,
+    "countriesDescription": "ES, JW, JX, LA, LY, OH, OH0, OJ0, OY, SM, TF, YL",
+    "hasSubAreas": true,
+    "subAreas": [
+      {
+        "code": "EU-1-NORTH",
+        "name": "Sub-Area 1: North",
+        "description": "JW, JX, LA, OH, OH0, OJ0, OY, SM, and TF"
+      },
+      {
+        "code": "EU-1-SOUTH",
+        "name": "Sub-Area 2: South (Baltic)",
+        "description": "ES, LY, and YL"
+      }
+    ]
+  },
+  {
+    "code": "EU #2",
+    "name": "Western Europe (France, Benelux, Monaco)",
+    "continent": "Europe",
+    "allocatedTeams": 2,
+    "countriesDescription": "3A, C3, F, LX, ON, PA",
+    "hasSubAreas": false
+  },
+  {
+    "code": "EU #3",
+    "name": "Central Europe (Germany, Austria, Czechia, Denmark, Switzerland)",
+    "continent": "Europe",
+    "allocatedTeams": 4,
+    "countriesDescription": "DL, OE, OK, OZ, HB9, HB0",
+    "hasSubAreas": false
+  },
+  {
+    "code": "EU #4",
+    "name": "Iberia & Atlantic (Portugal, Spain, Gibraltar)",
+    "continent": "Europe",
+    "allocatedTeams": 2,
+    "countriesDescription": "CT, CU, EA, EA6, ZB",
+    "hasSubAreas": false
+  },
+  {
+    "code": "EU #5",
+    "name": "Central Mediterranean (Italy, Malta, San Marino)",
+    "continent": "Europe",
+    "allocatedTeams": 2,
+    "countriesDescription": "9H, I, IS0, T7, TK (includes HV)",
+    "hasSubAreas": false
+  },
+  {
+    "code": "EU #6",
+    "name": "Southeastern Europe & Balkans",
+    "continent": "Europe",
+    "allocatedTeams": 4,
+    "countriesDescription": "4O, 9A, E7, LZ, S5, SV, SV5, SV9, YO, YU, Z3, Z6, ZA",
+    "hasSubAreas": false
+  },
+  {
+    "code": "EU #7",
+    "name": "Eastern Europe (European Russia, Belarus)",
+    "continent": "Europe",
+    "allocatedTeams": 2,
+    "countriesDescription": "EU, UA1-6, UA2",
+    "hasSubAreas": false
+  },
+  {
+    "code": "EU #8",
+    "name": "British Isles (UK, Ireland)",
+    "continent": "Europe",
+    "allocatedTeams": 2,
+    "countriesDescription": "EI, G, GD, GI, GJ, GM, GU, GW",
+    "hasSubAreas": false
+  },
+  {
+    "code": "EU #9",
+    "name": "Central-Eastern Europe (Poland, Ukraine, Hungary, Slovakia, Moldova)",
+    "continent": "Europe",
+    "allocatedTeams": 3,
+    "countriesDescription": "ER, HA, OM, SP, UR",
+    "hasSubAreas": false
+  },
+  {
+    "code": "NA #1",
+    "name": "Northeastern US (W1, W2, W3, 4U1UN)",
+    "continent": "North America",
+    "allocatedTeams": 3,
+    "countriesDescription": "W1, W2, W3 (ME, VT, NH, MA, RI, CT, NY, NJ, DE, MD, PA, DC), 4U1UN",
+    "hasSubAreas": true,
+    "subAreas": [
+      {
+        "code": "NA-1-W1",
+        "name": "Sub-Area 1: W1",
+        "description": "ME, NH, VT, MA, CT, RI"
+      },
+      {
+        "code": "NA-1-W2",
+        "name": "Sub-Area 2: W2",
+        "description": "NY, NJ (+ 4U1UN)"
+      },
+      {
+        "code": "NA-1-W3",
+        "name": "Sub-Area 3: W3",
+        "description": "PA, DE, MD, DC"
+      }
+    ]
+  },
+  {
+    "code": "NA #2",
+    "name": "US Mid-Atlantic / Upper South (W4 North)",
+    "continent": "North America",
+    "allocatedTeams": 1,
+    "countriesDescription": "W4 North (KY, VA, TN, NC)",
+    "hasSubAreas": false
+  },
+  {
+    "code": "NA #3",
+    "name": "US Deep South & Florida (W4 South)",
+    "continent": "North America",
+    "allocatedTeams": 1,
+    "countriesDescription": "W4 South (AL, GA, SC, FL)",
+    "hasSubAreas": false
+  },
+  {
+    "code": "NA #4",
+    "name": "US Gulf & Southwest (W5)",
+    "continent": "North America",
+    "allocatedTeams": 1,
+    "countriesDescription": "W5 (TX, NM, OK, AR, LA, MS)",
+    "hasSubAreas": false
+  },
+  {
+    "code": "NA #5",
+    "name": "US Pacific (W6 - California)",
+    "continent": "North America",
+    "allocatedTeams": 2,
+    "countriesDescription": "W6 (CA)",
+    "hasSubAreas": false
+  },
+  {
+    "code": "NA #6",
+    "name": "US Mountain & Pacific Northwest (W7)",
+    "continent": "North America",
+    "allocatedTeams": 1,
+    "countriesDescription": "W7 (WA, OR, ID, MT, WY, UT, AZ, NV)",
+    "hasSubAreas": true,
+    "subAreas": [
+      {
+        "code": "NA-6-NORTH",
+        "name": "Sub-Area 1: North",
+        "description": "WA, OR, ID, MT, and WY"
+      },
+      {
+        "code": "NA-6-SOUTH",
+        "name": "Sub-Area 2: South",
+        "description": "NV, UT, and AZ"
+      }
+    ]
+  },
+  {
+    "code": "NA #7",
+    "name": "US Great Lakes (W8)",
+    "continent": "North America",
+    "allocatedTeams": 1,
+    "countriesDescription": "W8 (MI, OH, WV)",
+    "hasSubAreas": false
+  },
+  {
+    "code": "NA #8",
+    "name": "US Midwest (W9)",
+    "continent": "North America",
+    "allocatedTeams": 1,
+    "countriesDescription": "W9 (WI, IL, IN)",
+    "hasSubAreas": false
+  },
+  {
+    "code": "NA #9",
+    "name": "US Plains (W0)",
+    "continent": "North America",
+    "allocatedTeams": 1,
+    "countriesDescription": "W0 (ND, SD, MN, NE, IA, CO, KS, MO)",
+    "hasSubAreas": false
+  },
+  {
+    "code": "NA #10",
+    "name": "Canada & Alaska (VE, KL7)",
+    "continent": "North America",
+    "allocatedTeams": 3,
+    "countriesDescription": "VE, KL7 (includes FP)",
+    "hasSubAreas": true,
+    "subAreas": [
+      {
+        "code": "NA-10-EAST",
+        "name": "Sub-Area 1: Eastern Canada",
+        "description": "VE1, VE2, VE3, VE9, VO, VY2, VY0"
+      },
+      {
+        "code": "NA-10-WEST",
+        "name": "Sub-Area 2: Western Canada & Alaska",
+        "description": "VE4, VE5, VE6, VE7, VE8, VY1, KL7 (KL7 separate in ARRL DX)"
+      }
+    ]
+  },
+  {
+    "code": "NA #11",
+    "name": "Caribbean & Central America",
+    "continent": "North America",
+    "allocatedTeams": 1,
+    "countriesDescription": "CQ Zones 6, 7, 8, VP9",
+    "hasSubAreas": false
+  },
+  {
+    "code": "AS #1",
+    "name": "North & Central Asia (Asiatic Russia, Kazakhstan)",
+    "continent": "Asia",
+    "allocatedTeams": 1,
+    "countriesDescription": "CQ Zone 17, 18, 23 (except BY), UA9 in Zone 16",
+    "hasSubAreas": false
+  },
+  {
+    "code": "AS #2",
+    "name": "Middle East & Caucasus",
+    "continent": "Asia",
+    "allocatedTeams": 1,
+    "countriesDescription": "CQ Zone 20 (AS portion), 21",
+    "hasSubAreas": false
+  },
+  {
+    "code": "AS #3",
+    "name": "South & East Asia (China, India, Southeast Asia)",
+    "continent": "Asia",
+    "allocatedTeams": 1,
+    "countriesDescription": "CQ Zones 22, 24, 26, BY/23, 9M2, 9V",
+    "hasSubAreas": false
+  },
+  {
+    "code": "AS #4",
+    "name": "Far East Asia (Japan, Korea)",
+    "continent": "Asia",
+    "allocatedTeams": 2,
+    "countriesDescription": "CQ Zone 19, 25 (HL - JA)",
+    "hasSubAreas": false
+  },
+  {
+    "code": "AF #1",
+    "name": "Africa",
+    "continent": "Africa",
+    "allocatedTeams": 2,
+    "countriesDescription": "Africa North/West or South/East",
+    "hasSubAreas": true,
+    "subAreas": [
+      {
+        "code": "AF-1-NW",
+        "name": "Sub-Area 1: AF North/West",
+        "description": "CQ Zones 33, 34, 35"
+      },
+      {
+        "code": "AF-1-SE",
+        "name": "Sub-Area 2: AF South/East",
+        "description": "CQ Zones 36, 37, 38, 39"
+      }
+    ]
+  },
+  {
+    "code": "SA #1",
+    "name": "Eastern South America (Brazil, Paraguay)",
+    "continent": "South America",
+    "allocatedTeams": 1,
+    "countriesDescription": "CQ Zone 11 (PY-ZP)",
+    "hasSubAreas": false
+  },
+  {
+    "code": "SA #2",
+    "name": "Northern, Western & Southern South America",
+    "continent": "South America",
+    "allocatedTeams": 1,
+    "countriesDescription": "South America (except CQ Zone 11): CQ Zones 9 - 10 or 12 - 13",
+    "hasSubAreas": true,
+    "subAreas": [
+      {
+        "code": "SA-2-NORTH",
+        "name": "Sub-Area 1: SA North",
+        "description": "CQ Zones 9, 10"
+      },
+      {
+        "code": "SA-2-SOUTH",
+        "name": "Sub-Area 2: SA South",
+        "description": "CQ Zones 12, 13"
+      }
+    ]
+  },
+  {
+    "code": "OC #1",
+    "name": "Northern & Equatorial Oceania / Pacific",
+    "continent": "Oceania",
+    "allocatedTeams": 1,
+    "countriesDescription": "CQ Zones 27, 28, 31 (except 9M2, 9V)",
+    "hasSubAreas": false
+  },
+  {
+    "code": "OC #2",
+    "name": "Southern Oceania (Australia, New Zealand, Pacific)",
+    "continent": "Oceania",
+    "allocatedTeams": 1,
+    "countriesDescription": "CQ Zones 29, 30, 32",
+    "hasSubAreas": false
+  }
+]
