@@ -47,10 +47,10 @@ development_status:
   2-3-interactive-24-contest-qualifying-events-calendar-competitio: done
   epic-2-retrospective: optional
 
-  epic-3: in-progress
+  epic-3: done
   3-1-standings-snapshot-schema-csv-json-importer-cli-pre-season-s: done
   3-2-interactive-29-qa-standings-explorer-callsign-search-cutoff: done
-  3-3-operator-score-breakdown-drawer-pre-season-interactive-simul: ready-for-dev
+  3-3-operator-score-breakdown-drawer-pre-season-interactive-simul: done
   epic-3-retrospective: optional
 
   epic-4: backlog

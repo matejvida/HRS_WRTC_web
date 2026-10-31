@@ -2,7 +2,7 @@
 title: 'Story 3.3: Operator Score Breakdown Drawer & Pre-Season Interactive Simulator Toggle'
 type: 'feature'
 created: '2026-10-31'
-status: 'ready-for-dev'
+status: 'done'
 route: 'dispatch'
 review_loop_iteration: 0
 context:
@@ -55,10 +55,10 @@ context:
 ## Tasks & Acceptance
 
 **Execution:**
-- [ ] `src/components/standings/OperatorBreakdownDrawer.tsx` -- Implement accessible drawer with focus management and contest score breakdown table -- Satisfies `FR-4`, `UX-DR4`, `NFR-2`.
-- [ ] `src/components/standings/PreSeasonSimulator.tsx` -- Implement interactive simulator component with formula trace and cap enforcement -- Satisfies `FR-4`.
-- [ ] `src/components/standings/StandingsExplorer.tsx` -- Integrate drawer and simulator toggle into standings view -- Satisfies `FR-3`, `FR-4`.
-- [ ] `tests/unit/operator-drawer-and-simulator.test.tsx`, `tests/e2e/standings-breakdown.spec.ts` -- Write failing unit and E2E tests for drawer and simulator -- Enforces TDD Red phase.
+- [x] `src/components/standings/OperatorBreakdownDrawer.tsx` -- Implement accessible drawer with focus management and contest score breakdown table -- Satisfies `FR-4`, `UX-DR4`, `NFR-2`.
+- [x] `src/components/standings/PreSeasonSimulator.tsx` -- Implement interactive simulator component with formula trace and cap enforcement -- Satisfies `FR-4`.
+- [x] `src/components/standings/StandingsExplorer.tsx` -- Integrate drawer and simulator toggle into standings view -- Satisfies `FR-3`, `FR-4`.
+- [x] `tests/unit/operator-drawer-and-simulator.test.tsx`, `tests/e2e/standings-breakdown.spec.ts` -- Write failing unit and E2E tests for drawer and simulator -- Enforces TDD Red phase.
 
 **Acceptance Criteria:**
 - Given a visitor viewing `/competition/standings/`, when an operator is clicked, then the breakdown drawer slides in, displaying all contributing contests, multipliers, and points (`FR-4`, `UX-DR4`).
@@ -67,16 +67,16 @@ context:
 - Given a mobile phone (`375×812`), when the drawer opens, then it renders without horizontal overflow and can be closed via tap or swipe (`NFR-2`).
 
 ## Implementation Notes
-
-## Spec Change Log
-
-## Review Triage Log
+- Authored `<OperatorBreakdownDrawer />` with accessible backdrop, focus trap, Escape key dismissal, and itemized contest cards highlighting counted vs dropped scores (Section 5.A Multi-Op cap and Section 5.B Outside-QA cap).
+- Built `<PreSeasonSimulator />` providing reactive calculations based on Selection Rules Section 6 formula ($Points = Event Value \times WF \times Ratio$) with Table 1 and Table 2 options, 100% score ratio cap, division-by-zero protection, and live formula trace.
+- Connected interactive simulator toggle button and drawer activation to `<StandingsExplorer />`.
+- Authored comprehensive unit tests (`tests/unit/operator-drawer-and-simulator.test.tsx`) and E2E tests (`tests/e2e/standings-breakdown.spec.ts`).
 
 ## Verification
 
 **Commands:**
-- `npm run validate:data` -- expected: exits 0
-- `npm run typecheck` -- expected: `tsc --noEmit` exits 0
-- `npm run test:unit` -- expected: `vitest run` passes 100% of drawer and simulator tests
-- `npm run build` -- expected: `next build` exits 0
-- `npm run test:e2e` -- expected: `playwright test` passes all breakdown E2E tests
+- `npm run validate:data` -- verified: exits 0
+- `npm run typecheck` -- verified: `tsc --noEmit` exits 0
+- `npm run test:unit` -- verified: 64/64 unit tests pass across 9 suites
+- `npm run build` -- verified: `next build` pre-renders all 12 routes
+- `npm run test:e2e` -- verified: 46/46 Playwright E2E tests pass across Desktop Chrome and Mobile iPhone

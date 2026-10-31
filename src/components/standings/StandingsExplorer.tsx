@@ -9,6 +9,8 @@ import type {
 } from '@/lib/schemas/standings.schema';
 import { StandingsTable } from './StandingsTable';
 import { StandingsCardList } from './StandingsCardList';
+import { OperatorBreakdownDrawer } from './OperatorBreakdownDrawer';
+import { PreSeasonSimulator } from './PreSeasonSimulator';
 
 interface StandingsExplorerProps {
   snapshot: StandingsSnapshot;
@@ -61,6 +63,15 @@ export function StandingsExplorer({
   const [selectedRegion, setSelectedRegion] = useState<Region>('ALL');
   const [selectedQa, setSelectedQa] = useState<string>(qaParam || 'ALL');
   const [searchCall, setSearchCall] = useState<string>(callParam || '');
+  const [selectedOperator, setSelectedOperator] = useState<OperatorStanding | null>(null);
+  const [isDrawerOpen, setIsDrawerOpen] = useState<boolean>(false);
+  const [showSimulator, setShowSimulator] = useState<boolean>(false);
+
+  const handleSelectOperator = (op: OperatorStanding) => {
+    setSelectedOperator(op);
+    setIsDrawerOpen(true);
+    onSelectOperator?.(op);
+  };
 
   // Sync state from URL parameters
   useEffect(() => {
@@ -164,6 +175,28 @@ export function StandingsExplorer({
     <div className="space-y-6">
       {/* Controls Container */}
       <div className="p-4 sm:p-6 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-4">
+        {/* Header bar with Simulator Toggle */}
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-2 border-b border-slate-200 dark:border-slate-800">
+          <div className="text-xs font-semibold text-slate-700 dark:text-slate-300">
+            Official Standings Leaderboard · Table 3 Allocation Tracking
+          </div>
+          <button
+            type="button"
+            onClick={() => setShowSimulator((prev) => !prev)}
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono font-bold bg-slate-900 text-white dark:bg-red-600 dark:text-white hover:bg-slate-800 dark:hover:bg-red-700 transition-colors cursor-pointer w-fit"
+          >
+            <span>⚡</span>
+            <span>{showSimulator ? 'Hide Simulator' : 'Pre-Season Score Simulator'}</span>
+          </button>
+        </div>
+
+        {/* Optional Simulator Expansion */}
+        {showSimulator && (
+          <div className="pt-1">
+            <PreSeasonSimulator onClose={() => setShowSimulator(false)} />
+          </div>
+        )}
+
         {/* Region Pills */}
         <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar pb-1">
           {REGIONS.map((reg) => {
@@ -287,7 +320,7 @@ export function StandingsExplorer({
               <div className="hidden md:block">
                 <StandingsTable
                   area={area}
-                  onSelectOperator={onSelectOperator}
+                  onSelectOperator={handleSelectOperator}
                 />
               </div>
 
@@ -295,7 +328,7 @@ export function StandingsExplorer({
               <div className="block md:hidden">
                 <StandingsCardList
                   area={area}
-                  onSelectOperator={onSelectOperator}
+                  onSelectOperator={handleSelectOperator}
                 />
               </div>
             </section>
@@ -320,6 +353,13 @@ export function StandingsExplorer({
           </button>
         </div>
       )}
+
+      {/* Operator Breakdown Slide-Over Drawer */}
+      <OperatorBreakdownDrawer
+        operator={selectedOperator}
+        isOpen={isDrawerOpen}
+        onClose={() => setIsDrawerOpen(false)}
+      />
     </div>
   );
 }
