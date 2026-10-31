@@ -1,0 +1,102 @@
+[
+  {
+    "year": 1990,
+    "edition": "WRTC I",
+    "hostCity": "Seattle",
+    "hostCountry": "USA",
+    "location": "1990 Seattle, USA",
+    "champions": ["K1AR", "K1DG"],
+    "championNames": "John Dorr & Doug Grant",
+    "archiveUrl": "https://wrtc.info/"
+  },
+  {
+    "year": 1996,
+    "edition": "WRTC II",
+    "hostCity": "San Francisco",
+    "hostCountry": "USA",
+    "location": "1996 San Francisco, USA",
+    "champions": ["KR0Y", "K5ZD"],
+    "championNames": "Jeff Steinman & Randy Thompson",
+    "archiveUrl": "https://wrtc.info/"
+  },
+  {
+    "year": 2000,
+    "edition": "WRTC III",
+    "hostCity": "Bled",
+    "hostCountry": "Slovenia",
+    "location": "2000 Bled, Slovenia",
+    "champions": ["K1AR", "K1KI"],
+    "championNames": "John Dorr & Tom Frenaye",
+    "archiveUrl": "https://wrtc.info/"
+  },
+  {
+    "year": 2002,
+    "edition": "WRTC IV",
+    "hostCity": "Helsinki",
+    "hostCountry": "Finland",
+    "location": "2002 Helsinki, Finland",
+    "champions": ["N5TJ", "VE3EJ"],
+    "championNames": "Jeff Steinman & John Sluymer",
+    "archiveUrl": "https://wrtc.info/"
+  },
+  {
+    "year": 2006,
+    "edition": "WRTC V",
+    "hostCity": "Florianópolis",
+    "hostCountry": "Brazil",
+    "location": "2006 Florianópolis, Brazil",
+    "champions": ["VE3EJ", "VE7ZO"],
+    "championNames": "John Sluymer & Jim Roberts",
+    "archiveUrl": "https://wrtc.info/"
+  },
+  {
+    "year": 2010,
+    "edition": "WRTC VI",
+    "hostCity": "Moscow",
+    "hostCountry": "Russia",
+    "location": "2010 Moscow, Russia",
+    "champions": ["RW1AC", "RA1AIP"],
+    "championNames": "Vladimir Aksenov & Alexey Mikhailov",
+    "archiveUrl": "https://wrtc.info/"
+  },
+  {
+    "year": 2014,
+    "edition": "WRTC VII",
+    "hostCity": "New England (Boston)",
+    "hostCountry": "USA",
+    "location": "2014 New England (Boston), USA",
+    "champions": ["N6MJ", "KL9A"],
+    "championNames": "Daniel Craig & Chris Hurlbut",
+    "archiveUrl": "https://www.wrtc2014.org/"
+  },
+  {
+    "year": 2018,
+    "edition": "WRTC VIII",
+    "hostCity": "Wittenberg",
+    "hostCountry": "Germany",
+    "location": "2018 Wittenberg, Germany",
+    "champions": ["LY9A", "LY4L"],
+    "championNames": "Gediminas Lucinskas & Mindaugas Jukna",
+    "archiveUrl": "https://www.wrtc2018.de/"
+  },
+  {
+    "year": 2022,
+    "edition": "WRTC IX",
+    "hostCity": "Bologna",
+    "hostCountry": "Italy",
+    "location": "2022 Bologna, Italy",
+    "champions": ["UW7LL", "VE3DZ"],
+    "championNames": "Yaroslav Oliinyk & Yuri Onipko",
+    "archiveUrl": "https://www.wrtc2022.it/"
+  },
+  {
+    "year": 2026,
+    "edition": "WRTC X",
+    "hostCity": "East Anglia",
+    "hostCountry": "United Kingdom (UK)",
+    "location": "2026 UK · East Anglia, United Kingdom",
+    "champions": ["DJ5MW", "DM5EE"],
+    "championNames": "Manfred Wolf & Ulf Ehrlich",
+    "archiveUrl": "https://www.wrtc2026.org/"
+  }
+]

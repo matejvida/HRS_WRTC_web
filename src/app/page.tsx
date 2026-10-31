@@ -6,10 +6,14 @@ import {
   CheckerStrip,
   KockiceCluster,
 } from '@/components/brand/CheckerMark';
+import { getCommitteeMembers, getPastEvents } from '@/lib/content-loader';
 
 export const dynamic = 'error';
 
 export default function HomePage() {
+  const committee = getCommitteeMembers();
+  const pastEvents = getPastEvents();
+
   return (
     <main id="top">
       <CheckerRibbon />
@@ -86,7 +90,7 @@ export default function HomePage() {
               determine the world champions.
             </p>
 
-            <div className="callout-box" id="qualifying-events">
+            <div className="callout-box">
               <CheckerMark size="lg" />
               <span>
                 Qualifying Event #1 of 24: 9A DX Contest (19–20 December 2026 UTC)
@@ -181,7 +185,220 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Official Selection Rules v1.0 Documents Section */}
+      {/* 2. Dedicated Live Qualifying Event #1 Countdown / Telemetry Ticker Bar */}
+      <div className="ticker-bar" id="qualifying-events">
+        <div className="wrap ticker-bar__inner">
+          <div className="ticker-badge">
+            <CheckerMark size="sm" />
+            <span>Qualifying Event #1 of 24</span>
+          </div>
+          <div className="ticker-event">
+            <strong>9A DX Contest — Dec 19–20, 2026 UTC</strong> (Opening Event · 1,000 pts · CW &amp; SSB)
+          </div>
+          <div className="ticker-meta font-mono-tabular">
+            19–20 December 2026 UTC · EF 0.80
+          </div>
+        </div>
+      </div>
+
+      {/* 3. About WRTC & 60-Team Format Section */}
+      <section className="section" id="about">
+        <div className="wrap">
+          <div className="about-grid">
+            <div>
+              <p className="kicker">
+                <CheckerMark size="sm" />
+                About WRTC
+              </p>
+              <h2 className="section__title">World Radiosport Team Championship</h2>
+              <p style={{ color: 'var(--muted)', fontSize: '16px', lineHeight: 1.6, marginBottom: '16px' }}>
+                The <strong>World Radiosport Team Championship (WRTC)</strong> is the pinnacle of competitive amateur radio contesting. Every four years, the world&apos;s elite operators qualify through an arduous multi-year cycle and gather at a single host venue to compete under identical conditions.
+              </p>
+              <p style={{ color: 'var(--muted)', fontSize: '16px', lineHeight: 1.6 }}>
+                In Slavonia 2030, <strong>60 identical field stations</strong> will be deployed across flat Pannonian agricultural terrain, equipped with identical transceivers, matching antennas, and independent on-site referees. For 24 continuous hours, operating skill, propagation strategy, teamwork, and endurance determine the world champions.
+              </p>
+            </div>
+
+            <div className="about-stats-grid">
+              <div className="about-stat-card">
+                <div className="about-stat-card__val font-mono-tabular">2 operators</div>
+                <div className="about-stat-card__label">per team (Team Leader &amp; Teammate)</div>
+              </div>
+              <div className="about-stat-card">
+                <div className="about-stat-card__val font-mono-tabular">24h</div>
+                <div className="about-stat-card__label">continuous non-stop competition</div>
+              </div>
+              <div className="about-stat-card">
+                <div className="about-stat-card__val font-mono-tabular">~4M radio amateurs</div>
+                <div className="about-stat-card__label">worldwide supporting the airwaves</div>
+              </div>
+              <div className="about-stat-card">
+                <div className="about-stat-card__val font-mono-tabular">60 identical field stations</div>
+                <div className="about-stat-card__label">across Osijek, Čepin &amp; Đakovo</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 4. Slavonia, Croatia Venue Showcase */}
+      <section className="section" id="slavonia">
+        <div className="wrap">
+          <div className="section__head section__head--split">
+            <div>
+              <p className="kicker">
+                <CheckerMark size="sm" />
+                Host Region &amp; Venue · Slavonia, Croatia
+              </p>
+              <h2 className="section__title">Osijek · Čepin · Đakovo</h2>
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+              <CheckerStrip />
+              <KockiceCluster />
+            </div>
+          </div>
+
+          <div className="slavonia-grid">
+            <article className="venue-card">
+              <div className="venue-card__head">
+                <span className="kicker">
+                  <CheckerMark size="sm" />
+                  Level Playing Field
+                </span>
+                <CheckerFive />
+              </div>
+              <h3 className="venue-card__title">Pannonian Propagation Arena</h3>
+              <p style={{ color: 'var(--muted)', fontSize: '15px', lineHeight: 1.6 }}>
+                The flat agricultural plains spanning <strong>Osijek, Čepin, and Đakovo</strong> provide uniform soil conductivity, unobstructed 360° low-angle horizons, and equalized propagation across all 60 stations.
+              </p>
+            </article>
+
+            <article className="venue-card">
+              <div className="venue-card__head">
+                <span className="kicker">
+                  <CheckerMark size="sm" />
+                  Culture &amp; Heritage
+                </span>
+                <CheckerFive />
+              </div>
+              <h3 className="venue-card__title">Heart of Golden Slavonia</h3>
+              <p style={{ color: 'var(--muted)', fontSize: '15px', lineHeight: 1.6 }}>
+                Experience Osijek&apos;s 18th-century baroque <strong>Tvrđa</strong> fortress on the Drava River, Đakovo&apos;s majestic St. Peter&apos;s Cathedral and State Lipizzaner Stud Farm, Kopački Rit nature park, and warm Slavonian gastronomy.
+              </p>
+            </article>
+
+            <article className="venue-card">
+              <div className="venue-card__head">
+                <span className="kicker">
+                  <CheckerMark size="sm" />
+                  9A Contesting Tradition
+                </span>
+                <CheckerFive />
+              </div>
+              <h3 className="venue-card__title">Organized by HRS (hamradio.hr)</h3>
+              <p style={{ color: 'var(--muted)', fontSize: '15px', lineHeight: 1.6 }}>
+                Hosted by the <strong>Croatian Amateur Radio Association (HRS)</strong> and backed by Croatia&apos;s world-renowned <span className="font-mono-tabular">9A</span> contesting community, kicking off qualification with the 9A DX Contest.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      {/* 5. Organizing Committee Section (#team) */}
+      <section className="section" id="team">
+        <div className="wrap">
+          <div className="section__head section__head--split">
+            <div>
+              <p className="kicker">
+                <CheckerMark size="sm" />
+                Leadership
+              </p>
+              <h2 className="section__title">Organizing Committee</h2>
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <span className="font-mono-tabular" style={{ fontSize: '13px', fontWeight: 700, color: 'var(--muted)' }}>
+                11 Committee Members · HRS Croatia
+              </span>
+            </div>
+          </div>
+
+          <ul className="team">
+            {committee.map((member) => (
+              <li key={member.callsign}>
+                <div className="person">
+                  <span className="person__avatar" aria-hidden="true">
+                    {member.initials}
+                  </span>
+                  <div style={{ minWidth: 0, display: 'flex', flexDirection: 'column', gap: '2px' }}>
+                    <span className="person__call font-mono-tabular">{member.callsign}</span>
+                    <h3 className="person__name">{member.name}</h3>
+                    <span className="person__role">{member.role}</span>
+                  </div>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      {/* 6. Past WRTC History Archive (#past-events) */}
+      <section className="section" id="past-events">
+        <div className="wrap">
+          <div className="section__head section__head--split">
+            <div>
+              <p className="kicker">
+                <CheckerMark size="sm" />
+                Historical Archive
+              </p>
+              <h2 className="section__title">A Championship Since 1990</h2>
+            </div>
+            <a
+              href="https://wrtc.info"
+              rel="noopener noreferrer"
+              style={{ fontWeight: 700, fontSize: '15px' }}
+            >
+              WRTC History at wrtc.info ↗
+            </a>
+          </div>
+
+          <div className="past-events-grid">
+            {pastEvents.map((event) => (
+              <article key={event.year} className="past-event-card">
+                <div className="past-event-card__top">
+                  <span className="past-event-card__year font-mono-tabular">{event.year}</span>
+                  <span style={{ fontSize: '12px', color: 'var(--muted)' }}>{event.edition}</span>
+                </div>
+                <h3 className="past-event-card__location">{event.location}</h3>
+                <div style={{ fontSize: '13px', color: 'var(--muted)' }}>
+                  Host: {event.hostCity}, {event.hostCountry}
+                </div>
+                <div style={{ marginTop: 'auto', paddingTop: '10px', borderTop: '1px solid var(--line)' }}>
+                  <div style={{ fontSize: '11px', textTransform: 'uppercase', fontWeight: 700, color: 'var(--muted)', marginBottom: '6px' }}>
+                    Champions
+                  </div>
+                  <div className="past-event-card__champions">
+                    {event.champions.map((champ) => (
+                      <span key={champ} className="callsign-badge font-mono-tabular">
+                        {champ}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+                <a
+                  href={event.archiveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ fontSize: '13px', fontWeight: 600, marginTop: '8px' }}
+                >
+                  View Archive ↗
+                </a>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 7. Official Selection Rules v1.0 Documents Section */}
       <section className="section" id="selection-rules">
         <div className="wrap" id="competition">
           <div className="section__head section__head--split" id="standings">
@@ -199,7 +416,7 @@ export default function HomePage() {
           </div>
 
           <div className="rules-grid" id="news">
-            <article className="rule-card" id="slavonia">
+            <article className="rule-card">
               <span className="kicker">Document 1 · 19 Oct 2026</span>
               <h3>WRTC 2030 Selection Rules v1.0</h3>
               <p style={{ color: 'var(--muted)', fontSize: '15px' }}>
@@ -215,7 +432,7 @@ export default function HomePage() {
               </a>
             </article>
 
-            <article className="rule-card" id="sponsors">
+            <article className="rule-card">
               <span className="kicker">Document 2 · Official FAQ</span>
               <h3>Selection Rules Questions &amp; Answers (v1.0)</h3>
               <p style={{ color: 'var(--muted)', fontSize: '15px' }}>
@@ -246,6 +463,54 @@ export default function HomePage() {
                 Download Official PDF →
               </a>
             </article>
+          </div>
+        </div>
+      </section>
+
+      {/* 8. Sponsors & Supporters Strip (#sponsors) */}
+      <section className="section" id="sponsors">
+        <div className="wrap">
+          <div className="section__head section__head--split">
+            <div>
+              <p className="kicker">
+                <CheckerMark size="sm" />
+                Sponsors &amp; Partners
+              </p>
+              <h2 className="section__title">Supporting WRTC 2030</h2>
+            </div>
+            <a className="btn" href="mailto:wrtc2030@hamradio.hr">
+              Inquire About Sponsorship →
+            </a>
+          </div>
+
+          <div className="sponsor-tiers">
+            <div className="tier-box">
+              <h3>
+                <CheckerMark size="sm" />
+                Commercial Partners
+              </h3>
+              <p style={{ color: 'var(--muted)', fontSize: '15px', lineHeight: 1.6 }}>
+                Equipment manufacturers, transceiver sponsors, tower &amp; antenna suppliers supporting 60 stations in Slavonia.
+              </p>
+            </div>
+            <div className="tier-box">
+              <h3>
+                <CheckerMark size="sm" />
+                Club &amp; DX Foundations
+              </h3>
+              <p style={{ color: 'var(--muted)', fontSize: '15px', lineHeight: 1.6 }}>
+                National amateur radio societies, contest clubs, and DX foundations backing the Olympic spirit of amateur radio.
+              </p>
+            </div>
+            <div className="tier-box">
+              <h3>
+                <CheckerMark size="sm" />
+                Sponsored Teams (2029)
+              </h3>
+              <p style={{ color: 'var(--muted)', fontSize: '15px', lineHeight: 1.6 }}>
+                Per Section 8.D of Selection Rules v1.0, the formal application process for the 4 Sponsored Teams opens after <strong>1 January 2029</strong>.
+              </p>
+            </div>
           </div>
         </div>
       </section>

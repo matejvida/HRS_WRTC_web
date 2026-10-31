@@ -1,6 +1,10 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
+import {
+  CommitteeListSchema,
+  PastEventListSchema,
+} from '../src/lib/schemas/homepage-data.schema';
 
 const ROOT = process.cwd();
 
@@ -19,6 +23,8 @@ const REQUIRED_PDFS = [
 export function validateAssets(rootDir: string = ROOT): {
   svgsChecked: number;
   pdfsChecked: number;
+  committeeMembersChecked: number;
+  pastEventsChecked: number;
 } {
   for (const relPath of REQUIRED_SVGS) {
     const fullPath = path.join(rootDir, relPath);
@@ -50,9 +56,27 @@ export function validateAssets(rootDir: string = ROOT): {
     }
   }
 
+  const committeePath = path.join(rootDir, 'data/committee.json');
+  if (!fs.existsSync(committeePath)) {
+    throw new Error('Missing required dataset: data/committee.json');
+  }
+  const committeeData = CommitteeListSchema.parse(
+    JSON.parse(fs.readFileSync(committeePath, 'utf8'))
+  );
+
+  const pastEventsPath = path.join(rootDir, 'data/past-events.json');
+  if (!fs.existsSync(pastEventsPath)) {
+    throw new Error('Missing required dataset: data/past-events.json');
+  }
+  const pastEventsData = PastEventListSchema.parse(
+    JSON.parse(fs.readFileSync(pastEventsPath, 'utf8'))
+  );
+
   return {
     svgsChecked: REQUIRED_SVGS.length,
     pdfsChecked: REQUIRED_PDFS.length,
+    committeeMembersChecked: committeeData.length,
+    pastEventsChecked: pastEventsData.length,
   };
 }
 
@@ -62,6 +86,6 @@ if (
 ) {
   const result = validateAssets();
   console.log(
-    `[validate:data] OK — verified ${result.svgsChecked} official brand SVGs and ${result.pdfsChecked} Selection Rules v1.0 PDFs.`
+    `[validate:data] OK — verified ${result.svgsChecked} official brand SVGs, ${result.pdfsChecked} Selection Rules v1.0 PDFs, ${result.committeeMembersChecked} OC members in data/committee.json, and ${result.pastEventsChecked} Past WRTC editions in data/past-events.json.`
   );
 }
