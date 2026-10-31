@@ -38,7 +38,7 @@ test.describe('Structured News & Official Announcements Feed (Story 1.3)', () =>
     await expect(heading).toContainText(/Selection Rules/i);
 
     // Breadcrumb or back link
-    const backLink = page.locator('a[href="/news"]').first();
+    const backLink = page.getByTestId('back-to-news');
     await expect(backLink).toBeVisible();
 
     // Verify author and date are shown

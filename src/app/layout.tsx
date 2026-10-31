@@ -27,6 +27,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://wrtc2030.hr'),
   title: 'WRTC 2030 Croatia — World Radiosport Team Championship (9A)',
   description:
     'Official platform of the 2030 World Radiosport Team Championship (WRTC 2030) in Osijek, Čepin, and Đakovo, Slavonia, Croatia, organized by the Croatian Amateur Radio Association (HRS).',

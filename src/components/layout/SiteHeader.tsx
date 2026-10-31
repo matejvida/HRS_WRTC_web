@@ -12,12 +12,12 @@ export interface NavItem {
 }
 
 const PRIMARY_NAV_ITEMS: NavItem[] = [
-  { label: 'Competition', href: '#competition' },
+  { label: 'Competition', href: '/competition/selection-rules' },
   { label: 'Selection Rules', href: '/competition/selection-rules' },
   { label: 'Standings', href: '/competition/standings' },
   { label: 'Qualifying Events', href: '/competition/qualifying-events' },
-  { label: 'Croatia & Slavonia', href: '#slavonia' },
-  { label: 'News', href: '#news' },
+  { label: 'Croatia & Slavonia', href: '/croatia-slavonia' },
+  { label: 'News', href: '/news' },
   { label: 'Sponsors', href: '#sponsors' },
   { label: 'Contact', href: '#contact', isCta: true },
 ];

@@ -53,6 +53,7 @@ export default async function NewsArticlePage({ params }: PageProps) {
         <div style={{ marginBottom: '28px' }}>
           <Link
             href="/news"
+            data-testid="back-to-news"
             style={{
               display: 'inline-flex',
               alignItems: 'center',

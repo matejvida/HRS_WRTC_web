@@ -2,7 +2,7 @@
 title: 'Story 4.1: Croatia & Slavonia Propagation Arena, Accommodation, Gastronomy & Travel Guide (/croatia-slavonia/)'
 type: 'feature'
 created: '2026-10-31'
-status: 'ready-for-dev'
+status: 'done'
 route: 'dispatch'
 review_loop_iteration: 0
 context:
@@ -56,9 +56,9 @@ context:
 ## Tasks & Acceptance
 
 **Execution:**
-- [ ] `src/components/venue/*.tsx` -- Implement technical propagation, destination, gastronomy, and transit components -- Satisfies `FR-7`, `FR-8`, `UX-DR6`.
-- [ ] `src/app/croatia-slavonia/page.tsx` -- Assemble `/croatia-slavonia/` static route segment -- Satisfies `FR-7`, `FR-8`, `NFR-1`.
-- [ ] `tests/unit/venue-showcase.test.tsx`, `tests/e2e/venue-showcase.spec.ts` -- Write failing unit and E2E tests for venue page -- Enforces TDD Red phase.
+- [x] `src/components/venue/*.tsx` -- Implement technical propagation, destination, gastronomy, and transit components -- Satisfies `FR-7`, `FR-8`, `UX-DR6`.
+- [x] `src/app/croatia-slavonia/page.tsx` -- Assemble `/croatia-slavonia/` static route segment -- Satisfies `FR-7`, `FR-8`, `NFR-1`.
+- [x] `tests/unit/venue-showcase.test.tsx`, `tests/e2e/venue-showcase.spec.ts` -- Write failing unit and E2E tests for venue page -- Enforces TDD Red phase.
 
 **Acceptance Criteria:**
 - Given a visitor navigates to `/croatia-slavonia/`, when rendered, then the page displays the Pannonian Propagation Arena overview (`0°` horizon take-off, `85m–110m ASL`, 60 field stations) (`FR-7`).
@@ -67,16 +67,18 @@ context:
 - Given a mobile phone (`375×812` and `320×568`), when viewing the page, then `scrollWidth <= clientWidth` (`NFR-2`).
 
 ## Implementation Notes
-
-## Spec Change Log
-
-## Review Triage Log
+- Created `<PropagationArena />` featuring 4 key metrics (0° take-off, 85m–110m ASL, ~0.015 S/m soil conductivity, 60 field sites) and technical SVG wave profile.
+- Built `<DestinationCards />` detailing Osijek (Tvrđa, Drava promenade), Đakovo (Cathedral, Lipizzaner Stud Farm), Čepin (field arena), and Kopački Rit Nature Park.
+- Built `<GastronomyGuide />` highlighting Slavonski Kulen (PDO), Fiš Paprikaš, Čobanac, and Graševina with pairings.
+- Built `<TravelTransitTable />` itemizing Osijek (OSI), Zagreb (ZAG), Budapest (BUD), Belgrade (BEG) airports and the A5 Slavonika motorway corridor.
+- Pre-rendered static route `/croatia-slavonia/` with `export const dynamic = 'error'`.
+- Updated navigation in `SiteHeader.tsx`.
 
 ## Verification
 
 **Commands:**
-- `npm run validate:data` -- expected: exits 0
-- `npm run typecheck` -- expected: `tsc --noEmit` exits 0
-- `npm run test:unit` -- expected: `vitest run` passes 100% of venue unit tests
-- `npm run build` -- expected: `next build` statically pre-renders `/croatia-slavonia/`
-- `npm run test:e2e` -- expected: `playwright test` passes all venue E2E tests
+- `npm run validate:data` -- verified: exits 0
+- `npm run typecheck` -- verified: `tsc --noEmit` exits 0
+- `npm run test:unit` -- verified: 68/68 unit tests pass across 10 test suites
+- `npm run build` -- verified: statically generated all 13 routes
+- `npm run test:e2e` -- verified: 52/52 Playwright E2E tests pass across Desktop Chrome and Mobile iPhone
