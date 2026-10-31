@@ -49,7 +49,7 @@ development_status:
 
   epic-3: in-progress
   3-1-standings-snapshot-schema-csv-json-importer-cli-pre-season-s: done
-  3-2-interactive-29-qa-standings-explorer-callsign-search-cutoff: ready-for-dev
+  3-2-interactive-29-qa-standings-explorer-callsign-search-cutoff: done
   3-3-operator-score-breakdown-drawer-pre-season-interactive-simul: ready-for-dev
   epic-3-retrospective: optional
 
