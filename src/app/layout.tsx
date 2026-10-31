@@ -4,6 +4,7 @@ import './globals.css';
 import { SiteHeader } from '@/components/layout/SiteHeader';
 import { SiteFooter } from '@/components/layout/SiteFooter';
 import { THEME_INIT_SCRIPT } from '@/components/layout/ThemeToggle';
+import { WrtcAiAssistant } from '@/components/assistant/WrtcAiAssistant';
 
 const barlowCondensed = Barlow_Condensed({
   subsets: ['latin', 'latin-ext'],
@@ -57,6 +58,7 @@ export default function RootLayout({
       <body>
         <SiteHeader />
         {children}
+        <WrtcAiAssistant />
         <SiteFooter />
       </body>
     </html>

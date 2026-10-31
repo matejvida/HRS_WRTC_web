@@ -29,9 +29,8 @@
 # - Dev moves story to 'review', then runs code-review (fresh context, different LLM recommended)
 # - Retrospective appends its action items to action_items; the status view surfaces open ones
 generated: 10-30-2026 18:37
-last_updated: 10-31-2026 07:47
+last_updated: 10-31-2026 09:12
 project: HRS_docs
-project_key: NOKEY
 tracking_system: file-system
 story_location: _bmad-output/implementation-artifacts
 development_status:
@@ -53,8 +52,8 @@ development_status:
   3-3-operator-score-breakdown-drawer-pre-season-interactive-simul: done
   epic-3-retrospective: optional
 
-  epic-4: in-progress
+  epic-4: done
   4-1-croatia-slavonia-propagation-arena-accommodation-gastronomy: done
   4-2-clean-dignified-static-sponsors-partners-hub-sponsors: done
-  4-3-grounded-wrtc-2030-croatia-slavonia-ai-assistant-api-chat-wr: ready-for-dev
+  4-3-grounded-wrtc-2030-croatia-slavonia-ai-assistant-api-chat-wr: done
   epic-4-retrospective: optional

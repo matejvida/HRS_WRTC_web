@@ -1,0 +1,76 @@
+{
+  "topics": [
+    {
+      "id": "scoring-formula-and-caps",
+      "category": "rules",
+      "title": "Qualification Scoring Formula & Selection Rules Caps",
+      "citation": "Selection Rules v1.0 Section 5 & Section 6",
+      "keywords": ["score", "scoring", "formula", "caps", "multi-op", "outside", "qa", "points", "calculation", "best", "10", "events"],
+      "content": "Under WRTC 2030 Selection Rules v1.0 Section 5 & 6, an applicant's total qualification score is the sum of their best 10 contest scores (6 for Youth applicants) out of the 24 qualifying contests. Contest points are calculated as: Points = Event Base Value × (EF × MF × OF × QF) × (Operator Score / QA Leader Score). Two critical caps apply: (1) Section 5.A: A maximum of 3 Multi-Operator scores may be counted. (2) Section 5.B: A maximum of 3 scores achieved outside the applicant's home Qualification Area may be counted, and outside-QA scores are subject to a 25% point reduction (0.75 multiplier)."
+    },
+    {
+      "id": "youth-qualification",
+      "category": "rules",
+      "title": "Youth Teams Qualification & Age Criteria",
+      "citation": "Selection Rules v1.0 Section 8.B",
+      "keywords": ["youth", "u25", "under 25", "young", "age", "6 events", "youth teams"],
+      "content": "Per Selection Rules v1.0 Section 8.B, 3 Youth Teams (Team Leader + Team Mate) will qualify. Both operators must be under 25 years of age on 1 July 2030. Youth applicants count their best 6 scores (instead of 10) from the 24 qualifying events. Up to 2 of the 6 scores may be Multi-Op entries. Youth applicants compete on a worldwide leaderboard."
+    },
+    {
+      "id": "qualifying-events-calendar",
+      "category": "events",
+      "title": "24 Qualifying Contests & Cycle Timeline",
+      "citation": "Selection Rules v1.0 Section 4 (Table 1)",
+      "keywords": ["calendar", "events", "contests", "timeline", "9a dx", "first contest", "when", "qualifying events", "dates"],
+      "content": "The qualification cycle spans 24 major international contests across 24 calendar months. Event #1 is the 9A DX Contest on 19 December 2026. The cycle concludes with the CQ World Wide DX Contest CW in late November 2028. Major contests (CQ WW CW/SSB, CQ WPX CW/SSB, ARRL DX CW/SSB, IARU HF, and 9A DX) carry an Event Base Value of 1000 points. Other international contests (WAEDC, All Asian DX) carry 800 to 900 base points."
+    },
+    {
+      "id": "qualification-areas-and-quotas",
+      "category": "areas",
+      "title": "29 Qualification Areas & 50 Automatic Slots",
+      "citation": "Selection Rules v1.0 Section 3 & Table 3",
+      "keywords": ["qualification areas", "qa", "quotas", "slots", "50", "automatic", "europe", "north america", "asia", "africa", "south america", "oceania"],
+      "content": "Table 3 defines 29 geographical Qualification Areas allocating 50 automatic Team Leader qualification slots: Europe (9 QAs, 23 teams), North America (11 QAs, 16 teams), Asia (4 QAs, 5 teams), Africa (1 QA, 2 teams), South America (2 QAs, 2 teams), and Oceania (2 QAs, 2 teams). The top N operators in each QA qualify automatically as Team Leaders."
+    },
+    {
+      "id": "sponsored-teams",
+      "category": "sponsors",
+      "title": "4 Sponsored Teams Allocation",
+      "citation": "Selection Rules v1.0 Section 8.D",
+      "keywords": ["sponsored", "sponsored teams", "rule 8.d", "commercial", "foundation", "2029", "buy", "sponsor"],
+      "content": "Per Selection Rules v1.0 Section 8.D, exactly 4 Sponsored Teams are reserved for qualifying commercial sponsors or international DX foundations. Applications formally open after 1 January 2029. Sponsoring organizations nominate their Team Leader, subject to confirmation by the WRTC Steering Committee. All 4 Sponsored Teams compete under the exact same technical constraints as automatically qualified teams."
+    },
+    {
+      "id": "propagation-arena",
+      "category": "venue",
+      "title": "Pannonian Propagation Arena & RF Equalization",
+      "citation": "WRTC 2030 Slavonia Venue Guide",
+      "keywords": ["propagation", "terrain", "elevation", "take-off", "horizon", "equalized", "pannonian", "soil", "conductivity", "60 stations"],
+      "content": "The competition arena in Slavonia (Osijek, Čepin, Đakovo) is situated in the flat Pannonian Basin. It features an unbroken 0° horizon take-off angle in all 360° directions, uniform elevation between 85m and 110m ASL, high-conductivity agricultural chernozem soil (~0.015 S/m), and pristine low rural RF noise floors. All 60 stations are standardized with matched 15m masts, identical directional antennas, 100W power limits, and inter-station spacing exceeding 1,500m."
+    },
+    {
+      "id": "host-cities-and-hotels",
+      "category": "venue",
+      "title": "Host Cities & Accommodations (Osijek, Đakovo, Čepin)",
+      "citation": "WRTC 2030 Slavonia Hospitality Guide",
+      "keywords": ["osijek", "đakovo", "dakovo", "čepin", "cepin", "hotel", "hotels", "stay", "accommodation", "headquarters", "tvrđa", "cathedral"],
+      "content": "The central WRTC 2030 headquarters and competitor accommodations are centered in Osijek, featuring Hotel Osijek on the Drava River promenade, boutique hotels in the 18th-century Tvrđa baroque fortress, and a modern university campus athlete village. Đakovo serves as the cultural gala host city, famed for St. Peter's Cathedral and the 500-year-old State Lipizzaner Stud Farm. Čepin hosts the central field station logistics headquarters."
+    },
+    {
+      "id": "gastronomy-and-wine",
+      "category": "gastronomy",
+      "title": "Slavonian Culinary & Wine Guide",
+      "citation": "Slavonia & Baranja Gastronomy Guide",
+      "keywords": ["food", "wine", "eat", "kulen", "fiš", "fis", "paprikaš", "paprikas", "čobanac", "cobanac", "graševina", "grasevina", "restaurant"],
+      "content": "Slavonian and Baranjan gastronomy is renowned for hearty, open-fire cooking and vibrant red paprika. Must-try specialties include: (1) Slavonski Kulen (PDO) — handcrafted dry-cured pork sausage seasoned with sweet and hot paprika and garlic; (2) Fiš Paprikaš — freshwater river fish stew cooked in outdoor copper cauldrons with wide noodles; (3) Čobanac — rich three-meat shepherd's slow-cooked cauldron stew; (4) Graševina — Croatia's flagship white wine produced in historic cellars in Kutjevo, Đakovo, and Baranja."
+    },
+    {
+      "id": "international-travel",
+      "category": "travel",
+      "title": "International Arrival Corridors & Airports",
+      "citation": "WRTC 2030 International Logistics",
+      "keywords": ["travel", "airport", "fly", "flights", "zag", "osi", "bud", "beg", "zagreb", "budapest", "belgrade", "motorway", "a5", "transit"],
+      "content": "Slavonia is accessible via four international airports: (1) Osijek Airport (OSI) — 15 km from headquarters for regional and charter flights; (2) Zagreb Airport (ZAG) — Croatia's main hub, 2.5 hours via A3/A5 motorways; (3) Budapest Ferenc Liszt Airport (BUD, Hungary) — 2.5 to 3 hours via M6/A5 motorways with transatlantic routes; (4) Belgrade Nikola Tesla Airport (BEG, Serbia) — 1.5 to 2 hours via E70/A5 motorways. WRTC shuttles will connect all major gateways directly to athlete hotels."
+    }
+  ]
+}
