@@ -24,8 +24,9 @@ export function SiteFooter() {
                     href="https://www.hamradio.hr/"
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label="Croatian Amateur Radio Association (HRS) official site (opens in a new tab)"
                   >
-                    Croatian Amateur Radio Association (HRS)
+                    Croatian Amateur Radio Association (HRS) <span aria-hidden="true">↗</span>
                   </a>
                 </strong>{' '}
                 · Dalmatinska 12, Zagreb

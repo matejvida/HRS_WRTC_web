@@ -18,7 +18,7 @@ export default function HomePage() {
   const latestNews = getAllNewsPosts().slice(0, 2);
 
   return (
-    <main id="top">
+    <main id="main-content">
       <CheckerRibbon />
 
       {/* 1. Hero Announcement — Proposal 1: Dynamic "Kockice & 9A Airwaves" */}
@@ -162,8 +162,9 @@ export default function HomePage() {
                     style={{ color: '#8ea2ff' }}
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label="HRS official website (hamradio.hr) (opens in a new tab)"
                   >
-                    HRS (hamradio.hr)
+                    HRS (hamradio.hr) <span aria-hidden="true">↗</span>
                   </a>
                 </dd>
               </div>
@@ -466,9 +467,10 @@ export default function HomePage() {
             <a
               href="https://wrtc.info"
               rel="noopener noreferrer"
+              aria-label="WRTC History at wrtc.info (opens in a new tab)"
               style={{ fontWeight: 700, fontSize: '15px' }}
             >
-              WRTC History at wrtc.info ↗
+              WRTC History at wrtc.info <span aria-hidden="true">↗</span>
             </a>
           </div>
 

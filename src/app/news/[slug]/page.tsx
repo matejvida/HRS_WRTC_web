@@ -47,7 +47,7 @@ export default async function NewsArticlePage({ params }: PageProps) {
     .filter(Boolean);
 
   return (
-    <main style={{ paddingBlock: '48px 88px' }}>
+    <main id="main-content" style={{ paddingBlock: '48px 88px' }}>
       <div className="wrap" style={{ maxWidth: '840px' }}>
         {/* Navigation Breadcrumb */}
         <div style={{ marginBottom: '28px' }}>

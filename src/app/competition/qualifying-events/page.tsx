@@ -73,7 +73,7 @@ export default function QualifyingEventsPage() {
       </header>
 
       {/* Main Content */}
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 space-y-10">
+      <main id="main-content" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 space-y-10">
         {/* Pinned Event #1 Countdown Ticker */}
         <section aria-labelledby="ticker-heading">
           <h2 id="ticker-heading" className="sr-only">

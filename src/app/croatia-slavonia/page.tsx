@@ -24,7 +24,7 @@ export const metadata: Metadata = {
 
 export default function CroatiaSlavoniaPage() {
   return (
-    <div className="space-y-16 py-8">
+    <main id="main-content" className="space-y-16 py-8">
       {/* Breadcrumb Navigation */}
       <nav aria-label="Breadcrumb" className="text-xs font-mono text-slate-500">
         <ol className="flex items-center gap-2">
@@ -131,6 +131,6 @@ export default function CroatiaSlavoniaPage() {
           </Link>
         </div>
       </div>
-    </div>
+    </main>
   );
 }

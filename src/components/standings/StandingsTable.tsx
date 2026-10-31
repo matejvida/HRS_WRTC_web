@@ -35,6 +35,7 @@ export function StandingsTable({ area, onSelectOperator }: StandingsTableProps) 
                   data-testid="operator-row"
                   tabIndex={0}
                   role="button"
+                  aria-label={`View score breakdown for ${op.callsign}`}
                   onClick={() => onSelectOperator?.(op)}
                   onKeyDown={(e) => {
                     if (e.key === 'Enter' || e.key === ' ') {
@@ -42,7 +43,7 @@ export function StandingsTable({ area, onSelectOperator }: StandingsTableProps) 
                       onSelectOperator?.(op);
                     }
                   }}
-                  className={`group transition-colors cursor-pointer hover:bg-slate-50 dark:hover:bg-slate-900/60 ${
+                  className={`group transition-colors cursor-pointer hover:bg-slate-50 dark:hover:bg-slate-900/60 focus:outline-hidden focus:bg-red-50/50 dark:focus:bg-red-950/20 focus:ring-1 focus:ring-red-500 ${
                     isQualified
                       ? 'bg-emerald-50/20 dark:bg-emerald-950/10'
                       : ''

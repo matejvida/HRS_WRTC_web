@@ -16,7 +16,7 @@ export default function NewsPage() {
   const articles = getAllNewsPosts();
 
   return (
-    <main style={{ paddingBlock: '48px 80px' }}>
+    <main id="main-content" style={{ paddingBlock: '48px 80px' }}>
       <div className="wrap">
         {/* Page Header */}
         <div

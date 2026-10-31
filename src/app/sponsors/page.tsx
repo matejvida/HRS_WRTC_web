@@ -25,7 +25,7 @@ export default function SponsorsPage() {
   const sponsorsData = getSponsorsData();
 
   return (
-    <div className="space-y-16 py-8">
+    <main id="main-content" className="space-y-16 py-8">
       {/* Breadcrumb Navigation */}
       <nav aria-label="Breadcrumb" className="text-xs font-mono text-slate-500">
         <ol className="flex items-center gap-2">
@@ -70,6 +70,6 @@ export default function SponsorsPage() {
 
       {/* Rule 8.D Sponsored Teams Section */}
       <SponsoredTeamNotice />
-    </div>
+    </main>
   );
 }
