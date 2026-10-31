@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import { CheckerMark, CheckerRibbon } from '@/components/brand/CheckerMark';
 
 export function SiteFooter() {
@@ -33,6 +34,9 @@ export function SiteFooter() {
           </div>
 
           <div className="site-footer__docs">
+            <Link href="/competition/selection-rules" style={{ fontWeight: 600 }}>
+              Online Selection Rules Hub →
+            </Link>
             <a href="/files/wrtc-2030-selection-rules-v1.0.pdf" download>
               Selection Rules v1.0 (PDF)
             </a>

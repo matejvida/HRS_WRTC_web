@@ -507,6 +507,21 @@ export default function HomePage() {
                 Official Documentation · Selection Rules v1.0
               </p>
               <h2 className="section__title">Road to Slavonia 2030</h2>
+              <div style={{ marginTop: '12px' }}>
+                <Link
+                  href="/competition/selection-rules"
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '6px',
+                    fontWeight: 700,
+                    fontSize: '14px',
+                    color: 'var(--brand-red)',
+                  }}
+                >
+                  Explore Complete 3-Tab Online Hub &amp; Tables 1–7 →
+                </Link>
+              </div>
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
               <CheckerStrip />

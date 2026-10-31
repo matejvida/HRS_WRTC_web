@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
+import Link from 'next/link';
 import { WrtcLogo } from '@/components/brand/WrtcLogo';
 import { ThemeToggle } from '@/components/layout/ThemeToggle';
 
@@ -12,7 +13,7 @@ export interface NavItem {
 
 const PRIMARY_NAV_ITEMS: NavItem[] = [
   { label: 'Competition', href: '#competition' },
-  { label: 'Selection Rules', href: '#selection-rules' },
+  { label: 'Selection Rules', href: '/competition/selection-rules' },
   { label: 'Standings', href: '#standings' },
   { label: 'Qualifying Events', href: '#qualifying-events' },
   { label: 'Croatia & Slavonia', href: '#slavonia' },
@@ -39,13 +40,13 @@ export function SiteHeader() {
   return (
     <header className="site-header">
       <div className="wrap site-header__inner">
-        <a
+        <Link
           className="site-header__logo"
           href="/"
           aria-label="WRTC 2030 Croatia — home"
         >
           <WrtcLogo width={76} height={64} />
-        </a>
+        </Link>
 
         <nav
           id="site-nav-menu"
@@ -53,7 +54,7 @@ export function SiteHeader() {
           aria-label="Main"
         >
           {PRIMARY_NAV_ITEMS.map((item) => (
-            <a
+            <Link
               key={item.label}
               className={`site-nav__link ${
                 item.isCta ? 'site-nav__link--cta' : ''
@@ -62,7 +63,7 @@ export function SiteHeader() {
               onClick={closeMenu}
             >
               {item.label}
-            </a>
+            </Link>
           ))}
         </nav>
 

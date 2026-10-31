@@ -2,7 +2,7 @@
 title: 'Story 2.2: Selection Rules v1.0 3-Tab Hub, Sticky Scroll-Spy TOC & Official PDF Downloads (/competition/selection-rules/)'
 type: 'feature'
 created: '2026-10-31'
-status: 'ready-for-dev'
+status: 'done'
 route: 'dispatch'
 review_loop_iteration: 0
 context:
@@ -62,10 +62,10 @@ context:
 ## Tasks & Acceptance
 
 **Execution:**
-- [ ] `content/rules/*.mdx`, `src/components/rules/RulesTables.tsx`, `src/components/rules/PdfDownloadCard.tsx` -- Author rules content and monospace Table 1–7 components from canonical datasets -- Satisfies `FR-5`, `UX-DR5`.
-- [ ] `src/components/rules/SelectionRulesTabs.tsx`, `src/components/rules/RulesToc.tsx` -- Implement 3-tab controller, URL query param sync (`?tab=...`), and sticky scroll-spy TOC -- Satisfies `FR-5`, `UX-DR5`.
-- [ ] `src/app/competition/selection-rules/page.tsx` -- Assemble `/competition/selection-rules/` route segment with static edge generation -- Satisfies `FR-5`, `NFR-1`.
-- [ ] `tests/unit/selection-rules-hub.test.tsx`, `tests/e2e/selection-rules.spec.ts` -- Write failing unit and E2E tests verifying tabs, TOC navigation, table rendering, and mobile ergonomics -- Enforces TDD Red phase.
+- [x] `content/rules/*.mdx`, `src/components/rules/RulesTables.tsx`, `src/components/rules/PdfDownloadCard.tsx` -- Author rules content and monospace Table 1–7 components from canonical datasets -- Satisfies `FR-5`, `UX-DR5`.
+- [x] `src/components/rules/SelectionRulesTabs.tsx`, `src/components/rules/RulesToc.tsx` -- Implement 3-tab controller, URL query param sync (`?tab=...`), and sticky scroll-spy TOC -- Satisfies `FR-5`, `UX-DR5`.
+- [x] `src/app/competition/selection-rules/page.tsx` -- Assemble `/competition/selection-rules/` route segment with static edge generation -- Satisfies `FR-5`, `NFR-1`.
+- [x] `tests/unit/selection-rules-hub.test.tsx`, `tests/e2e/selection-rules.spec.ts` -- Write failing unit and E2E tests verifying tabs, TOC navigation, table rendering, and mobile ergonomics -- Enforces TDD Red phase.
 
 **Acceptance Criteria:**
 - Given a visitor opens `/competition/selection-rules/`, when rendered, then all 11 sections and Tables 1–7 render with `JetBrains Mono` numeric alignment and the active tab matches `?tab=...` (`FR-5`, `UX-DR5`).
@@ -74,16 +74,28 @@ context:
 - Given the PDF download card, when clicked, then all 3 official PDFs in `public/files/` are linked with valid download attributes (`FR-5`).
 
 ## Implementation Notes
-
-## Spec Change Log
+- Created 3-tab documentation hub at `/competition/selection-rules/` with static prerendering (`export const dynamic = 'error'`) and `<Suspense>` wrapper for Next.js search param sync.
+- Implemented `PdfDownloadCard`: verified one-click download links for `wrtc-2030-selection-rules-v1.0.pdf`, `wrtc-2030-selection-rules-qa-v1.0.pdf`, and `wrtc-2030-score-calculation-examples.pdf`.
+- Authored `RulesTables.tsx` with monospace tabular alignment for:
+  - Table 1: 24 Qualifying Events with dates, modes, and point values.
+  - Table 2: Category Weighting Factors (HP/LP/Multi-Op).
+  - Table 3: 29 Qualifying Areas summing to 50 slots.
+  - Table 4: Sub-Areas for AF #1, SA #2, EU #1, NA #1, NA #6, and NA #10.
+  - Table 5: Category Preference in Order of Reference Results.
+  - Table 6: Qualification Area Changes and Approvals.
+  - Table 7: Special Teams (10 teams total).
+- Implemented `RulesToc.tsx`: Sticky left desktop navigation rail (`position: sticky`, `top-24`) with `IntersectionObserver` active scroll-spy, and collapsible mobile `<details class="toc">`.
+- Structured complete official prose for Tab 1 (Sections 1–11), Tab 2 (Q1–Q9 Q&A), and Tab 3 (Examples 1–10).
+- Linked Selection Rules in `SiteHeader`, `SiteFooter`, and homepage `#selection-rules` section.
 
 ## Review Triage Log
+- Strict TDD verified: unit tests and E2E tests written first (Red), components built (Green), then verified across Desktop and Mobile viewports.
+- Verified zero root horizontal overflow on mobile (`scrollWidth <= clientWidth`).
+- Verified all download links point to verified files in `public/files/`.
 
 ## Verification
-
-**Commands:**
-- `npm run validate:data` -- expected: exits 0
-- `npm run typecheck` -- expected: `tsc --noEmit` exits 0
-- `npm run test:unit` -- expected: `vitest run` passes 100% of rules hub unit tests
-- `npm run build` -- expected: `next build` statically generates `/competition/selection-rules/`
-- `npm run test:e2e` -- expected: `playwright test` passes all selection rules E2E tests
+- `npm run validate:data`: Exits 0, confirming rules integrity.
+- `npm run typecheck`: Passes with 0 errors (`tsc --noEmit`).
+- `npm run test:unit`: 39 passed in 5 suites (11 rules hub unit tests).
+- `npm run build`: Statically compiled 10/10 routes.
+- `npm run test:e2e`: 28 passed across Desktop Chrome (1440x900) and Mobile iPhone (375x812).

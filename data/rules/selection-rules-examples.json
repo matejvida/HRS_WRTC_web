@@ -1,0 +1,52 @@
+[
+  {
+    "id": "Example 1",
+    "title": "Operating Outside an Applicant’s Home QA",
+    "content": "G4ABC (Home QA: EU #8) operates the CQ WW CW contest from Italy (QA: EU #5). Because the\nstation is physically located in Italy, G4ABC’s Event Score is calculated using the Maximum Score from\nEU #5, not EU #8. The resulting Event Score is credited to G4ABC’s Home QA (EU #8) standings, but\nit counts against their limit of three (3) allowed “Outside-QA” scores."
+  },
+  {
+    "id": "Example 2",
+    "title": "Standard Multi-Operator Calculation",
+    "content": "G4ABC has a published score of 3,000,000 points in CQ WPX CW (Value = 950) as an M2 entry\n(Weighting Factor = 0.85) from EU #8. The Maximum Score in the M2 category in EU #8 is 4,000,000\npoints. Up to 6 operators at G4ABC may submit this result.\nCalculation: 950 × 0.85 × (3,000,000 / 4,000,000) = 605.6 WRTC points"
+  },
+  {
+    "id": "Example 3",
+    "title": "Lower-Category Score Substitution (Table 5 Rule)",
+    "content": "Using the scenario from Example 2, suppose there was an MS entry (a lower category in Table 5) in\nEU #8 that achieved a published score of 5,000,000 points. Because the MS score (5,000,000) is\nhigher than the top M2 score (4,000,000), the MS score becomes the new \"Maximum Score\"\ndenominator for all M2 entrants. G4ABC still uses the M2 Weighting Factor (0.85).\nCalculation: 950 × 0.85 × (3,000,000 / 5,000,000) = 484.5 WRTC points\nSub-area Normalization Examples (Table 4)\nSub-Areas ensure that competitors in massive geographic zones are only compared against stations\nwith similar propagation realities."
+  },
+  {
+    "id": "Example 4",
+    "title": "NA #10 (Standard Sub-Area Comparison)",
+    "content": "In the ARRL DX SSB Contest (Value = 900 for domestic), VE1BBB operates SO LP (WF = 0.90) from\nSub-Area 1 (closer to EU). The Maximum Score in Sub-Area 1 is 3,000,000. VE4AAA operates SO LP\nfrom Sub-Area 2 (a tougher path to EU), where the Maximum Score is 1,500,000.\n▪ VE1BBB scores 2,000,000. Calculation: 900 × 0.90 × (2,000,000 / 3,000,000) = 540.0 WRTC\npoints\n▪ VE4AAA scores 1,000,000. Calculation: 900 × 0.90 × (1,000,000 / 1,500,000) = 540.0 WRTC\npoints\n\n\n\nResult: Even though VE4AAA’s raw contest score is half of VE1BBB’s due to propagation\ndisadvantages, the Sub-Area normalization allows both operators to earn the exact same WRTC\nqualification score."
+  },
+  {
+    "id": "Example 5",
+    "title": "AF #1 (Africa North/West vs. South/East)",
+    "content": "In CQ WW CW (Value = 1000), CN8AA operates SO HP (WF = 1.0) from Sub-Area 1 (North/West). The\nMaximum Score in Sub-Area 1 is 8,000,000. ZS6XYZ operates SO HP from Sub-Area 2 (South/East),\nwhere the Maximum Score is 4,000,000.\n▪ CN8AA scores 5,000,000. Calculation: 1000 × 1.0 × (5,000,000 / 8,000,000) = 625.0 WRTC\npoints\n▪ ZS6XYZ scores 3,000,000. Calculation: 1000 × 1.0 × (3,000,000 / 4,000,000) = 750.0 WRTC\npoints"
+  },
+  {
+    "id": "Example 6",
+    "title": "SA #2 (South America North vs. South)",
+    "content": "In CQ WPX SSB (Value = 950), HK3A operates SOA LP (WF = 0.90) from Sub-Area 1 (North). The\nMaximum Score in Sub-Area 1 is 6,000,000. CE3BB operates SOA LP from Sub-Area 2 (South), where\nthe Maximum Score is 5,000,000.\n▪ HK3A scores 6,000,000. Calculation: 950 × 0.90 × (6,000,000 / 6,000,000) = 855.0 WRTC\npoints\n▪ CE3BB scores 4,000,000. Calculation: 950 × 0.90 × (4,000,000 / 5,000,000) = 684.0 WRTC\npoints"
+  },
+  {
+    "id": "Example 7",
+    "title": "EU #1 (North vs. South)",
+    "content": "In WAE DX CW (Value = 900 for EU), OH2A operates MS (WF = 0.90) from Sub-Area 1 (North). The\nMaximum Score in Sub-Area 1 is 4,000,000. YL2B operates MS from Sub-Area 2 (South), where the\nMaximum Score is 5,000,000.\n▪ OH2A scores 2,000,000. Calculation: 900 × 0.90 × (2,000,000 / 4,000,000) = 405.0 WRTC\npoints\n▪ YL2B scores 3,000,000. Calculation: 900 × 0.90 × (3,000,000 / 5,000,000) = 486.0 WRTC\npoints"
+  },
+  {
+    "id": "Example 8",
+    "title": "NA #1 (W1 vs. W2 vs. W3)",
+    "content": "In the IARU HF Championship (Value = 1000), K1AA operates SO HP (WF = 1.0) from Sub-Area 1 (W1).\nThe Maximum Score in Sub-Area 1 is 4,000,000. N3CC operates SO HP from Sub-Area 3 (W3), where\nthe Maximum Score is 2,500,000.\n▪ K1AA scores 3,000,000. Calculation: 1000 × 1.0 × (3,000,000 / 4,000,000) = 750.0 WRTC\npoints\n▪ N3CC scores 2,000,000. Calculation: 1000 × 1.0 × (2,000,000 / 2,500,000) = 800.0 WRTC\npoints\n\n\n\nScore Calculation Examples"
+  },
+  {
+    "id": "Example 9",
+    "title": "NA #6 (North vs. South)",
+    "content": "In All Asian DX CW (Value = 800 for NA), K7WA operates SO LP (WF = 0.90) from Sub-Area 1 (North -\nWA/OR/ID/MT/WY). The Maximum Score in Sub-Area 1 is 1,000,000. N7NV operates SO LP from\nSub-Area 2 (South - NV/UT/AZ), where the Maximum Score is 800,000.\n▪ K7WA scores 500,000. Calculation: 800 × 0.90 × (500,000 / 1,000,000) = 360.0 WRTC points\n▪ N7NV scores 800,000. Calculation: 800 × 0.90 × (800,000 / 800,000) = 720.0 WRTC points"
+  },
+  {
+    "id": "Example 10",
+    "title": "NA #10 (ARRL DX Exception for KL7)",
+    "content": "Because Alaska (KL7) faces unique propagation in the ARRL DX contest compared to the rest of\nWestern Canada, they are separated into their own Sub-Area exclusively for this event. VE6XX\noperates M2 (WF = 0.85) from Sub-Area 1 (VE4-8, VY1). The Maximum Score is 5,000,000. KL7YY\noperates M2 from Sub-Area 2 (KL7), where the Maximum Score is 2,000,000.\n▪ VE6XX scores 4,000,000. Calculation: 900 × 0.85 × (4,000,000 / 5,000,000) = 612.0 WRTC\npoints\n▪ KL7YY scores 2,000,000. Calculation: 900 × 0.85 × (2,000,000 / 2,000,000) = 765.0 WRTC\npoints"
+  }
+]
